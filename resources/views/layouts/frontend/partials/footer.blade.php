@@ -7,7 +7,9 @@
           </a>
         </div>
         <div class="footer-copyright">
-          <p>&copy;2019 Kavya. All rights reserved. Theme designed by <a href="#">CodeVibrant</a> </p>
+          <p>&copy;<script>
+            document.write(new Date().getFullYear())
+          </script> Kavya. All rights reserved. Theme designed by <a href="#">Kendevguy</a> </p>
         </div>
         <div class="social-links">
           <ul>
