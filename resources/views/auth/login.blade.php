@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="{{ asset('client/css/style.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/responsive.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/dark.css') }}" />
+  <link rel="stylesheet" href="{{ asset('client/css/toastr.css') }}" />
 
   <title>Login</title>
 </head>
@@ -60,12 +61,10 @@
             <p>Enter your log-in details for unlimited access to She Eliva8's content</p>
 
             <div class="mb-3">
-                <x-input-error :messages="$errors->get('email')" />
                 <input id="email" type="email" name="email" :value="old('email')" autofocus autocomplete="username" class="form-control" placeholder="Email or Username">
             </div>
 
             <div class="mb-3">
-                <x-input-error :messages="$errors->get('password')" />
                 <input type="password" class="form-control" type="password" name="password" autocomplete="current-password" placeholder="Password">
             </div>
             <div class="form-switch text-left text-info">
@@ -96,6 +95,49 @@
   <script src="{{ asset('client/js/ResizeSensor.min.js') }}"></script>
   <script src="{{ asset('client/js/theia-sticky-sidebar.min.js') }}"></script>
   <script src="{{ asset('client/js/main.js') }}"></script>
+  <script src="{{ asset('client/js/toastr.js') }}"></script>
+  <script>
+
+    // success message popup notification
+
+    @if(Session::has('success'))
+
+        toastr.success("{{ Session::get('success') }}");
+
+    @endif
+
+
+    // info message popup notification
+
+    @if(Session::has('info'))
+
+        toastr.info("{{ Session::get('info') }}");
+
+    @endif
+
+
+    // warning message popup notification
+
+    @if(Session::has('warning'))
+
+        toastr.warning("{{ Session::get('warning') }}");
+
+    @endif
+
+
+    // error message popup notification
+
+    @if(Session::has('error'))
+        toastr.error("{{ Session::get('error') }}");
+    @endif
+
+    @foreach($errors->all() as $error)
+        toastr.error("{{ $error }}")
+    @endforeach
+
+
+
+</script>
   <style>
     .bg-gradient-info {
         background-color: black;
