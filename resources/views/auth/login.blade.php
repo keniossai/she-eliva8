@@ -1,115 +1,113 @@
-{{-- <x-guest-layout>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!-- Mirrored from demo.codevibrant.com/html/kavya/index4.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 13:33:02 GMT -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon.png">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600&amp;display=swap" rel="stylesheet">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+  <!-- Fontawesome CSS-->
+  <link rel="stylesheet" href="{{ asset('client/css/all.css') }}" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+  <!-- slick css -->
+  <link rel="stylesheet" href="{{ asset('client/css/slick.css') }}">
+  <link rel="stylesheet" href="{{ asset('client/css/slick-theme.css') }}">
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ asset('client/css/preloader.css') }}" />
+  <link rel="stylesheet" href="{{ asset('client/css/style.css') }}" />
+  <link rel="stylesheet" href="{{ asset('client/css/responsive.css') }}" />
+  <link rel="stylesheet" href="{{ asset('client/css/dark.css') }}" />
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+  <title>Login</title>
+</head>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
+<body>
+  <!-- Preloader -->
+  <div class="preloader-wrapper">
+    <div class="preloader">
+      <div class="preloader-circle" id="status">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader end -->
 
+  <!-- page header end -->
+  <section class="contact-section" style="padding-top: 12rem;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5" style="margin: auto; text-align: center;">
+          <form class="contact-form">
+            <h3>Sign in</h3>
+            <p>Enter your log-in details for unlimited access to She Eliva8's content</p>
 
-
-</x-guest-layout> --}}
-
-@extends('layouts.guest')
-
-@section('title', 'Login')
-
-
-@section('content')
-<main class="main-content  mt-0">
-    <section>
-      <div class="page-header min-vh-80">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-              <div class="card card-plain mt-8">
-                <div class="card-header pb-0 text-left bg-transparent">
-                  <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                  <p class="mb-0">Enter your email and password to sign in</p>
-                </div>
-                <div class="card-body">
-                  <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <label>Email</label>
-                    <div class="mb-3">
-                        <x-input-error :messages="$errors->get('email')" />
-                      <input id="email" type="email" name="email" :value="old('email')" autofocus autocomplete="username" class="form-control" >
-                    </div>
-                    <label>Password</label>
-                    <div class="mb-3">
-                        <x-input-error :messages="$errors->get('password')" />
-                      <input type="password" class="form-control" type="password" name="password" autocomplete="current-password">
-                    </div>
-                    <div class="form-check form-switch ">
-                      <input class="form-check-input" id="remember_me" name="remember" type="checkbox" checked="">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                      @if (Route::has('password.request'))
-                            <a class="" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                        @endif
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">{{ __('Log in') }}</button>
-                    </div>
-                  </form>
-                </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </div>
-              </div>
+            <div class="mb-3">
+                <input type="email" class="form-control form-input" placeholder="Email">
             </div>
-            <div class="col-md-6">
-              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('backend/img/curved-images/curve-6.png'); background-size: cover; width: 100%;"></div>
-              </div>
+
+            <div class="mb-3">
+                <input type="password" class="form-control form-input" placeholder="Password">
             </div>
+            <div class="form-switch text-left text-info">
+                @if (Route::has('password.request'))
+                      <a class="" href="{{ route('password.request') }}">
+                          {{ __('Forgot your password?') }}
+                      </a>
+                  @endif
+              </div>
+            <button type="submit" class="btn bg-gradient-info w-50 mt-4 mb-0">Login</button>
+          </form>
+          <div class=" text-center pt-5 px-lg-2 px-1">
+            <p class="mb-4 text-sm mx-auto">
+              Don't have an account?
+              <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
+            </p>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-@endsection
+    </div>
+  </section>
+
+  <!-- Javascript -->
+  <script src="{{ asset('client/js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ asset('client/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('client/js/slick.min.js') }}"></script>
+  <script src="{{ asset('client/js/jquery.sticky.js') }}"></script>
+  <script src="{{ asset('client/js/ResizeSensor.min.js') }}"></script>
+  <script src="{{ asset('client/js/theia-sticky-sidebar.min.js') }}"></script>
+  <script src="{{ asset('client/js/main.js') }}"></script>
+  <style>
+    .bg-gradient-info {
+        background-color: black;
+        color: white;
+        border: none;
+    }
+    .bg-gradient-info:hover {
+        color: white;
+        border: none;
+    }
+    .form-input{
+        height: 50px !important;
+    }
+  </style>
+</body>
+
+
+</html>
