@@ -54,16 +54,19 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-5" style="margin: auto; text-align: center;">
-          <form class="contact-form">
+          <form class="contact-form" method="POST" action="{{ route('login') }}">
+            @csrf
             <h3>Sign in</h3>
             <p>Enter your log-in details for unlimited access to She Eliva8's content</p>
 
             <div class="mb-3">
-                <input type="email" class="form-control form-input" placeholder="Email">
+                <x-input-error :messages="$errors->get('email')" />
+                <input id="email" type="email" name="email" :value="old('email')" autofocus autocomplete="username" class="form-control" placeholder="Email or Username">
             </div>
 
             <div class="mb-3">
-                <input type="password" class="form-control form-input" placeholder="Password">
+                <x-input-error :messages="$errors->get('password')" />
+                <input type="password" class="form-control" type="password" name="password" autocomplete="current-password" placeholder="Password">
             </div>
             <div class="form-switch text-left text-info">
                 @if (Route::has('password.request'))
