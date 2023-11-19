@@ -6,12 +6,12 @@
     <!-- row -->
     <div class="container-fluid">
         <div class="mb-sm-4 d-flex flex-wrap align-items-center text-head">
-            <h2 class="mb-3 me-auto">Dashboard</h2>
+            <h5 class="mb-3 me-auto">{{ Auth::user()->name }}</h5>
         </div>
         <div class="row">
-            <div class="col-xl-6">
+            <div class="col-xl-12">
                 <div class="row">
-                    <div class="col-xl-6 col-sm-6">
+                    <div class="col-xl-3">
                         <div class="card">
                             <div class="card-body d-flex align-items-center justify-content-between">
                                 <div class="menu">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-sm-6">
+                    <div class="col-xl-3">
                         <div class="card">
                             <div class="card-body d-flex align-items-center justify-content-between">
                                 <div class="menu">
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-sm-6">
+                    <div class="col-xl-3">
                         <div class="card">
                             <div class="card-body d-flex align-items-center justify-content-between">
                                 <div class="menu">
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-sm-6">
+                    <div class="col-xl-3">
                         <div class="card">
                             <div class="card-body d-flex align-items-center justify-content-between">
                                 <div class="menu">
@@ -87,23 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header border-0 flex-wrap pb-0">
-                        <div class="mb-sm-0 mb-2">
-                            <h4 class="fs-20">Today’s Revenue</h4>
-                            <span>Lorem ipsum dolor sit amet, consectetur</span>
-                        </div>
-                        <div>
-                            <h2 class="font-w700 mb-0">$ 240.45</h2>
-                        <p class="mb-0 font-w700"><span class="text-success">0,5% </span>than last day</p>
-                        </div>
-                    </div>
-                    <div class="card-body py-0">
-                        <div id="revenueChart" class="revenueChart"></div>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-xl-3 col-xxl-4">
                 <div class="row">
                     <div class="col-xl-12">
