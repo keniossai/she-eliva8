@@ -2,19 +2,19 @@
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li>
-                <a class="has-arrow ai-icon">
+                <a class=" ai-icon">
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="flaticon-050-info"></i>
                     <span class="nav-text">Apps</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="app-profile.html">Profile</a></li>
                     <li><a href="post-details.html">Post Details</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                    <li><a class="" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="email-compose.html">Compose</a></li>
                             <li><a href="email-inbox.html">Inbox</a></li>
@@ -22,7 +22,7 @@
                         </ul>
                     </li>
                     <li><a href="app-calender.html">Calendar</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
+                    <li><a class="" href="javascript:void()" aria-expanded="false">Shop</a>
                         <ul aria-expanded="false">
                             <li><a href="ecom-product-grid.html">Product Grid</a></li>
                             <li><a href="ecom-product-list.html">Product List</a></li>
@@ -35,7 +35,7 @@
                     </li>
                 </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-041-graph"></i>
                     <span class="nav-text">Charts</span>
                 </a>
@@ -48,7 +48,7 @@
                     <li><a href="chart-peity.html">Peity</a></li>
                 </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-086-star"></i>
                     <span class="nav-text">Bootstrap</span>
                 </a>
@@ -72,7 +72,7 @@
 
                 </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-045-heart"></i>
                     <span class="nav-text">Plugins</span>
                 </a>
@@ -91,7 +91,7 @@
                     <span class="nav-text">Widget</span>
                 </a>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-072-printer"></i>
                     <span class="nav-text">Forms</span>
                 </a>
@@ -103,7 +103,7 @@
                     <li><a href="form-validation.html">Form Validate</a></li>
                 </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-043-menu"></i>
                     <span class="nav-text">Table</span>
                 </a>
@@ -112,14 +112,14 @@
                     <li><a href="table-datatable-basic.html">Datatable</a></li>
                 </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class=" ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-022-copy"></i>
                     <span class="nav-text">Pages</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="page-login.html">Login</a></li>
                     <li><a href="page-register.html">Register</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+                    <li><a class="" href="javascript:void()" aria-expanded="false">Error</a>
                         <ul aria-expanded="false">
                             <li><a href="page-error-400.html">Error 400</a></li>
                             <li><a href="page-error-403.html">Error 403</a></li>
@@ -133,14 +133,5 @@
                 </ul>
             </li>
         </ul>
-        <div class="plus-box">
-            <img src="images/plus.png" alt="">
-            <h5 class="fs-18 font-w700">Add Menus</h5>
-            <p class="fs-14 font-w400">Manage your food <br>and beverages menus<i class="fas fa-arrow-right ms-3"></i></p>
-        </div>
-        <div class="copyright">
-            <p><strong>Lezato Restaurant Admin</strong> © 2021 All Rights Reserved</p>
-            <p class="fs-12">Made with <span class="heart"></span> by DexignZone</p>
-        </div>
     </div>
 </div>
