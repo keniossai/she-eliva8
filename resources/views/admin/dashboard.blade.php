@@ -5,9 +5,6 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
-        <div class="mb-sm-4 d-flex flex-wrap align-items-center text-head">
-            <h5 class="mb-3 me-auto">{{ Auth::user()->name }}</h5>
-        </div>
         <div class="row">
             <div class="col-xl-12">
                 <div class="row">
