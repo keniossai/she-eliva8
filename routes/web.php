@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,19 +21,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::group(['middleware' => ['auth', 'admin', 'verified']], function (){
-//     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-//     Route::get('/author/dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard');
-// });
-
-
-Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth', 'admin', 'verified']], function () {
+Route::prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('tag', TagController::class);
 });
 
-Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middleware'=>['auth', 'author', 'verified']], function () {
+Route::prefix('author')->middleware(['auth', 'author', 'verified'])->group(function () {
     Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('dashboard');
 });
+
+
+// Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth', 'admin', 'verified']], function () {
+//     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// });
+
+// Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middleware'=>['auth', 'author', 'verified']], function () {
+//     Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('dashboard');
+// });
 
 // Route::middleware(['auth', 'admin', 'verified'])->group(function () {
 //     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
