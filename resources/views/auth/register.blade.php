@@ -54,7 +54,8 @@
 
                                        <h4 class="mt-3"> or be classical </h4>
                                     </div>
-                                    <form class="form" method action>
+                                    <form class="form" method="POST" action="{{ route('register') }}">
+                                        @csrf
                                        <div class="form-group has-default">
                                           <div class="input-group">
                                              <div class="input-group-prepend">
@@ -62,7 +63,7 @@
                                                 <i class="material-icons">face</i>
                                                 </span>
                                              </div>
-                                             <input type="text" name="name" id="name" class="form-control" placeholder="First Name...">
+                                             <input type="text" name="name" id="name" class="form-control" :value="old('name')" placeholder="Enter your name"  autofocus autocomplete="name">
                                           </div>
                                        </div>
                                        <div class="form-group has-default">
@@ -72,7 +73,7 @@
                                                 <i class="material-icons">mail</i>
                                                 </span>
                                              </div>
-                                             <input type="email" name="email" id="email" class="form-control" placeholder="Email...">
+                                             <input type="email" name="email" id="email" class="form-control" :value="old('email')" placeholder="Email"  autocomplete="username">
                                           </div>
                                        </div>
                                        <div class="form-group has-default">
