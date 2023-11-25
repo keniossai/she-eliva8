@@ -19,14 +19,10 @@
                          <label for="exampleEmail" class="bmd-label-floating">Tag Name</label>
                          <input type="text" name="name" id="name" class="form-control" id="exampleEmail">
                       </div>
-                      <div class="form-group">
-                         <label for="examplePass" class="bmd-label-floating">Slug</label>
-                         <input type="text" name="slug" id="slug" class="form-control" id="examplePass">
+                      <div class="card-footer ">
+                         <button type="submit" class="btn btn-fill btn-rose">Create Tag</button>
                       </div>
                    </form>
-                </div>
-                <div class="card-footer ">
-                   <button type="submit" class="btn btn-fill btn-rose">Create Tag</button>
                 </div>
              </div>
           </div>
