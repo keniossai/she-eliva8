@@ -35,53 +35,71 @@
             <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('https://demos.creative-tim.com/material-dashboard-pro-bs4/assets/img/login.jpg'); background-size: cover; background-position: top center;">
                <div class="container">
                   <div class="row">
-                     <div class="col-lg-5 ml-auto mr-auto">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                           <div class="card card-login ">
-                              <div class="card-header card-header-rose text-center">
-                                 <h3 class="card-title">Login</h3>
-                                 <span>or</span>
-                                 <h5>Login with Socials</h5>
-                                 <div class="social-line">
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-facebook-official"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                    <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                    </a>
+                    <div class="col-md-5 ml-auto mr-auto">
+                        <div class="card card-signup p-4">
+                           <h3 class="card-title text-center">Do it the social way</h3>
+                           <div class="card-body">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="social text-center p-2">
+                                        <button class="btn btn-just-icon btn-round btn-facebook">
+                                        <i class="fa fa-facebook"> </i>
+                                        </button>
+                                       <button class="btn btn-just-icon btn-round btn-twitter">
+                                       <i class="fa fa-twitter"></i>
+                                       </button>
+                                       <button class="btn btn-just-icon btn-round btn-dribbble">
+                                       <i class="fa fa-google"></i>
+                                       </button>
+                                       <br>
+                                       <span class="mt-2"> or be classical </span>
+                                    </div>
+                                    <form class="form" method="POST" action="{{ route('login') }}">
+                                        @csrf
+                                       <div class="form-group has-default">
+                                          <div class="input-group">
+                                             <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">mail</i>
+                                                </span>
+                                             </div>
+                                             <input type="email" name="email" id="email" class="form-control" :value="old('email')" placeholder="Email or username"  autocomplete="username">
+                                          </div>
+                                       </div>
+                                       <div class="form-group has-default">
+                                          <div class="input-group">
+                                             <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">lock_outline</i>
+                                                </span>
+                                             </div>
+                                             <input type="password" name="password" id="password" placeholder="password" class="form-control">
+                                          </div>
+                                       </div>
+                                       <div class="form-check">
+                                          <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" value >
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                          </span>
+                                          Remember me
+                                          </label>
+                                        </div>
+                                        <div class="text-center">
+                                            @if (Route::has('password.request'))
+                                                <a class="" href="{{ route('password.request') }}" >
+                                                    {{ __('Forgot your password?') }}
+                                                </a>
+                                            @endif
+                                        </div>
+                                       <div class="text-center">
+                                          <button type="submit"  class="btn btn-primary btn-round mt-4">Login</button>
+                                       </div>
+                                    </form>
                                  </div>
                               </div>
-                              <div class="card-body">
-                                 <span class="bmd-form-group">
-                                    <div class="input-group">
-                                       <div class="input-group-prepend">
-                                          <span class="input-group-text">
-                                          <i class="material-icons">email</i>
-                                          </span>
-                                       </div>
-                                       <input type="email" name="email" id="email" class="form-control" placeholder="Email or Username">
-                                    </div>
-                                 </span>
-                                 <span class="bmd-form-group">
-                                    <div class="input-group">
-                                       <div class="input-group-prepend">
-                                          <span class="input-group-text">
-                                          <i class="material-icons">lock_outline</i>
-                                          </span>
-                                       </div>
-                                       <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                                    </div>
-                                 </span>
-                              </div>
-                              <div class="card-footer justify-content-center">
-                                 <button type="submit" class="btn btn-flex">Login</button>
-                              </div>
                            </div>
-                        </form>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -93,7 +111,7 @@
          <script src="{{ asset('assets') }}/js/plugins/perfect-scrollbar.min.js"></script>
          <script async defer src="https://buttons.github.io/buttons.js"></script>
          <script src="{{ asset('assets') }}/js/plugins/chartist.min.js"></script>
-         {{-- <script src="{{ asset('assets') }}/js/plugins/bootstrap-notify.js"></script> --}}
+         <script src="{{ asset('assets') }}/js/plugins/bootstrap-notify.js"></script>
          <script src="{{ asset('assets') }}/js/material-dashboard.min.js" type="text/javascript"></script>
          <script src="{{ asset('assets/js/toastr.js') }}"></script>
          <script>

@@ -42,11 +42,11 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Name</strong></label>
-                                            <input type="text" class="form-control" name="name" id="name" :value="old('name')"  autofocus autocomplete="name">
+                                            <input type="text" class="form-control" name="name" id="name"  autofocus autocomplete="name">
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input class="form-control" id="email" type="email" name="email" :value="old('email')"  autocomplete="username">
+                                            <input class="form-control" id="email" type="email" name="email" autocomplete="username">
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>
