@@ -7,9 +7,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="https://demos.creative-tim.com/material-dashboard-pro-bs4/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="https://demos.creative-tim.com/material-dashboard-pro-bs4/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>
-    Material Dashboard PRO by Creative Tim
-  </title>
+<title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
 <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
 
 
@@ -40,7 +38,7 @@
 
 <link href="{{ asset('assets') }}/css/material-dashboard.min.css" rel="stylesheet" />
 
-<link href="{{ asset('assets') }}/demo/demo.css" rel="stylesheet" />
+<link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
 
 </head>
 <body class>
@@ -87,8 +85,6 @@
 
 <script src="{{ asset('assets') }}/js/plugins/arrive.min.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
-
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script src="{{ asset('assets') }}/js/plugins/chartist.min.js"></script>
@@ -106,6 +102,59 @@
 
     });
   </script>
+  <script>
+    $(document).ready(function() {
+      $('#datatables').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+          [10, 25, 50, -1],
+          [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        language: {
+          search: "INPUT",
+          searchPlaceholder: "Search records",
+        }
+      });
+
+      var table = $('#datatables').DataTable();
+
+      // Edit record
+
+      table.on('click', '.edit', function() {
+        $tr = $(this).closest('tr');
+
+        if ($($tr).hasClass('child')) {
+          $tr = $tr.prev('.parent');
+        }
+
+        var data = table.row($tr).data();
+        alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+      });
+
+      // Delete a record
+
+      table.on('click', '.remove', function(e) {
+        $tr = $(this).closest('tr');
+
+        if ($($tr).hasClass('child')) {
+          $tr = $tr.prev('.parent');
+        }
+
+        table.row($tr).remove().draw();
+        e.preventDefault();
+      });
+
+      //Like record
+
+      table.on('click', '.like', function() {
+        alert('You clicked on Like button');
+      });
+    });
+  </script>
+
+
+
 </body>
 
 </html>
