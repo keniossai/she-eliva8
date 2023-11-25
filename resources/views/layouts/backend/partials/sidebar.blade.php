@@ -1,6 +1,6 @@
 <div class="sidebar" data-color="rose" data-background-color="black" data-image="https://demos.creative-tim.com/material-dashboard-pro-bs4/assets/img/sidebar-1.jpg">
     <div class="logo">
-       <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
+       <a href="http://www.creative-tim.com/" class="simple-text logo-normal text-center">
        She Elivate
        </a>
     </div>

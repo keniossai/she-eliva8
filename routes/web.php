@@ -27,7 +27,7 @@ Route::prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(functio
 });
 
 Route::prefix('author')->middleware(['auth', 'author', 'verified'])->group(function () {
-    Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard');
 });
 
 
