@@ -7,7 +7,7 @@
     <div class="container-fluid">
        <div class="row">
           <div class="col-md-12">
-            <a class="btn btn-primary float-right text-white">Add Tag</a>
+            <a href="{{ route('tag.create') }}" class="btn btn-primary float-right text-white">Add Tag</a>
              <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                    <div class="card-icon">
