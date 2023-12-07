@@ -30,16 +30,6 @@
                                <th class="disabled-sorting text-right">Actions</th>
                             </tr>
                          </thead>
-                         <tfoot>
-                            <tr>
-                               <th>Name</th>
-                               <th>Position</th>
-                               <th>Office</th>
-                               <th>Age</th>
-                               <th>Start date</th>
-                               <th class="text-right">Actions</th>
-                            </tr>
-                         </tfoot>
                          <tbody>
                             @foreach ($tags as $tag)
                             <tr>
@@ -67,29 +57,29 @@
  </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title fs-5" id="exampleModalLabel">Create</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="{{ route('tag.store') }}">
-            @csrf
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Tag Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-@endsection
+ @endsection
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title fs-5" id="exampleModalLabel">Create</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <form method="POST" action="{{ route('tag.store') }}">
+             @csrf
+           <div class="mb-3">
+             <label for="recipient-name" class="col-form-label">Tag Name</label>
+             <input type="text" class="form-control" id="name" name="name">
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <button type="submit" class="btn btn-primary">Save</button>
+           </div>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
