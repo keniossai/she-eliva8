@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <div>
                         <div>
-                            <a href="{{ route('tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="mdi mdi-plus me-1"></i> Create Tag</a>
+                            <a href="{{ route('tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Tag</a>
                         </div>
 
                         <div class="table-responsive mb-4">
@@ -64,8 +64,12 @@
                                                 <div class="badge bg-pill bg-success-subtle text-success font-size-12">Active</div>
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
-                                                <a href="javascript:void(0);" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                                                <a href="{{ route('tag.edit',$tag->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                                <button type="button" style="border: none; background: transparent;" onclick="deleteTag({{ $tag->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
+                                                <form action="{{ route('tag.destroy',$tag->id) }}" method="POST" id="delete-form-{{ $tag->id }}" style="display: none;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
                                             </td>
                                         </tr>
 
@@ -81,5 +85,25 @@
 
 </div> <!-- container-fluid -->
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+    function deleteTag(id){
+            Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+            event.preventDefault();
+            document.getElementById('delete-form-'+id).submit();
+
+            }
+        });
+    }
+</script>
 @endsection
 
