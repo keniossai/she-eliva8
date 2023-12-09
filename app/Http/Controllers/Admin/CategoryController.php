@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -39,31 +38,14 @@ class CategoryController extends Controller
             'image' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
 
-        $image = $request->file('image');
-        $slug = Str::slug($request->name);
-        if(isset($image)){
-            $currentDate = Carbon::now()->toDateString();
-            $imagename = $slug.'_'.$currentDate.'_'.uniqid().'.'.$image->getClientOriginalExtension();
-            if(!Storage::disk('public')->exists('category')){
-                Storage::disk('public')->makeDirectory('category');
-            }
-            $category = Image::make($image)->resize(1600,479)->save();
-            Storage::disk('public')->put('category/'.$imagename,$category);
-
-
-            if(!Storage::disk('public')->exists('category/slider')){
-                Storage::disk('public')->makeDirectory('category/slider');
-            }
-            $slider = Image::make($image)->resize(600,479)->save();
-            Storage::disk('public')->put('category/slider/'.$imagename,$slider);
-        } else {
-            $imagename = "default.png";
-        };
+        // Upload Image
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('storage/category'),$imageName);
 
         $category = new Category();
         $category->name = $request->name;
-        $category->slug = $slug;
-        $category->image = $imagename;
+        $category->slug = Str::slug($request->name);
+        $category->image = $imageName;
         $category->save();
 
         return redirect()->route('category.index')->with('success', 'Category added successfully');
@@ -82,7 +64,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -90,14 +73,35 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:categories',
+            'image' => 'required|mimes:jpeg,bmp,png,jpg'
+        ]);
+
+        $category = Category::where('id',$id)->first();
+        // Upload Image
+        if(isset($request->image)){
+            //Image Upload
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('storage/category'),$imageName);
+            $category->image = $imageName;
+        }
+
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name);
+        $category->image = $imageName;
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Category updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
-        //
+
+        Category::find($id)->delete();
+        return redirect()->back()->with('success', 'Category deleted successfully');
     }
 }
