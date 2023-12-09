@@ -41,7 +41,7 @@ class TagController extends Controller
         $tag->slug = Str::slug($request->name);
         $tag->save();
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tag.index')->with('success', 'Tag created successfully');
     }
 
     /**
@@ -57,7 +57,8 @@ class TagController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
@@ -65,7 +66,12 @@ class TagController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->name = $request->name;
+        $tag->slug = Str::slug($request->name);
+        $tag->save();
+
+        return redirect()->route('tag.index')->with('success', 'Tag updated successfully');
     }
 
     /**
@@ -73,6 +79,7 @@ class TagController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Tag::find($id)->delete();
+        return redirect()->back()->with('success', 'Tag deleted successfully');
     }
 }
