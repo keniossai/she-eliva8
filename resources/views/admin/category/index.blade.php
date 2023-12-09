@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Tags')
+@section('title','Category')
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0">@yield('title')</h4>
+                <h4 class="mb-0">All @yield('title')</h4>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <div>
                         <div>
-                            <a href="{{ route('tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Create Tag</a>
+                            <a href="{{ route('category.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Category</a>
                         </div>
 
                         <div class="table-responsive mb-4">
@@ -42,7 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tags as $key=>$tag)
+                                    @foreach ($categories as $key=>$category)
                                         <tr>
                                             <td>
                                                 <div class="form-check text-center">
@@ -53,20 +53,20 @@
 
                                             <td><a href="javascript: void(0);" class="text-reset  fw-bold">{{ $key + 1 }}</a> </td>
                                             <td>
-                                                <span>{{ $tag->name }}</span>
+                                                <span>{{ $category->name }}</span>
                                             </td>
-                                            <td>{{ $tag->slug }}</td>
+                                            <td>{{ $category->slug }}</td>
 
                                             <td>
-                                                {{ $tag->created_at }}
+                                                {{ $category->created_at }}
                                             </td>
                                             <td>
                                                 <div class="badge bg-pill bg-success-subtle text-success font-size-12">Active</div>
                                             </td>
                                             <td>
-                                                <a href="{{ route('tag.edit',$tag->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
-                                                <button type="button" style="border: none; background: transparent;" onclick="deleteTag({{ $tag->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
-                                                <form action="{{ route('tag.destroy',$tag->id) }}" method="POST" id="delete-form-{{ $tag->id }}" style="display: none;">
+                                                <a href="{{ route('category.edit',$category->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                                <button type="button" style="border: none; background: transparent;" onclick="deleteCategory({{ $category->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
+                                                <form action="{{ route('category.destroy',$category->id) }}" method="POST" id="delete-form-{{ $category->id }}" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
@@ -87,7 +87,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
-    function deleteTag(id){
+    function deleteCategory(id){
             Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",

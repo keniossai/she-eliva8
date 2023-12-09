@@ -32,7 +32,7 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('admin.dashboard') }}">
                         <i class="uil-home-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -54,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a href="chat.html" class=" waves-effect">
+                    <a href="{{ route('category.index') }}" class=" waves-effect">
                         <i class="uil-comments-alt"></i>
                         <span>Categories</span>
                     </a>

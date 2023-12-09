@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CategoryController extends Controller
 {
@@ -12,7 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::latest()->get();
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -20,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -28,7 +34,39 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:categories',
+            'image' => 'required|mimes:jpeg,bmp,png,jpg'
+        ]);
+
+        $image = $request->file('image');
+        $slug = Str::slug($request->name);
+        if(isset($image)){
+            $currentDate = Carbon::now()->toDateString();
+            $imagename = $slug.'_'.$currentDate.'_'.uniqid().'.'.$image->getClientOriginalExtension();
+            if(!Storage::disk('public')->exists('category')){
+                Storage::disk('public')->makeDirectory('category');
+            }
+            $category = Image::make($image)->resize(1600,479)->save();
+            Storage::disk('public')->put('category/'.$imagename,$category);
+
+
+            if(!Storage::disk('public')->exists('category/slider')){
+                Storage::disk('public')->makeDirectory('category/slider');
+            }
+            $slider = Image::make($image)->resize(600,479)->save();
+            Storage::disk('public')->put('category/slider/'.$imagename,$slider);
+        } else {
+            $imagename = "default.png";
+        };
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = $slug;
+        $category->image = $imagename;
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Category added successfully');
     }
 
     /**
