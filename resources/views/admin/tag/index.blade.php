@@ -3,83 +3,83 @@
 @section('title','Tags')
 
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-       <div class="row">
-          <div class="col-md-12">
-            <button href="{{ route('tag.create') }}" class="btn btn-primary float-right text-white"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add Tag</button>
-             <div class="card">
-                <div class="card-header card-header-primary card-header-icon">
-                   <div class="card-icon">
-                      <i class="material-icons">assignment</i>
-                   </div>
-                   <h4 class="card-title">Tags</h4>
-                </div>
-                <div class="card-body">
-                   <div class="toolbar">
-                   </div>
-                   <div class="material-datatables">
-                      <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-                         <thead>
-                            <tr>
-                               <th>Name</th>
-                               <th>Position</th>
-                               <th>Office</th>
-                               <th>Age</th>
-                               <th>Date</th>
-                               <th class="disabled-sorting text-right">Actions</th>
-                            </tr>
-                         </thead>
-                         <tbody>
-                            @foreach ($tags as $tag)
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td class="text-right">
-                                   <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                                   <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                                   <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                                </td>
-                             </tr>
-                            @endforeach
 
-                         </tbody>
-                      </table>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
+<div class="container-fluid">
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-0">@yield('title')</h4>
+            </div>
+        </div>
     </div>
- </div>
 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <div>
+                            <a href="{{ route('tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="mdi mdi-plus me-1"></i> Create Tag</a>
+                        </div>
 
- @endsection
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h4 class="modal-title fs-5" id="exampleModalLabel">Create</h4>
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-       </div>
-       <div class="modal-body">
-         <form method="POST" action="{{ route('tag.store') }}">
-             @csrf
-           <div class="mb-3">
-             <label for="recipient-name" class="col-form-label">Tag Name</label>
-             <input type="text" class="form-control" id="name" name="name">
-           </div>
-           <div class="modal-footer">
-             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-             <button type="submit" class="btn btn-primary">Save</button>
-           </div>
-         </form>
-       </div>
-     </div>
-   </div>
- </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                        <div class="table-responsive mb-4">
+                            <table class="table table-centered datatable dt-responsive nowrap table-card-list" style="border-collapse: collapse; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px;">
+                                            <div class="form-check text-center">
+                                                <input type="checkbox" class="form-check-input" id="customercheck">
+                                                <label class="form-check-label" for="customercheck"></label>
+                                            </div>
+                                        </th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Slug</th>
+                                        <th>Created At</th>
+                                        <th>Updated At</th>
+                                        <th style="width: 120px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($tags as $key=>$tag)
+                                        <tr>
+                                            <td>
+                                                <div class="form-check text-center">
+                                                    <input type="checkbox" class="form-check-input" id="customercheck1">
+                                                    <label class="form-check-label" for="customercheck1"></label>
+                                                </div>
+                                            </td>
+
+                                            <td><a href="javascript: void(0);" class="text-reset  fw-bold">{{ $key + 1 }}</a> </td>
+                                            <td>
+                                                <span>{{ $tag->name }}</span>
+                                            </td>
+                                            <td>{{ $tag->slug }}</td>
+
+                                            <td>
+                                                {{ $tag->created_at }}
+                                            </td>
+                                            <td>
+                                                <div class="badge bg-pill bg-success-subtle text-success font-size-12">Active</div>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- container-fluid -->
+
+@endsection
 

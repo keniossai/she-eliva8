@@ -15,7 +15,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::get();
+        $tags = Tag::latest()->get();
         return view('admin.tag.index', compact('tags'));
     }
 
@@ -41,7 +41,7 @@ class TagController extends Controller
         $tag->slug = Str::slug($request->name);
         $tag->save();
 
-        return redirect()->back();
+        return redirect()->route('tag.index');
     }
 
     /**

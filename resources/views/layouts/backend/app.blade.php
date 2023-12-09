@@ -1,160 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<!-- Mirrored from themesbrand.com/minible/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Dec 2023 02:09:41 GMT -->
 <head>
-<meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76" href="https://demos.creative-tim.com/material-dashboard-pro-bs4/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="https://demos.creative-tim.com/material-dashboard-pro-bs4/assets/img/favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
-<meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+
+        <meta charset="utf-8" />
+        <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.ico">
+
+        <!-- Bootstrap Css -->
+        <link href="{{ asset('assets') }}/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets') }}/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets') }}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{ asset('assets') }}/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{ asset('assets') }}/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/toastr.css') }}" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/56626a3766.js" crossorigin="anonymous"></script>
+
+    </head>
 
 
+    <body>
 
-<meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, material dashboard bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, material design, material dashboard bootstrap 4 dashboard">
-<meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+    <!-- <body data-layout="horizontal" data-topbar="colored"> -->
 
-<meta itemprop="name" content="Material Dashboard PRO by Creative Tim">
-<meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+        <!-- Begin page -->
+        <div id="layout-wrapper">
 
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@creativetim">
-<meta name="twitter:title" content="Material Dashboard PRO by Creative Tim">
-<meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-<meta name="twitter:creator" content="@creativetim">
-<meta name="twitter:image" content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
 
-<meta property="fb:app_id" content="655968634437471">
-<meta property="og:title" content="Material Dashboard PRO by Creative Tim" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html" />
-<meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg" />
-<meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design." />
-<meta property="og:site_name" content="Creative Tim" />
-
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-<link rel="stylesheet" href="{{ asset('assets') }}/css/font-awesome.min.css">
-
-<link href="{{ asset('assets') }}/css/material-dashboard.min.css" rel="stylesheet" />
-
-<link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
-
-</head>
-<body class>
-    <div class="wrapper ">
-        @include('layouts.backend.partials.sidebar')
-        <div class="main-panel">
             @include('layouts.backend.partials.header')
-            @yield('content')
-            @include('layouts.backend.partials.footer')
+            <!-- ========== Left Sidebar Start ========== -->
+            @include('layouts.backend.partials.sidebar')
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    @yield('content')
+                </div>
+                <!-- End Page-content -->
+
+
+                @include('layouts.backend.partials.footer')
+            </div>
+            <!-- end main content-->
+
         </div>
-    </div>
-
-
-<script src="{{ asset('assets') }}/js/jquery.min.js"></script>
-<script src="{{ asset('assets') }}/js/popper.min.js"></script>
-<script src="{{ asset('assets') }}/js/bootstrap-material-design.min.js"></script>
-<script src="{{ asset('assets') }}/js/plugins/perfect-scrollbar.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/moment.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/sweetalert2.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/jquery.validate.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/jquery.bootstrap-wizard.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/bootstrap-selectpicker.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/bootstrap-datetimepicker.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/jquery.dataTables.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/bootstrap-tagsinput.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/jasny-bootstrap.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/fullcalendar.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/jquery-jvectormap.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/nouislider.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/arrive.min.js"></script>
-
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/chartist.min.js"></script>
-
-<script src="{{ asset('assets') }}/js/plugins/bootstrap-notify.js"></script>
-
-<script src="{{ asset('assets') }}/js/material-dashboard.min.js" type="text/javascript"></script>
-
-<script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      md.initDashboardPageCharts();
-
-      md.initVectorMap();
-
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      $('#datatables').DataTable({
-        "pagingType": "full_numbers",
-        "lengthMenu": [
-          [10, 25, 50, -1],
-          [10, 25, 50, "All"]
-        ],
-        responsive: true,
-        language: {
-          search: "INPUT",
-          searchPlaceholder: "Search records",
-        }
-      });
-
-      var table = $('#datatables').DataTable();
-
-      // Edit record
-
-      table.on('click', '.edit', function() {
-        $tr = $(this).closest('tr');
-
-        if ($($tr).hasClass('child')) {
-          $tr = $tr.prev('.parent');
-        }
-
-        var data = table.row($tr).data();
-        alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-      });
-
-      // Delete a record
-
-      table.on('click', '.remove', function(e) {
-        $tr = $(this).closest('tr');
-
-        if ($($tr).hasClass('child')) {
-          $tr = $tr.prev('.parent');
-        }
-
-        table.row($tr).remove().draw();
-        e.preventDefault();
-      });
-
-      //Like record
-
-      table.on('click', '.like', function() {
-        alert('You clicked on Like button');
-      });
-    });
-  </script>
+        <!-- END layout-wrapper -->
 
 
 
-</body>
+        <!-- Right Sidebar -->
+        @include('layouts.backend.partials.rightside')
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{{ asset('assets') }}/libs/jquery/jquery.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/metismenu/metisMenu.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/simplebar/simplebar.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/node-waves/waves.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/jquery.counterup/jquery.counterup.min.js"></script>
+
+        <!-- apexcharts -->
+        <script src="{{ asset('assets') }}/libs/apexcharts/apexcharts.min.js"></script>
+
+        <script src="{{ asset('assets') }}/js/pages/dashboard.init.js"></script>
+        <!-- Required datatable js -->
+        <script src="{{ asset('assets') }}/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Responsive examples -->
+        <script src="{{ asset('assets') }}/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+        <!-- init js -->
+        <script src="{{ asset('assets') }}/js/pages/ecommerce-datatables.init.js"></script>
+
+        <!-- App js -->
+        <script src="{{ asset('assets') }}/js/app.js"></script>
+        <script src="{{ asset('assets/js/toastr.js') }}"></script>
+        <script>
+
+            // success message popup notification
+
+            @if(Session::has('success'))
+
+                toastr.success("{{ Session::get('success') }}");
+
+            @endif
+
+
+            // info message popup notification
+
+            @if(Session::has('info'))
+
+                toastr.info("{{ Session::get('info') }}");
+
+            @endif
+
+
+            // warning message popup notification
+
+            @if(Session::has('warning'))
+
+                toastr.warning("{{ Session::get('warning') }}");
+
+            @endif
+
+
+            // error message popup notification
+
+            @if(Session::has('error'))
+                toastr.error("{{ Session::get('error') }}");
+            @endif
+
+            @foreach($errors->all() as $error)
+                toastr.error("{{ $error }}")
+            @endforeach
+        </script>
+
+    </body>
+
 
 </html>
+
