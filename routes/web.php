@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
 use App\Http\Controllers\ProfileController;
@@ -26,6 +27,7 @@ Route::prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(functio
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('tag', TagController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('post', PostController::class);
 });
 
 Route::prefix('author')->middleware(['auth', 'author', 'verified'])->group(function () {
