@@ -64,8 +64,8 @@
                                                 <div class="badge bg-pill bg-success-subtle text-success font-size-12">Active</div>
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
-                                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
                                             </td>
                                         </tr>
 

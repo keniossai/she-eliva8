@@ -29,8 +29,7 @@
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="uil-search"></span>
+                    <a href="https://statamic.com/" target="_blank" class="btn btn-success waves-effect waves-light mb-3">Go Premium</a>
                 </div>
             </form>
         </div>
