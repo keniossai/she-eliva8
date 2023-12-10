@@ -41,9 +41,9 @@
                 <li class="menu-title">Content</li>
 
                 <li>
-                    <a href="#" class="has-arrow waves-effect">
+                    <a href="{{ route('post.index') }}" class="has-arrow waves-effect">
                         <i class="uil-window-section"></i>
-                        <span>News Articles</span>
+                        <span>Articles</span>
                     </a>
                 </li>
                 <li>
