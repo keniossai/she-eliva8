@@ -19,6 +19,8 @@
         <link href="{{ asset('assets') }}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="{{ asset('assets') }}/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css">
         <!-- App Css-->
         <link href="{{ asset('assets') }}/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/toastr.css') }}" rel="stylesheet" />
@@ -92,10 +94,23 @@
 
         <!-- init js -->
         <script src="{{ asset('assets') }}/js/pages/ecommerce-datatables.init.js"></script>
+        <script src="{{ asset('assets/libs/select2/js/select2.min.js') }}"></script>
+        <script src="{{ asset('assets/js/pages/ecommerce-add-product.init.js') }}"></script>
+        <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
 
         <!-- App js -->
         <script src="{{ asset('assets') }}/js/app.js"></script>
         <script src="{{ asset('assets/js/toastr.js') }}"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+        {{-- <script src="{{ asset('assets/js/ckeditor.js') }}"></script> --}}
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#body' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+
         <script>
 
             // success message popup notification
