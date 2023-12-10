@@ -34,9 +34,9 @@
                                     @foreach ($posts as $key=>$post)
                                     <tr>
 
-                                        <td><a href="javascript: void(0);" class="text-reset  fw-bold">{{ $key + 1 }}</a> </td>
+                                        <td><span class="text-reset  fw-bold">{{ $key + 1 }}</span> </td>
                                         <td>
-                                            <span>{{ $post->title }}</span>
+                                            <a href="" class="text-reset  fw-bold">{{ $post->title }}</a>
                                         </td>
                                         <td>
                                             <span>{{ $post->user->name }}</span>
