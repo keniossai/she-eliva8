@@ -1,11 +1,17 @@
 @extends('layouts.backend.app')
 
-@section('title','Post')
+@section('title','Posts')
 
 @section('content')
 
 <div class="container-fluid">
-
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-0">All @yield('title')</h4>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -36,7 +42,7 @@
 
                                         <td><span class="text-reset  fw-bold">{{ $key + 1 }}</span> </td>
                                         <td>
-                                            <a href="" class="text-reset  fw-bold">{{ $post->title }}</a>
+                                            <a href="" class="text-reset  fw-bold">{{ \Illuminate\Support\Str::limit($post->title, '10') }}</a>
                                         </td>
                                         <td>
                                             <span>{{ $post->user->name }}</span>
