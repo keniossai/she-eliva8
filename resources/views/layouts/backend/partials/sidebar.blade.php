@@ -41,13 +41,13 @@
                 <li class="menu-title">Content</li>
 
                 <li>
-                    <a href="{{ route('post.index') }}" class="has-arrow waves-effect">
+                    <a href="{{ route('post.index') }}" class="waves-effect">
                         <i class="uil-window-section"></i>
                         <span>Articles</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('tag.index') }}" class="has-arrow waves-effect">
+                    <a href="{{ route('tag.index') }}" class="waves-effect">
                         <i class="uil-window-section"></i>
                         <span>Tags</span>
                     </a>
