@@ -27,15 +27,9 @@
                             <table class="table table-centered datatable dt-responsive nowrap table-card-list" style="border-collapse: collapse; width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th style="width: 20px;">
-                                            <div class="form-check text-center">
-                                                <input type="checkbox" class="form-check-input" id="customercheck">
-                                                <label class="form-check-label" for="customercheck"></label>
-                                            </div>
-                                        </th>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Slug</th>
+                                        <th>Post Count</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
                                         <th style="width: 120px;">Action</th>
@@ -44,24 +38,17 @@
                                 <tbody>
                                     @foreach ($categories as $key=>$category)
                                         <tr>
+                                            <td><span >{{ $key + 1 }}</span> </td>
                                             <td>
-                                                <div class="form-check text-center">
-                                                    <input type="checkbox" class="form-check-input" id="customercheck1">
-                                                    <label class="form-check-label" for="customercheck1"></label>
-                                                </div>
+                                                <span  class="text-reset  fw-bold">{{ $category->name }}</span>
                                             </td>
-
-                                            <td><a href="javascript: void(0);" class="text-reset  fw-bold">{{ $key + 1 }}</a> </td>
-                                            <td>
-                                                <span>{{ $category->name }}</span>
-                                            </td>
-                                            <td>{{ $category->slug }}</td>
+                                            <td>{{ $category->posts->count() }}</td>
 
                                             <td>
                                                 {{ $category->created_at }}
                                             </td>
                                             <td>
-                                                <div class="badge bg-pill bg-success-subtle text-success font-size-12">Active</div>
+                                                {{ $category->updated_at }}
                                             </td>
                                             <td>
                                                 <a href="{{ route('category.edit',$category->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
