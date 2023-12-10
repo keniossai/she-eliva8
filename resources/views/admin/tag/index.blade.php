@@ -35,7 +35,7 @@
                                         </th>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Slug</th>
+                                        <th>Post Count</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
                                         <th style="width: 120px;">Action</th>
@@ -51,17 +51,17 @@
                                                 </div>
                                             </td>
 
-                                            <td><a href="javascript: void(0);" class="text-reset  fw-bold">{{ $key + 1 }}</a> </td>
+                                            <td><span>{{ $key + 1 }}</span> </td>
                                             <td>
-                                                <span>{{ $tag->name }}</span>
+                                                <span class="text-reset  fw-bold">{{ $tag->name }}</span>
                                             </td>
-                                            <td>{{ $tag->slug }}</td>
+                                            <td>{{ $tag->posts->count() }}</td>
 
                                             <td>
                                                 {{ $tag->created_at }}
                                             </td>
                                             <td>
-                                                <div class="badge bg-pill bg-success-subtle text-success font-size-12">Active</div>
+                                                {{ $tag->updated_at }}
                                             </td>
                                             <td>
                                                 <a href="{{ route('tag.edit',$tag->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
