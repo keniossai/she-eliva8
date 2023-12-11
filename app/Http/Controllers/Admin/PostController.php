@@ -70,7 +70,7 @@ class PostController extends Controller
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
 
-        return redirect()->route('post.index')->with('success', 'Post Added Successfully');
+        return redirect()->route('admin.post.index')->with('success', 'Post Added Successfully');
     }
 
     /**
@@ -137,9 +137,27 @@ class PostController extends Controller
         $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
 
-        return redirect()->route('post.index')->with('success', 'Post Updated Successfully');
+        return redirect()->route('admin.post.index')->with('success', 'Post Updated Successfully');
     }
 
+    public function pending()
+    {
+        $posts = Post::where('is_approved', false)->get();
+        return view('admin.post.pending', compact('posts'));
+    }
+
+    public function approval($id)
+    {
+        $post = Post::find($id);
+        if($post->is_approved == false)
+        {
+            $post->is_approved = true;
+            $post->save();
+            return redirect()->back()->with('success', 'Post Approved Successfully');
+        } else {
+            return redirect()->back()->with('info', 'This post is already approved');
+        }
+    }
     /**
      * Remove the specified resource from storage.
      */
