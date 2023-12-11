@@ -32,7 +32,6 @@
                                         <th>Is Approved</th>
                                         <th>Status</th>
                                         <th>Created At</th>
-                                        <th>Updated At</th>
                                         <th >Action</th>
                                     </tr>
                                 </thead>
@@ -68,9 +67,7 @@
                                             {{ $post->created_at }}
                                         </td>
                                         <td>
-                                            {{ $post->updated_at }}
-                                        </td>
-                                        <td>
+                                            <a href="{{ route('post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a>
                                             <a href="{{ route('post.edit',$post->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
                                             <button type="button" style="border: none; background: transparent;" onclick="deletePost({{ $post->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
                                             <form action="{{ route('post.destroy',$post->id) }}" method="POST" id="delete-form-{{ $post->id }}" style="display: none;">
