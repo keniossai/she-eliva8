@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
+use function Laravel\Prompts\error;
+
 class PostController extends Controller
 {
     /**
@@ -77,6 +79,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        if($post->user_id != Auth::id())
+        {
+            return redirect()->back()->with('error','You are not authorized to access this post');
+        }
         return view('author.post.show', compact('post'));
     }
 
@@ -85,6 +91,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        if($post->user_id != Auth::id())
+        {
+            return redirect()->back()->with('error','You are not authorized to access this post');
+        }
         $categories = Category::all();
         $tags = Tag::all();
         return view('author.post.edit', compact('tags', 'categories', 'post'));
@@ -95,6 +105,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+        if($post->user_id != Auth::id())
+        {
+            return redirect()->back()->with('error','You are not authorized to access this post');
+        }
+        
         $this->validate($request,[
             'title' => 'required',
             'image' => 'image',
@@ -102,8 +118,6 @@ class PostController extends Controller
             'tags' => 'required',
             'body' => 'required'
         ]);
-
-
 
         // Upload Image
         if($request->hasFile('image')){
@@ -144,6 +158,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if($post->user_id != Auth::id())
+        {
+            return redirect()->back()->with('error','You are not authorized to access this post');
+        }
         $image = public_path('storage/post/'.$post->image);
         if(file_exists($image))
         {
