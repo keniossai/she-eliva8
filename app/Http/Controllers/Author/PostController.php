@@ -136,7 +136,7 @@ class PostController extends Controller
         $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
 
-        return redirect()->route('post.index')->with('success', 'Post Updated Successfully');
+        return redirect()->route('author.post.index')->with('success', 'Post Updated Successfully');
     }
 
     /**
@@ -144,6 +144,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $image = public_path('storage/post/'.$post->image);
+        if(file_exists($image))
+        {
+            unlink($image);
+        }
+
+        $post->categories()->detach();
+        $post->tags()->detach();
+        $post->delete();
+
+        return redirect()->back()->with('success', 'Category deleted successfully');
     }
 }
