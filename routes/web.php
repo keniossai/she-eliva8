@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
+use App\Http\Controllers\Author\PostController as AuthorPostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(functio
 
 Route::prefix('author')->middleware(['auth', 'author', 'verified'])->group(function () {
     Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard');
+    Route::resource('post', AuthorPostController::class);
 });
 
 
