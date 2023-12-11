@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <div>
                         <div>
-                            <a href="{{ route('tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Create Tag</a>
+                            <a href="{{ route('admin.tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Create Tag</a>
                         </div>
 
                         <div class="table-responsive mb-4">
@@ -64,9 +64,9 @@
                                                 {{ $tag->updated_at }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('tag.edit',$tag->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                                <a href="{{ route('admin.tag.edit',$tag->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
                                                 <button type="button" style="border: none; background: transparent;" onclick="deleteTag({{ $tag->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
-                                                <form action="{{ route('tag.destroy',$tag->id) }}" method="POST" id="delete-form-{{ $tag->id }}" style="display: none;">
+                                                <form action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST" id="delete-form-{{ $tag->id }}" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>

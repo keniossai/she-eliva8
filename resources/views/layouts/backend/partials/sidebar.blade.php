@@ -42,28 +42,37 @@
                     <li class="menu-title">Content</li>
 
                     <li>
-                        <a href="{{ route('post.index') }}" class="waves-effect">
+                        <a href="{{ route('admin.post.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Articles</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('tag.index') }}" class="waves-effect">
+                        <a href="{{ route('admin.tag.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Tags</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}" class=" waves-effect">
+                        <a href="{{ route('admin.category.index') }}" class=" waves-effect">
                             <i class="uil-comments-alt"></i>
                             <span>Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-title">Management</li>
+
+                    <li>
+                        <a href="{{ route('admin.post.pending') }}" class="waves-effect">
+                            <i class="uil-window-section"></i>
+                            <span>Pending Post</span>
                         </a>
                     </li>
                 @endif
                 @if (Request::is('author*'))
                     <li>
-                        <a href="{{ route('admin.dashboard') }}">
+                        <a href="{{ route('author.dashboard') }}">
                             <i class="uil-home-alt"></i>
                             <span>Dashboard</span>
                         </a>
@@ -72,7 +81,7 @@
                     <li class="menu-title">Content</li>
 
                     <li>
-                        <a href="{{ route('post.index') }}" class="waves-effect">
+                        <a href="{{ route('author.post.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Articles</span>
                         </a>

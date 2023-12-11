@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <a href="{{ route('post.index') }}" class="btn btn-primary waves-effect "><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
+                <a href="{{ route('author.post.index') }}" class="btn btn-primary waves-effect "><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
 
                 <div class="page-title-right">
                     @if ($post->is_approved == false)

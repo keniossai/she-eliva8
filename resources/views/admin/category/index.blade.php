@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <div>
                         <div>
-                            <a href="{{ route('category.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Category</a>
+                            <a href="{{ route('admin.category.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Category</a>
                         </div>
 
                         <div class="table-responsive mb-4">
@@ -51,9 +51,9 @@
                                                 {{ $category->updated_at }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('category.edit',$category->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                                <a href="{{ route('admin.category.edit',$category->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
                                                 <button type="button" style="border: none; background: transparent;" onclick="deleteCategory({{ $category->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
-                                                <form action="{{ route('category.destroy',$category->id) }}" method="POST" id="delete-form-{{ $category->id }}" style="display: none;">
+                                                <form action="{{ route('admin.category.destroy',$category->id) }}" method="POST" id="delete-form-{{ $category->id }}" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>

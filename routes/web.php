@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
@@ -24,31 +26,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', 'verified']], function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('tag', TagController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('post', PostController::class);
+
+    // Get Approved Post
+    Route::get('pending/post', [PostController::class, 'pending'])->name('post.pending');
+    Route::put('post/{id}/approve', [PostController::class, 'approval'])->name('post.approve');
 });
 
-Route::prefix('author')->middleware(['auth', 'author', 'verified'])->group(function () {
-    Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard');
+Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author', 'verified']], function () {
+    Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('dashboard');
     Route::resource('post', AuthorPostController::class);
 });
 
-
-// Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth', 'admin', 'verified']], function () {
-//     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-// });
-
-// Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middleware'=>['auth', 'author', 'verified']], function () {
-//     Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('dashboard');
-// });
-
-// Route::middleware(['auth', 'admin', 'verified'])->group(function () {
-//     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-//     Route::get('/author/dashboard', [AuthorDashboardController::class, 'index'])->name('author.dashboard');
-// });
 
 Route::middleware(['auth', 'author', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

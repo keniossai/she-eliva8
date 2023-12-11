@@ -17,9 +17,6 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <div>
-                            <a href="{{ route('author.post.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Post</a>
-                        </div>
 
                         <div class="table-responsive mb-4">
                             <table class="table table-centered datatable dt-responsive nowrap table-card-list" style="border-collapse: collapse; width: 100%;">
@@ -67,10 +64,10 @@
                                             {{ $post->created_at }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('author.post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a>
-                                            <a href="{{ route('author.post.edit',$post->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                            <a href="{{ route('admin.post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a>
+                                            <a href="{{ route('admin.post.edit',$post->id) }}" class="px-1 text-primary"><i class="uil uil-pen font-size-18"></i></a>
                                             <button type="button" style="border: none; background: transparent;" onclick="deletePost({{ $post->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
-                                            <form action="{{ route('author.post.destroy',$post->id) }}" method="POST" id="delete-form-{{ $post->id }}" style="display: none;">
+                                            <form action="{{ route('admin.post.destroy',$post->id) }}" method="POST" id="delete-form-{{ $post->id }}" style="display: none;">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>

@@ -41,7 +41,7 @@
                     <div id="addproduct-billinginfo-collapse" class="collapse show" data-bs-parent="#addproduct-accordion">
 
                         <div class="p-4 border-top">
-                            <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('author.post.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label" for="productname">Title</label>
@@ -91,7 +91,7 @@
                                 <div class="mt-4">
                                     <div class="col ms-auto">
                                         <div class="d-flex flex-reverse flex-wrap gap-2">
-                                            <a href="{{ route('post.index') }}" class="btn btn-danger"> <i class="uil uil-times"></i> Cancel </a>
+                                            <a href="{{ route('author.post.index') }}" class="btn btn-danger"> <i class="uil uil-times"></i> Cancel </a>
                                             <button type="submit" class="btn btn-success"> <i class="uil uil-file-alt"></i> Save </button>
                                         </div>
                                     </div> <!-- end col -->

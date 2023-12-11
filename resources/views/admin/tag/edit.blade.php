@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="p-4 border-top">
-                        <form method="POST" action="{{ route('tag.update',$tag->id) }}">
+                        <form method="POST" action="{{ route('admin.tag.update',$tag->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="row">
@@ -50,7 +50,7 @@
                             <div class="row mb-4">
                                 <div class="col ms-auto">
                                     <div class="d-flex flex-reverse flex-wrap gap-2">
-                                        <a href="{{ route('tag.index') }}" class="btn btn-danger"> <i class="uil uil-times"></i> Cancel </a>
+                                        <a href="{{ route('admin.tag.index') }}" class="btn btn-danger"> <i class="uil uil-times"></i> Cancel </a>
                                         <button type="submit" class="btn btn-success"> <i class="uil uil-file-alt"></i> Save </button>
                                     </div>
                                 </div> <!-- end col -->

@@ -10,13 +10,17 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <a href="{{ route('post.index') }}" class="btn btn-primary waves-effect "><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
+                <a href="{{ route('admin.post.index') }}" class="btn btn-primary waves-effect "><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
 
                 <div class="page-title-right">
                     @if ($post->is_approved == false)
-                    <div class="btn btn-warning waves-effect "><i class="fa fa-info-circle" aria-hidden="true"></i> Pending</div>
+                    <button type="button" onclick="approvePost({{ $post->id }})" class="btn btn-warning waves-effect " ><i class="fa fa-info-circle" aria-hidden="true"></i> Pending</button>
+                    <form action="{{ route('admin.post.approve',$post->id) }}" method="POST" style="display: none;" id="approval-form">
+                        @csrf
+                        @method('PUT')
+                    </form>
                     @else
-                    <button class="btn btn-success" disabled><i class="fa fa-check" aria-hidden="true"></i> Approved</button>
+                    <button type="button" class="btn btn-success" disabled><i class="fa fa-check" aria-hidden="true"></i> Approved</button>
                     @endif
                 </div>
 
@@ -93,6 +97,28 @@
 
     <!-- end row -->
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+    function approvePost(id){
+            Swal.fire({
+            title: "Are you sure?",
+            text: "You want approve this post!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, approve it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+            event.preventDefault();
+            document.getElementById('approval-form').submit();
+
+            }
+        });
+    }
+</script>
 @endsection
 
 
