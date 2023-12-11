@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="p-4 border-top">
-                        <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.category.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-sm-6">
@@ -46,17 +46,17 @@
                                         <input id="slug" name="slug" type="text" class="form-control" placeholder="Optional">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                {{-- <div class="col-sm-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="metakeywords">Image</label>
                                         <input id="image" name="image" type="file" class="form-control">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row mb-4">
                                 <div class="col ms-auto">
                                     <div class="d-flex flex-reverse flex-wrap gap-2">
-                                        <a href="{{ route('category.index') }}" class="btn btn-danger"> <i class="uil uil-times"></i> Cancel </a>
+                                        <a href="{{ route('admin.category.index') }}" class="btn btn-danger"> <i class="uil uil-times"></i> Cancel </a>
                                         <button type="submit" class="btn btn-success"> <i class="uil uil-file-alt"></i> Save </button>
                                     </div>
                                 </div> <!-- end col -->
