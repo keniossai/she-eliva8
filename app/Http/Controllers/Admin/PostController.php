@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -45,9 +46,10 @@ class PostController extends Controller
             'body' => 'required'
         ]);
 
-        // Upload Image
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('storage/post'),$imageName);
+        if($request->hasFile('image')){
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('storage/post'),$imageName);
+        }
 
         $post = new Post();
         $post->user_id = Auth::id();
@@ -76,7 +78,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('admin.post.show', compact('post'));
     }
 
     /**
@@ -102,9 +104,16 @@ class PostController extends Controller
             'body' => 'required'
         ]);
 
+
+
         // Upload Image
-        if(isset($request->image)){
-            //Image Upload
+        if($request->hasFile('image')){
+
+            $location = 'storage/post/'.$post->image;
+            if(File::exists($location))
+            {
+                File::delete($location);
+            }
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('storage/post'),$imageName);
             $post->image = $imageName;
@@ -123,7 +132,7 @@ class PostController extends Controller
         }
         $post->is_approved = true;
 
-        $post->save();
+        $post->update();
 
         $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
@@ -136,6 +145,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $image = public_path('storage/post/'.$post->image);
+        if(file_exists($image))
+        {
+            unlink($image);
+        }
+
+        $post->categories()->detach();
+        $post->tags()->detach();
+        $post->delete();
+
+        return redirect()->back()->with('success', 'Category deleted successfully');
     }
 }
