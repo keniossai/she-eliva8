@@ -11,12 +11,15 @@ class NewAuthorPost extends Notification
 {
     use Queueable;
 
+
+    public $post;
+
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($post)
     {
-        //
+        $this->post = $post;
     }
 
     /**
@@ -35,8 +38,12 @@ class NewAuthorPost extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->greeting('Hello, Admin!')
+                    ->subject('A New Post Approval is Needed')
+                    ->line('New Post by'.$this->post->user->name , 'need to approve.')
+                    ->line('To approve the post click the view button')
+                    ->line('Post Title :'. $this->post->title)
+                    ->action('View', url(route('admin.post.show',$this->post->id)))
                     ->line('Thank you for using our application!');
     }
 
