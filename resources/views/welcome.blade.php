@@ -626,10 +626,9 @@
         </div>
         <div class="col-md-6 col-lg-5">
           <form class="contact-form">
-            <h3>Subscribe to our news letter</h3>
-            <p>Feel free to drop us a message</p>
-            <input type="email" class="form-control" placeholder="Enter your email">
-            <button class="btn btn-solid">Subscribe</button>
+            <h3 class="text-white">Subscribe</h3>
+            <input type="email" class="form-control mb-2" placeholder="Enter your email">
+            <button class="btn btn-solid m-0">Subscribe</button>
           </form>
         </div>
       </div>
