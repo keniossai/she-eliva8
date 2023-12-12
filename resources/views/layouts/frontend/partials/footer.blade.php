@@ -3,24 +3,15 @@
       <div class="footer-content">
         <div class="footer-logo">
           <a href="#">
-            <h5 class="brand-name"> Kavya</h5>
+            <h5 class="brand-name"> Elivate-Her</h5>
           </a>
         </div>
         <div class="footer-copyright">
           <p>&copy;<script>
             document.write(new Date().getFullYear())
-          </script> Kavya. All rights reserved. Theme designed by <a href="#">Kendevguy</a> </p>
+          </script> Elivate-Her. All rights reserved. Theme designed by <a href="#">Kendevguy</a> </p>
         </div>
-        <div class="social-links">
-          <ul>
-            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-          </ul>
-        </div>
+        
       </div>
     </div>
   </footer>

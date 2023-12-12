@@ -3,27 +3,20 @@
     <div class="top-header">
       <div class="container">
         <div class="row  align-items-center">
-          <div class="col-md-3">
-            <div class="social-links">
-              <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="brand-name text-center">
-              <a href="index.html">
-                <h1>Kavya</h1>
-                <span>Enter your tagline here</span>
-              </a>
-            </div>
-          </div>
+            <div class="col-md-3">
+                <div class="brand-name text-center">
+                  <a href="index.html">
+                    <h1>Elivate-Her</h1>
+                    <span>Enter your tagline here</span>
+                  </a>
+                </div>
+              </div>
           <div class="col-md-4">
+            <div class="social-links">
+            </div>
+          </div>
+
+          <div class="col-md-5">
             <div class="search-wrapper">
               <div class="search-icon">
                 <button class="open-search-btn"><i class="fa fa-search"></i></button>

@@ -336,7 +336,6 @@
                     <li class="category-tag-name">
                       <a href="#">Sports</a>
                     </li>
-
                   </ul>
                   <h5 class="card-title title-font"><a href="single-layout-one.html">5 Tricks To Defend In Boxing</a></h5>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum rem, delectus
@@ -350,6 +349,7 @@
                           <span>21 Dec, 2019</span>
                         </a>
                       </div>
+
                 </div>
               </div>
             </div>
@@ -535,8 +535,10 @@
                   <a class="date" href="#">
                     <span>21 Dec, 2019</span>
                   </a>
+                  <a href="" class="likes">
+                    <i class="fas fa-heart"></i>
+                </a>
                 </div>
-
               </div>
             </div>
           </div>
@@ -600,94 +602,35 @@
   <!-- Recommended posts end -->
 
   <!-- Instagram Posts -->
-  <section class="insta-posts">
+  <section class="contact-section">
     <div class="container">
-      <div class="insta-title">
-        <img src="client/images/instagram.svg" alt="">
-        <h2>Follow us on Instagram</h2>
-      </div>
-
-      <div class="image-item-grid insta-slider">
-
-        <div class="image-item">
-          <a href="#">
-            <img src="client/images/beautiful-girl.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
+      <div class="row no-gutters align-items-center">
+        <div class="col-md-6 col-lg-7">
+          <div class="contact-info">
+            <h3>Follow us on socials</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum quasi nisi, repellat temporibus
+              doloribus quo impedit laborum mollitia, incidunt laboriosam sed quod reprehenderit corrupti debitis dolore
+              eligendi, a dignissimos.</p>
+            <ul class="contact-list">
+              <li><i class="fas fa-envelope"></i> <a href="mailto:abc@example.com.com">abc@example.com</a> </li>
+            </ul>
+            <div class="circular-icons social-links">
+              <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              </ul>
             </div>
-          </a>
+          </div>
         </div>
-        <div class="image-item image-item-margin">
-          <a href="#">
-            <img src="client/images/colors.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
-        </div>
-        <div class="image-item">
-          <a href="#">
-            <img src="client/images/city-pink.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
-        </div>
-        <div class="image-item image-item-margin">
-          <a href="#">
-            <img src="client/images/sea-lighthouse.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
-        </div>
-        <div class="image-item">
-          <a href="#">
-            <img src="client/images/boat.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
-        </div>
-        <div class="image-item">
-          <a href="#">
-            <img src="client/images/beach-sea.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
-        </div>
-        <div class="image-item">
-          <a href="#">
-            <img src="client/images/orange-bus.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
-        </div>
-        <div class="image-item">
-          <a href="#">
-            <img src="client/images/tall.jpg" alt="">
-          </a>
-          <a href="#">
-            <div class="image-hover">
-              <i class="fas fa-heart"></i>
-            </div>
-          </a>
+        <div class="col-md-6 col-lg-5">
+          <form class="contact-form">
+            <h3>Subscribe to our news letter</h3>
+            <p>Feel free to drop us a message</p>
+            <input type="email" class="form-control" placeholder="Enter your email">
+            <button class="btn btn-solid">Subscribe</button>
+          </form>
         </div>
       </div>
     </div>
