@@ -44,7 +44,7 @@
                     <li>
                         <a href="{{ route('admin.post.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
-                            <span>Articles</span>
+                            <span>Posts</span>
                         </a>
                     </li>
                     <li>
@@ -67,6 +67,12 @@
                         <a href="{{ route('admin.post.pending') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Pending Post</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.subscriber.index') }}" class="waves-effect">
+                            <i class="uil-window-section"></i>
+                            <span>Subscribers</span>
                         </a>
                     </li>
                 @endif
