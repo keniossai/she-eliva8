@@ -40,7 +40,7 @@
           </span>
           <div class="sticky-logo">
             <a href="index.html">
-              <p>Kavya</p>
+              <p>Elivate-Her</p>
             </a>
           </div>
           <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
