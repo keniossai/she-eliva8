@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="{{ asset('client/css/style.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/responsive.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/dark.css') }}" />
+  <link href="{{ asset('assets/css/toastr.css') }}" rel="stylesheet" />
 
   <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
 </head>
@@ -76,6 +77,46 @@
   <script src="{{ asset('client/js/ResizeSensor.min.js') }}"></script>
   <script src="{{ asset('client/js/theia-sticky-sidebar.min.js') }}"></script>
   <script src="{{ asset('client/js/main.js') }}"></script>
+  <script src="{{ asset('assets/js/toastr.js') }}"></script>
+  <script>
+
+    // success message popup notification
+
+    @if(Session::has('success'))
+
+        toastr.success("{{ Session::get('success') }}");
+
+    @endif
+
+
+    // info message popup notification
+
+    @if(Session::has('info'))
+
+        toastr.info("{{ Session::get('info') }}");
+
+    @endif
+
+
+    // warning message popup notification
+
+    @if(Session::has('warning'))
+
+        toastr.warning("{{ Session::get('warning') }}");
+
+    @endif
+
+
+    // error message popup notification
+
+    @if(Session::has('error'))
+        toastr.error("{{ Session::get('error') }}");
+    @endif
+
+    @foreach($errors->all() as $error)
+        toastr.error("{{ $error }}")
+    @endforeach
+</script>
 </body>
 
 
