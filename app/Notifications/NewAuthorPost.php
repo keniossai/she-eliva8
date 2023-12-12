@@ -40,7 +40,7 @@ class NewAuthorPost extends Notification
         return (new MailMessage)
                     ->greeting('Hello, Admin!')
                     ->subject('A New Post Approval is Needed')
-                    ->line('New Post by'.$this->post->user->name , 'need to approve.')
+                    ->line('New Post by '.$this->post->user->name, 'need to approve.')
                     ->line('To approve the post click the view button')
                     ->line('Post Title :'. $this->post->title)
                     ->action('View', url(route('admin.post.show',$this->post->id)))
