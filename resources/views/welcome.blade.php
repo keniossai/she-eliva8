@@ -625,10 +625,11 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-5">
-          <form class="contact-form">
+          <form class="contact-form" method="POST" action="{{ route('subscriber.store') }}">
+            @csrf
             <h3 class="text-white">Subscribe</h3>
-            <input type="email" class="form-control mb-2" placeholder="Enter your email">
-            <button class="btn btn-solid m-0">Subscribe</button>
+            <input type="email" name="email" id="email" class="form-control mb-2" placeholder="Enter your email">
+            <button type="submit" class="btn btn-solid m-0">Subscribe</button>
           </form>
         </div>
       </div>
