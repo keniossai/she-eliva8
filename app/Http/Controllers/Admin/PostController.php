@@ -8,11 +8,12 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Subscriber;
 use App\Notifications\AuthorPostApproved;
+use App\Notifications\NewPostNotify;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use PharIo\Manifest\Author;
+use Illuminate\Support\Facades\Notification;
 
 class PostController extends Controller
 {
@@ -71,6 +72,13 @@ class PostController extends Controller
 
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
+
+        $subscribers = Subscriber::all();
+        foreach($subscribers as $subscriber)
+        {
+            Notification::route('mail',$subscriber->email)
+                ->notify(new NewPostNotify($post));
+        }
 
         return redirect()->route('admin.post.index')->with('success', 'Post Added Successfully');
     }
@@ -156,6 +164,14 @@ class PostController extends Controller
             $post->is_approved = true;
             $post->save();
             $post->user->notify(new AuthorPostApproved($post));
+
+            $subscribers = Subscriber::all();
+            foreach($subscribers as $subscriber)
+            {
+                Notification::route('mail',$subscriber->email)
+                    ->notify(new NewPostNotify($post));
+            }
+
             return redirect()->back()->with('success', 'Post Approved Successfully');
         } else {
             return redirect()->back()->with('info', 'This post is already approved');
