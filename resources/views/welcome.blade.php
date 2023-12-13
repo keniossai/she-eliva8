@@ -87,125 +87,64 @@
                     nisi iure aliquid. Ea mollitia optio nostrum ut.</p>
 
                   <a href="single-layout-one.html" class="btn btn-solid btn-read">Read More</a>
-
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
-
-
       </div>
 
     </div>
     <div class="container">
       <div class="more-content-grid py-30">
         <div class="row">
-          <div class="col-md-4">
-            <div class="card">
-              <a href="single-layout-one.html">
-                <img src="client/images/image-4.jpg" class="card-img-top " alt="" />
-              </a>
-              <div class="card-body px-0">
-                <ul class="category-tag-list d-flex" >
-                    <li class="category-tag-name flex-grow-1">
-                      <a href="#">Lifestyle</a>
-                    </li>
-                    <div class="comments_and_views">
-                      <li class="category-tag-name" >
-                          <a href="" class="likes">
-                              <i class="fas fa-heart"> 23</i>
-                          </a>
+          @foreach ($posts as $post)
+            <div class="col-md-4">
+                <div class="card">
+                <a href="single-layout-one.html">
+                    <img src="{{ url('storage/post/'.$post->image) }}" class="card-img-top " alt="" />
+                </a>
+                <div class="card-body px-0">
+                    <ul class="category-tag-list d-flex" >
+                        <li class="category-tag-name flex-grow-1">
+                        <a href="#">Lifestyle</a>
                         </li>
-                        <li class="category-tag-name">
-                          <a href="" class="likes">
-                              <i class="fas fa-eye"> 30</i>
-                          </a>
-                        </li>
-                        <li class="category-tag-name">
-                          <a href="" class="likes">
-                              <i class="fas fa-comment"> 32</i>
-                          </a>
-                        </li>
+                        <div class="comments_and_views">
+                        <li class="category-tag-name" >
+                            <a href="" class="likes">
+                                <i class="fas fa-heart"> 23</i>
+                            </a>
+                            </li>
+                            <li class="category-tag-name">
+                            <a href="" class="likes">
+                                <i class="fas fa-eye"> 30</i>
+                            </a>
+                            </li>
+                            <li class="category-tag-name">
+                            <a href="" class="likes">
+                                <i class="fas fa-comment"> 32</i>
+                            </a>
+                            </li>
+                        </div>
+                    </ul>
+                    <h5 class="card-title title-font">
+                    <a href="single-layout-one.html">
+                        {{ $post->title }}
+                    </a>
+                    </h5>
+                    <div class="author-date">
+                    <a class="author" href="#">
+                        <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
+                        <span class="writer-name-small">Julie</span>
+                    </a>
+                    <a class="date" href="#">
+                        <span>21 Dec, 2019</span>
+                    </a>
                     </div>
-                  </ul>
-                <h5 class="card-title title-font">
-                  <a href="single-layout-one.html">
-                    6 Benefits Of Doing Regular Yoga
-                  </a>
-                </h5>
-                <div class="author-date">
-                  <a class="author" href="#">
-                    <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                    <span class="writer-name-small">Julie</span>
-                  </a>
-                  <a class="date" href="#">
-                    <span>21 Dec, 2019</span>
-                  </a>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <a href="single-layout-one.html">
-                <img src="client/images/image-6.jpg" class="card-img-top " alt="" />
-              </a>
-
-              <div class="card-body px-0">
-                <ul class="category-tag-list">
-                  <li class="category-tag-name">
-                    <a href="#">Workout</a>
-                  </li>
-
-                </ul>
-
-                <h5 class="card-title title-font">
-                  <a href="single-layout-one.html">
-                    Easy Workouts To Lose Weight In One Month</a>
-                </h5>
-                <div class="author-date">
-                  <a class="author" href="#">
-                    <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                    <span class="writer-name-small">Julie</span>
-                  </a>
-                  <a class="date" href="#">
-                    <span>21 Dec, 2019</span>
-                  </a>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <a href="single-layout-one.html">
-                <img src="client/images/image-7.jpg" class="card-img-top " alt="" />
-              </a>
-
-              <div class="card-body px-0">
-                <ul class="category-tag-list">
-                  <li class="category-tag-name">
-                    <a href="#">Lifestyle</a>
-                  </li>
-                </ul>
-
-                <h5 class="card-title title-font">
-                  <a href="single-layout-one.html">Children Learn From Their Parents</a>
-                </h5>
-                <div class="author-date">
-                  <a class="author" href="#">
-                    <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                    <span class="writer-name-small">Julie</span>
-                  </a>
-                  <a class="date" href="#">
-                    <span>21 Dec, 2019</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
