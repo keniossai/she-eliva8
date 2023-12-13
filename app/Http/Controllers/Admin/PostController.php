@@ -8,9 +8,11 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notifications\AuthorPostApproved;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use PharIo\Manifest\Author;
 
 class PostController extends Controller
 {
@@ -153,6 +155,7 @@ class PostController extends Controller
         {
             $post->is_approved = true;
             $post->save();
+            $post->user->notify(new AuthorPostApproved($post));
             return redirect()->back()->with('success', 'Post Approved Successfully');
         } else {
             return redirect()->back()->with('info', 'This post is already approved');
