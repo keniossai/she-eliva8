@@ -109,11 +109,28 @@
                 <img src="client/images/image-4.jpg" class="card-img-top " alt="" />
               </a>
               <div class="card-body px-0">
-                <ul class="category-tag-list">
-                  <li class="category-tag-name">
-                    <a href="#">Lifestyle</a>
-                  </li>
-                </ul>
+                <ul class="category-tag-list d-flex" >
+                    <li class="category-tag-name flex-grow-1">
+                      <a href="#">Lifestyle</a>
+                    </li>
+                    <div class="comments_and_views">
+                      <li class="category-tag-name" >
+                          <a href="" class="likes">
+                              <i class="fas fa-heart"> 23</i>
+                          </a>
+                        </li>
+                        <li class="category-tag-name">
+                          <a href="" class="likes">
+                              <i class="fas fa-eye"> 30</i>
+                          </a>
+                        </li>
+                        <li class="category-tag-name">
+                          <a href="" class="likes">
+                              <i class="fas fa-comment"> 32</i>
+                          </a>
+                        </li>
+                    </div>
+                  </ul>
                 <h5 class="card-title title-font">
                   <a href="single-layout-one.html">
                     6 Benefits Of Doing Regular Yoga
@@ -518,10 +535,27 @@
                 <img src="client/images/image-14.jpg" class="card-img-top" alt="" />
               </a>
               <div class="card-body px-0">
-                <ul class="category-tag-list">
-                  <li class="category-tag-name">
+                <ul class="category-tag-list d-flex" >
+                  <li class="category-tag-name flex-grow-1">
                     <a href="#">Lifestyle</a>
                   </li>
+                  <div class="comments_and_views">
+                    <li class="category-tag-name" >
+                        <a href="" class="likes">
+                            <i class="fas fa-heart"> 23</i>
+                        </a>
+                      </li>
+                      <li class="category-tag-name">
+                        <a href="" class="likes">
+                            <i class="fas fa-eye"> 30</i>
+                        </a>
+                      </li>
+                      <li class="category-tag-name">
+                        <a href="" class="likes">
+                            <i class="fas fa-comment"> 32</i>
+                        </a>
+                      </li>
+                  </div>
                 </ul>
                 <h5 class="card-title title-font">
                   <a href="single-layout-one.html">
@@ -535,9 +569,7 @@
                   <a class="date" href="#">
                     <span>21 Dec, 2019</span>
                   </a>
-                  <a href="" class="likes">
-                    <i class="fas fa-heart"></i>
-                </a>
+
                 </div>
               </div>
             </div>
@@ -601,39 +633,5 @@
   </section>
   <!-- Recommended posts end -->
 
-  <!-- Instagram Posts -->
-  <section class="contact-section">
-    <div class="container">
-      <div class="row no-gutters align-items-center">
-        <div class="col-md-6 col-lg-7">
-          <div class="contact-info">
-            <h3>Follow us on socials</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum quasi nisi, repellat temporibus
-              doloribus quo impedit laborum mollitia, incidunt laboriosam sed quod reprehenderit corrupti debitis dolore
-              eligendi, a dignissimos.</p>
-            <ul class="contact-list">
-              <li><i class="fas fa-envelope"></i> <a href="mailto:abc@example.com.com">abc@example.com</a> </li>
-            </ul>
-            <div class="circular-icons social-links">
-              <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-5">
-          <form class="contact-form" method="POST" action="{{ route('subscriber.store') }}">
-            @csrf
-            <h3 class="text-white">Subscribe</h3>
-            <input type="email" name="email" id="email" class="form-control mb-2" placeholder="Enter your email">
-            <button type="submit" class="btn btn-solid m-0">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Instagram posts end -->
+
 @endsection
