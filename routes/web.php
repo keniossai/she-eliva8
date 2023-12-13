@@ -24,9 +24,7 @@ use App\Http\Controllers\Author\DashboardController as AuthorDashboardController
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
 
