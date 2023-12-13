@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class HomeController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('welcome', compact('categories','tags'));
+        $posts = Post::latest()->take(6)->get();
+        return view('welcome', compact('categories','tags', 'posts'));
     }
 }
