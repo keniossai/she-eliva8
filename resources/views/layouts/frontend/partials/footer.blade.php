@@ -41,9 +41,7 @@
           </a>
         </div>
         <div class="footer-copyright">
-          <p>&copy;<script>
-            document.write(new Date().getFullYear())
-          </script> Elivate-Her | All rights reserved</p>
+          <p>&copy; <script>document.write(new Date().getFullYear())</script> She Elivate</p>
         </div>
 
       </div>
