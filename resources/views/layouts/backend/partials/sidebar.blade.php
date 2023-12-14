@@ -75,6 +75,14 @@
                             <span>Subscribers</span>
                         </a>
                     </li>
+                    <li class="menu-title">Systems</li>
+
+                    <li>
+                        <a href="{{ route('admin.settings') }}" class="waves-effect">
+                            <i class="uil-window-section"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
                 @endif
                 @if (Request::is('author*'))
                     <li>
@@ -89,7 +97,15 @@
                     <li>
                         <a href="{{ route('author.post.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
-                            <span>Articles</span>
+                            <span>Post</span>
+                        </a>
+                    </li>
+                    <li class="menu-title">Systems</li>
+
+                    <li>
+                        <a href="{{ route('author.settings') }}" class="waves-effect">
+                            <i class="uil-window-section"></i>
+                            <span>Settings</span>
                         </a>
                     </li>
 
