@@ -9,9 +9,11 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
 use App\Http\Controllers\Author\PostController as AuthorPostController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
+use App\Http\Controllers\Author\SettingsController as AuthorSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,9 @@ Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscrib
 
 Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', 'verified']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('settings', [SettingsController::class, 'index'])->name('settings');
+    Route::put('update-profile', [SettingsController::class, 'profileUpdate'])->name('profile.update');
+    Route::put('password-update', [SettingsController::class, 'updatePassword'])->name('password.update');
     Route::resource('tag', TagController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('post', PostController::class);
@@ -44,14 +49,17 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', '
 
 Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author', 'verified']], function () {
     Route::get('dashboard', [AuthorDashboardController::class, 'index'])->name('dashboard');
+    Route::get('settings', [AuthorSettingsController::class, 'index'])->name('settings');
+    Route::put('update-profile', [AuthorSettingsController::class, 'profileUpdate'])->name('profile.update');
+    Route::put('password-update', [AuthorSettingsController::class, 'updatePassword'])->name('password.update');
     Route::resource('post', AuthorPostController::class);
 });
 
 
-Route::middleware(['auth', 'author', 'verified'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware(['auth', 'author', 'verified'])->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
