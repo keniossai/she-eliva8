@@ -111,13 +111,17 @@
                         </li>
                         <div class="comments_and_views">
                         <li class="category-tag-name" >
-                            <a href="" class="likes">
-                                <i class="fas fa-heart"> 23</i>
-                            </a>
+                            @guest
+                                <a href="" class="likes">
+                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                                </a>
+                            @else
+
+                            @endguest
                             </li>
                             <li class="category-tag-name">
                             <a href="" class="likes">
-                                <i class="fas fa-eye"> 30</i>
+                                <i class="fas fa-eye"> {{ $post->view_count }}</i>
                             </a>
                             </li>
                             <li class="category-tag-name">
