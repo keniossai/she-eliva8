@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function favorite_posts()
+    {
+        return $this->belongsToMany(Post::class)->withTimestamps();
+    }
+
     /**
      * The attributes that should be cast.
      *
