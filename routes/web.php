@@ -28,8 +28,13 @@ use App\Http\Controllers\Author\SettingsController as AuthorSettingsController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+
 Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
 
+Route::group(['middleware'=>['auth']], function(){
+    Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
+});
 Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', 'verified']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('settings', [SettingsController::class, 'index'])->name('settings');
