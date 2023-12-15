@@ -18,12 +18,18 @@
 
           <div class="col-md-5">
             <div class="search-wrapper">
-              <div class="search-icon">
-                <button class="open-search-btn"><i class="fa fa-search"></i></button>
-              </div>
-              <div class="sidebar-icon">
-                <button class="sidebar-btn"> <i class="fas fa-ellipsis-v"></i></button>
-              </div>
+                @guest
+                    <div class="search-icon">
+                    <button class="open-search-btn"><i class="fa fa-search"></i></button>
+                    </div>
+                @else
+                    <div class="search-icon">
+                        <button class="open-search-btn"><i class="fa fa-search"></i></button>
+                    </div>
+                    <div class="sidebar-icon">
+                        <button class="sidebar-btn"> <i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                @endguest
             </div>
 
           </div>
@@ -50,15 +56,32 @@
             <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            @guest
+                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+            @else
+                @if(Auth::user()->role->id == 1)
+                    <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a></li>
+                @endif
+                @if(Auth::user()->role->id == 2)
+                    <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
+                @endif
+            @endguest
           </ul>
           <div class="sticky-search">
             <div class="search-wrapper">
-              <div class="search-icon">
-                <button class="open-search-btn"><i class="fa fa-search"></i></button>
-              </div>
-              <div class="sidebar-icon">
-                <button class="sidebar-btn"> <i class="fas fa-ellipsis-v"></i></button>
-              </div>
+            @guest
+                <div class="search-icon">
+                  <button class="open-search-btn"><i class="fa fa-search"></i></button>
+                </div>
+            @else
+                <div class="search-icon">
+                    <button class="open-search-btn"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="sidebar-icon">
+                    <button class="sidebar-btn"> <i class="fas fa-ellipsis-v"></i></button>
+                </div>
+            @endguest
             </div>
           </div>
         </nav>
