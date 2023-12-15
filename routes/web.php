@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\FavoriteController as AdminFavoriteController;
 use App\Http\Controllers\Author\FavoriteController as AuthorFavoriteController;
 use App\Http\Controllers\Author\SettingsController as AuthorSettingsController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
+use App\Http\Controllers\Author\CommentController as AuthorCommentController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
 
 /*
@@ -72,6 +73,8 @@ Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author'
     Route::put('update-profile', [AuthorSettingsController::class, 'profileUpdate'])->name('profile.update');
     Route::put('password-update', [AuthorSettingsController::class, 'updatePassword'])->name('password.update');
     Route::get('favorites', [AuthorFavoriteController::class, 'index'])->name('favorite.index');
+    Route::get('comments', [AuthorCommentController::class, 'index'])->name('comment.index');
+    Route::delete('comment/{id}', [AuthorCommentController::class, 'destroy'])->name('comment.destroy');
     Route::resource('post', AuthorPostController::class);
 });
 
