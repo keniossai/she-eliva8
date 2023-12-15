@@ -122,7 +122,7 @@
                                 <a href="javascript:void(0)" class="likes" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
                                     <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
                                 </a>
-                                <form class="x-submit" id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;" data-then="reload">
+                                <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
                             @endguest
@@ -147,7 +147,7 @@
                     <div class="author-date">
                     <a class="author" href="#">
                         <img src="{{ url('storage/profile/'.Auth::user()->image) }}" alt="" class="rounded-circle" />
-                        <span class="writer-name-small">Julie</span>
+                        <span class="writer-name-small">{{$post->user->name}}</span>
                     </a>
                     <a class="date" href="#">
                         <span>21 Dec, 2019</span>
