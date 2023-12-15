@@ -8,6 +8,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon.png">
@@ -40,7 +41,7 @@
 
 <body class="kavya-dark">
   <!-- Preloader -->
-  <div class="preloader-wrapper">
+  {{-- <div class="preloader-wrapper">
     <div class="preloader">
       <div class="preloader-circle" id="status">
         <div></div>
@@ -48,7 +49,7 @@
         <div></div>
       </div>
     </div>
-  </div>
+  </div> --}}
   <!-- Preloader end -->
 
   <!-- Header -->
@@ -76,6 +77,7 @@
   <script src="{{ asset('client/js/jquery.sticky.js') }}"></script>
   <script src="{{ asset('client/js/ResizeSensor.min.js') }}"></script>
   <script src="{{ asset('client/js/theia-sticky-sidebar.min.js') }}"></script>
+  <script src="{{ asset('client/js/request.js') }}"></script>
   <script src="{{ asset('client/js/main.js') }}"></script>
   <script src="{{ asset('assets/js/toastr.js') }}"></script>
   <script>
