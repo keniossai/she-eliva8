@@ -146,7 +146,7 @@
                     </h5>
                     <div class="author-date">
                     <a class="author" href="#">
-                        <img src="{{ url('storage/profile/'.Auth::user()->image) }}" alt="" class="rounded-circle" />
+                        <img src="{{ url('storage/profile/'.$post->user->image) }}" alt="" class="rounded-circle" />
                         <span class="writer-name-small">{{$post->user->name}}</span>
                     </a>
                     <a class="date" href="#">
