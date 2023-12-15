@@ -5,18 +5,27 @@ namespace App\Http\Controllers\Author;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
     public function index()
     {
-        $comments = Comment::latest()->get();
-        return view('author.comments.index', compact('comments'));
+        $posts = Auth::user()->posts;
+        return view('author.comments.index', compact('posts'));
     }
 
     public function destroy($id)
     {
-        Comment::findOrFail($id)->delete();
-        return redirect()->back()->with('success', 'Comment deleted successfully');
+        $comment = Comment::findOrFail($id);
+        if ($comment->post->user->id == Auth::id())
+        {
+            $comment->delete();
+            Toastr::success('Comment Successfully Deleted','Success');
+        } else {
+            Toastr::error('You are not authorized to delete this comment :(','Access Denied !!!');
+        }
+        return redirect()->back();
     }
 }
