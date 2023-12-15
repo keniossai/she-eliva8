@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AllPostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\TagController;
@@ -32,8 +33,8 @@ use App\Http\Controllers\Author\DashboardController as AuthorDashboardController
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [PostDetailsController::class, 'details'])->name('post.details');
 
-
-
+Route::get('/categories', [AllCategoriesController::class, 'categories'])->name('categories');
+Route::get('/posts', [AllPostController::class, 'posts'])->name('posts');
 Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
 
 Route::group(['middleware'=>['auth']], function(){
