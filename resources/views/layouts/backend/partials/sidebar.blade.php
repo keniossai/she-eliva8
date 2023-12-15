@@ -70,6 +70,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('admin.favorite.index') }}" class="waves-effect">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <span>Favorite Post</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('admin.subscriber.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Subscribers</span>
@@ -98,6 +104,12 @@
                         <a href="{{ route('author.post.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Post</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('author.favorite.index') }}" class="waves-effect">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <span>Favorite Post</span>
                         </a>
                     </li>
                     <li class="menu-title">Systems</li>
