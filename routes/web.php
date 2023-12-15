@@ -40,6 +40,7 @@ Route::get('/categories', [AllCategoriesController::class, 'categories'])->name(
 Route::get('/posts', [AllPostController::class, 'posts'])->name('posts');
 Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
 Route::get('/category/{slug}', [PostDetailsController::class, 'postByCategory'])->name('category.posts');
+Route::get('/tag/{slug}', [PostDetailsController::class, 'postByTag'])->name('tag.posts');
 
 Route::group(['middleware'=>['auth']], function(){
     Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
