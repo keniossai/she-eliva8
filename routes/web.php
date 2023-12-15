@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Author\PostController as AuthorPostController;
@@ -39,7 +40,7 @@ Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscrib
 
 Route::group(['middleware'=>['auth']], function(){
     Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
-    // Route::post('comment/{post}')
+    Route::post('comment/{post}', [CommentController::class, 'store'])->name('comment.store');
 });
 Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', 'verified']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -56,6 +57,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', '
 
     // Favorite Post
     Route::get('favorites', [AdminFavoriteController::class, 'index'])->name('favorite.index');
+
+    // Get Comments
+    Route::get('comments', [CommentController::class, 'index'])->name('comment.index');
+    Route::delete('comments/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
     Route::get('subscribers', [AdminSubscriberController::class, 'index'])->name('subscriber.index');
     Route::delete('subscribers/{subscriber}', [AdminSubscriberController::class, 'destroy'])->name('subscriber.destroy');
