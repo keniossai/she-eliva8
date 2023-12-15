@@ -133,6 +133,7 @@
                         </a>
                     </li>
 
+
                 @endif
 
                 {{-- <div class="">
@@ -213,6 +214,7 @@
                     </li>
                 </div> --}}
 
+                <a href="{{ route('home') }}" class="btn btn-block">Website</a>
             </ul>
         </div>
         <!-- Sidebar -->
