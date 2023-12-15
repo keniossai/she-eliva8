@@ -40,37 +40,37 @@
                   </div>
                 </div>
           </div>
-          <ul class="category-tag-list d-flex" >
-            <div class="comments_and_views">
-            <li class="category-tag-name" >
-                @guest
-                    <a href="javascript:void(0)" class="likes" onclick="toastr.info('To add to favorite list you need to login first','Info',{
-                        closeButton: true,
-                        progressBar: true,
-                    })">
-                        <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+            <ul class="category-tag-list d-flex" >
+                <div class="comments_and_views">
+                <li class="category-tag-name" >
+                    @guest
+                        <a href="javascript:void(0)" class="likes" onclick="toastr.info('To add to favorite list you need to login first','Info',{
+                            closeButton: true,
+                            progressBar: true,
+                        })">
+                            <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                        </a>
+                    @else
+                        <a href="javascript:void(0)" class="likes {{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
+                            <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                        </a>
+                        <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endguest
+                    </li>
+                    <li class="category-tag-name">
+                    <a href="" class="likes">
+                        <i class="fas fa-eye"> {{ $post->view_count }}</i>
                     </a>
-                @else
-                    <a href="javascript:void(0)" class="likes {{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
-                        <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                    </li>
+                    <li class="category-tag-name">
+                    <a href="" class="likes">
+                        <i class="fas fa-comment"> {{ $post->comments->count() }}</i>
                     </a>
-                    <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @endguest
-                </li>
-                <li class="category-tag-name">
-                <a href="" class="likes">
-                    <i class="fas fa-eye"> {{ $post->view_count }}</i>
-                </a>
-                </li>
-                <li class="category-tag-name">
-                <a href="" class="likes">
-                    <i class="fas fa-comment"> 32</i>
-                </a>
-                </li>
-            </div>
-        </ul>
+                    </li>
+                </div>
+            </ul>
           <div class="row">
             <div class="col-md-7 col-lg-8 content">
               <div class="blog-content-wrap theiaStickySidebar">
@@ -403,17 +403,50 @@
             @foreach ($randomposts as $post)
                 <div class="col-md-6 col-lg-3">
                     <div class="card small-card simple-overlay-card">
-                    <a href="{{ route('post.details',$post->slug) }}"><img src="{{ url('storage/post/'.$post->image) }}" class="card-img" alt="" /></a>
-                    <div class="card-img-overlay">
-                        <ul class="category-tag-list mb-0">
-                        <li class="category-tag-name">
-                            <a href="#">Travel</a>
-                        </li>
-                        </ul>
-                        <h5 class="card-title title-font">
-                        <a href="{{ route('post.details',$post->slug) }}">{{ $post->title }}</a>
-                        </h5>
-                    </div>
+                        <a href="{{ route('post.details',$post->slug) }}">
+                            <img src="{{ url('storage/post/'.$post->image) }}" class="card-img" alt="" />
+                        </a>
+                        <div class="card-img-overlay">
+                            <ul class="category-tag-list mb-0">
+                            <li class="category-tag-name">
+                                <a href="#">Travel</a>
+                            </li>
+                            </ul>
+                            <h5 class="card-title title-font">
+                            <a href="{{ route('post.details',$post->slug) }}">{{ $post->title }}</a>
+                            </h5>
+                            <ul class="category-tag-list d-flex" >
+                                <div class="comments_and_views">
+                                <li class="category-tag-name" >
+                                    @guest
+                                        <a href="javascript:void(0)" class="likes" onclick="toastr.info('To add to favorite list you need to login first','Info',{
+                                            closeButton: true,
+                                            progressBar: true,
+                                        })">
+                                            <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                                        </a>
+                                    @else
+                                        <a href="javascript:void(0)" class="likes {{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
+                                            <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                                        </a>
+                                        <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endguest
+                                    </li>
+                                    <li class="category-tag-name">
+                                    <a href="" class="likes">
+                                        <i class="fas fa-eye"> {{ $post->view_count }}</i>
+                                    </a>
+                                    </li>
+                                    <li class="category-tag-name">
+                                    <a href="" class="likes">
+                                        <i class="fas fa-comment"> {{ $post->comments->count() }}</i>
+                                    </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             @endforeach
