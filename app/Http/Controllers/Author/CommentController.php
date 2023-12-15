@@ -11,7 +11,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = Comment::latest()->get();
-        return view('admin.comments.index', compact('comments'));
+        return view('author.comments.index', compact('comments'));
     }
 
     public function destroy($id)
