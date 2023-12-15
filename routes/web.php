@@ -39,6 +39,7 @@ Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscrib
 
 Route::group(['middleware'=>['auth']], function(){
     Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
+    // Route::post('comment/{post}')
 });
 Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', 'verified']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
