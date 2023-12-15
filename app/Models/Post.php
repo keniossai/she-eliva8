@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,6 +32,10 @@ class Post extends Model
     public function favorite_to_user()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->withTimestamps();
     }
 
 }
