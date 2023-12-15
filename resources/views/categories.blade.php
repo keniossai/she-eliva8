@@ -18,10 +18,10 @@
                         @foreach ($categories as $category)
                         <div class="col-md-4 p-3">
                             <div class="card small-card">
-                                <a href="single-layout-one.html"><img src="client/images/shoes.jpg" class="card-img" alt="" /></a>
+                                <a href="{{ route('category.posts',$category->slug) }}"><img src="client/images/shoes.jpg" class="card-img" alt="" /></a>
                                 <div class="card-img-overlay">
                                 <h5 class="card-title title-font mb-0">
-                                    <a href="#">{{ $category->name }}</a>
+                                    <a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a>
                                 </h5>
                                 </div>
                             </div>
