@@ -36,7 +36,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-shrink-0 me-3">
-                            <img class="rounded-circle avatar-sm" src="{{ asset('assets/images/users/avatar-2.jpg') }}" alt="Generic placeholder image">
+                            <img class="rounded-circle avatar-sm" src="{{ url('storage/profile/'.$post->user->image) }}" alt="Generic placeholder image">
                         </div>
                         <div class="flex-grow-1">
                             <small class="text-muted">Posted By</small>
