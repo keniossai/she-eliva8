@@ -5,9 +5,9 @@
         <div class="row  align-items-center">
             <div class="col-md-3">
                 <div class="brand-name text-center">
-                  <a href="index.html">
+                  <a href="{{ route('home') }}">
                     <h1>Elivate-Her</h1>
-                    <span>Enter your tagline here</span>
+                    {{-- <span>Enter your tagline here</span> --}}
                   </a>
                 </div>
               </div>
