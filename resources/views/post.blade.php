@@ -82,7 +82,7 @@
                     <p>Tags:</p>
                     <ul class="sidebar-list tags-list">
                         @foreach ($post->tags as $tag)
-                            <li><a href="#">{{ $tag->name }}</a></li>
+                            <li><a href="{{ route('tag.posts',$tag->slug) }}">{{ $tag->name }}</a></li>
                         @endforeach
                     </ul>
                   </div>
