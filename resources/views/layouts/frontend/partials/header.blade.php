@@ -44,7 +44,7 @@
             </a>
           </div>
           <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Discussions <span class="arrow-icon"> <span
                     class="left-bar"></span>
                   <span class="right-bar"></span></span>
