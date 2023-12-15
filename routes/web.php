@@ -4,21 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllPostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Author\PostController as AuthorPostController;
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 use App\Http\Controllers\Admin\FavoriteController as AdminFavoriteController;
+use App\Http\Controllers\Author\CommentController as AuthorCommentController;
 use App\Http\Controllers\Author\FavoriteController as AuthorFavoriteController;
 use App\Http\Controllers\Author\SettingsController as AuthorSettingsController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
-use App\Http\Controllers\Author\CommentController as AuthorCommentController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
 
 /*
@@ -38,6 +39,7 @@ Route::get('/post/{slug}', [PostDetailsController::class, 'details'])->name('pos
 Route::get('/categories', [AllCategoriesController::class, 'categories'])->name('categories');
 Route::get('/posts', [AllPostController::class, 'posts'])->name('posts');
 Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
+Route::get('/category/{slug}', [PostDetailsController::class, 'postByCategory'])->name('category.posts');
 
 Route::group(['middleware'=>['auth']], function(){
     Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
@@ -60,8 +62,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', '
     Route::get('favorites', [AdminFavoriteController::class, 'index'])->name('favorite.index');
 
     // Get Comments
-    Route::get('comments', [CommentController::class, 'index'])->name('comment.index');
-    Route::delete('comments/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
+    Route::get('comments', [AdminCommentController::class, 'index'])->name('comment.index');
+    Route::delete('comments/{id}', [AdminCommentController::class, 'destroy'])->name('comment.destroy');
 
     Route::get('subscribers', [AdminSubscriberController::class, 'index'])->name('subscriber.index');
     Route::delete('subscribers/{subscriber}', [AdminSubscriberController::class, 'destroy'])->name('subscriber.destroy');
