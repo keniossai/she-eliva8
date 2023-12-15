@@ -44,17 +44,8 @@
             </a>
           </div>
           <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
-            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Discussions <span class="arrow-icon"> <span
-                    class="left-bar"></span>
-                  <span class="right-bar"></span></span>
-              </a>
-              <ul class="drop-menu">
-                @foreach ($categories as $category)
-                    <li class="drop-menu-item"><a href="archive-layout-one.html">{{ $category->name }}</a></li>
-                @endforeach
-              </ul>
-            </li>
+            <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
             <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
             <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
