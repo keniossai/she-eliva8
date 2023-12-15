@@ -112,11 +112,19 @@
                         <div class="comments_and_views">
                         <li class="category-tag-name" >
                             @guest
-                                <a href="" class="likes">
+                                <a href="javascript:void(0)" class="likes" onclick="toastr.info('To add to favorite list you need to login first','Info',{
+                                    closeButton: true,
+                                    progressBar: true,
+                                })">
                                     <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
                                 </a>
                             @else
-
+                                <a href="javascript:void(0)" class="likes" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
+                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
+                                </a>
+                                <form class="x-submit" id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;" data-then="reload">
+                                    @csrf
+                                </form>
                             @endguest
                             </li>
                             <li class="category-tag-name">
@@ -138,7 +146,7 @@
                     </h5>
                     <div class="author-date">
                     <a class="author" href="#">
-                        <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
+                        <img src="{{ url('storage/profile/'.Auth::user()->image) }}" alt="" class="rounded-circle" />
                         <span class="writer-name-small">Julie</span>
                     </a>
                     <a class="date" href="#">
