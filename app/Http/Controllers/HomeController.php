@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::take(3)->get();
         $tags = Tag::all();
         $posts = Post::latest()->take(6)->get();
         return view('welcome', compact('categories','tags', 'posts'));
