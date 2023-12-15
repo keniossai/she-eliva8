@@ -13,7 +13,7 @@ class AllPostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        $posts = Post::latest()->paginate(6);
+        $posts = Post::latest()->approved()->published()->paginate(6);
         return view('allposts', compact('categories','tags', 'posts'));
     }
 }

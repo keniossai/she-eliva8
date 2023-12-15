@@ -31,22 +31,22 @@
     <section class="archive-content">
         <div class="container">
           <div class="row">
-            @if ($category->posts->count() > 0)
-                @foreach ($category->posts as $post)
+            @if ($posts->count() > 0)
+                @foreach ($posts as $post)
                     <div class="col-md-4">
                         <div class="card simple-overlay-card border-0">
-                            <a href="single-layout-one.html"><img src="{{ url('storage/post/'.$post->image) }}" class="card-img" alt=""></a>
+                            <a href="{{ route('post.details',$post->slug) }}"><img src="{{ url('storage/post/'.$post->image) }}" class="card-img" alt=""></a>
                             <div class="card-img-overlay">
                             <ul class="category-tag-list">
                                 <li class="category-tag-name">
-                                <a href="#">{{ $category->name }}</a>
+                                <a href="">{{ $category->name }}</a>
                                 </li>
                             </ul>
                             <h5 class="card-title title-font">
-                                <a href="single-layout-one.html">{{ $post->title }}</a>
+                                <a href="{{ route('post.details',$post->slug) }}">{{ $post->title }}</a>
                             </h5>
                             <div class="author-date">
-                                <a class="author" href="#">
+                                <a class="author" href="">
                                 <img src="assets/images/person1.jpg" alt="" class="rounded-circle">
                                 <span class="writer-name-small">{{ $post->user->name }}
                                 </span>

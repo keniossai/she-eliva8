@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Comment;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
@@ -36,6 +37,16 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function scopeApproved(Builder $query)
+    {
+        return $query->where('is_approved', 1);
+    }
+
+    public function scopePublished(Builder $query)
+    {
+        return $query->where('status', 1);
     }
 
 }

@@ -45,7 +45,7 @@
             <i class="fas fa-bars"></i>
           </span>
           <div class="sticky-logo">
-            <a href="index.html">
+            <a href="{{ route('home') }}">
               <p>Elivate-Her</p>
             </a>
           </div>
