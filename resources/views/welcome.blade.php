@@ -101,7 +101,7 @@
           @foreach ($posts as $post)
             <div class="col-md-4">
                 <div class="card">
-                <a href="single-layout-one.html">
+                <a href="{{ route('post.details',$post->slug) }}">
                     <img src="{{ url('storage/post/'.$post->image) }}" class="card-img-top " alt="" />
                 </a>
                 <div class="card-body px-0">
