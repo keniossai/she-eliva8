@@ -23,4 +23,9 @@ class PostDetailsController extends Controller
         $randomposts = Post::all()->random(4);
         return view('post', compact('categories', 'post', 'tags', 'randomposts'));
     }
+
+    public function postByCategory($slug)
+    {
+        return $category = Category::where('slug', $slug)->first();
+    }
 }
