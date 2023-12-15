@@ -26,6 +26,12 @@ class PostDetailsController extends Controller
 
     public function postByCategory($slug)
     {
-        return $category = Category::where('slug', $slug)->first();
+        $category = Category::where('slug', $slug)->first();
+        return view('category', compact('category'));
+    }
+    public function postByTag($slug)
+    {
+        $tag = Tag::where('slug', $slug)->first();
+        return view('tag', compact('tag'));
     }
 }
