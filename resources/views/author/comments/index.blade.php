@@ -27,51 +27,51 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($comments as $key=>$comment)
-                                    <tr>
-
-                                        <td>
-                                            <div class="media d-flex">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="{{ url('storage/profile/'.$comment->user->image) }}" alt="" class="avatar-xs me-2">
+                                    @foreach ($posts as $key=>$post)
+                                        @foreach ($post->comments as $comment)
+                                            <tr>
+                                                <td>
+                                                    <div class="media d-flex">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <img src="{{ url('storage/profile/'.$comment->user->image) }}" alt="" class="avatar-xs me-2">
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h5 class="media-heading">{{ $comment->user->name }}</h5>
+                                                            <p>{{ $comment->comment }}</p>
+                                                            <a target="_blank" href="{{ route('post.details',$comment->post->slug.'#comments') }}">Reply</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">{{ $comment->user->name }}</h5>
-                                                    <p>{{ $comment->comment }}</p>
-                                                    <a target="_blank" href="{{ route('post.details',$comment->post->slug.'#comments') }}">Reply</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="media d-flex">
-                                                <div class="media-right">
-                                                    <a target="_blank" href="{{ route('post.details',$comment->post->slug) }}">
-                                                        <img class="media-object" src="{{ url('storage/post/'.$comment->post->image) }}" width="64" height="64">
-                                                    </a>
-                                                </div>
-                                                <div class="media-body p-2">
-                                                    <a target="_blank" href="{{ route('post.details',$comment->post->slug) }}">
-                                                        <h6 class="media-heading">{{ \Illuminate\Support\Str::limit($comment->post->title,'40') }}</h6>
-                                                    </a>
-                                                    <p>by <strong>{{ $comment->post->user->name }}</strong></p>
-                                                </div>
-                                            </div>
+                                                </td>
+                                                <td>
+                                                    <div class="media d-flex">
+                                                        <div class="media-right">
+                                                            <a target="_blank" href="{{ route('post.details',$comment->post->slug) }}">
+                                                                <img class="media-object" src="{{ url('storage/post/'.$comment->post->image) }}" width="64" height="64">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body p-2">
+                                                            <a target="_blank" href="{{ route('post.details',$comment->post->slug) }}">
+                                                                <h6 class="media-heading">{{ \Illuminate\Support\Str::limit($comment->post->title,'40') }}</h6>
+                                                            </a>
+                                                            <p>by <strong>{{ $comment->post->user->name }}</strong></p>
+                                                        </div>
+                                                    </div>
 
-                                        </td>
+                                                </td>
 
 
-                                        <td>
-                                            {{-- <a href="{{ route('admin.post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a> --}}
-                                            <button type="button" style="border: none; background: transparent;" onclick="deleteComment({{ $comment->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
-                                            <form action="{{ route('author.comment.destroy',$comment->id) }}" method="POST" id="delete-form-{{ $comment->id }}" style="display: none;">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
-                                        </td>
-                                    </tr>
-
+                                                <td>
+                                                    {{-- <a href="{{ route('admin.post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a> --}}
+                                                    <button type="button" style="border: none; background: transparent;" onclick="deleteComment({{ $comment->id }})" class="px-1 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
+                                                    <form action="{{ route('author.comment.destroy',$comment->id) }}" method="POST" id="delete-form-{{ $comment->id }}" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
