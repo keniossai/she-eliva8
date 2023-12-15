@@ -134,7 +134,7 @@
                             </li>
                             <li class="category-tag-name">
                             <a href="" class="likes">
-                                <i class="fas fa-comment"> 32</i>
+                                <i class="fas fa-comment"> {{ $post->comments->count() }}</i>
                             </a>
                             </li>
                         </div>
@@ -150,7 +150,7 @@
                         <span class="writer-name-small">{{$post->user->name}}</span>
                     </a>
                     <a class="date" href="#">
-                        <span>21 Dec, 2019</span>
+                        <span>{{ $post->created_at->diffForHumans() }}</span>
                     </a>
                     </div>
                 </div>
@@ -438,31 +438,16 @@
             </div>
             <div class="sidebar-content">
               <div class="category-name-list">
-                <div class="card small-card">
-                  <a href="single-layout-one.html"><img src="client/images/shoes.jpg" class="card-img" alt="" /></a>
-                  <div class="card-img-overlay">
-                    <h5 class="card-title title-font mb-0">
-                      <a href="#">Travel</a>
-                    </h5>
-                  </div>
-                </div>
-                <div class="card small-card">
-                  <a href="single-layout-one.html"><img src="client/images/photography.jpg" class="card-img"
-                      alt="" /></a>
-                  <div class="card-img-overlay">
-                    <h5 class="card-title title-font mb-0">
-                      <a href="#">Photography</a>
-                    </h5>
-                  </div>
-                </div>
-                <div class="card small-card">
-                  <a href="single-layout-one.html"><img src="client/images/fashion.jpg" class="card-img" alt="" /></a>
-                  <div class="card-img-overlay">
-                    <h5 class="card-title title-font mb-0">
-                      <a href="#">Fashion</a>
-                    </h5>
-                  </div>
-                </div>
+                    @foreach ($categories as $category)
+                        <div class="card small-card">
+                            <a href="{{ route('category.posts',$category->slug) }}"><img src="client/images/shoes.jpg" class="card-img" alt="" /></a>
+                            <div class="card-img-overlay">
+                            <h5 class="card-title title-font mb-0">
+                                <a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a>
+                            </h5>
+                            </div>
+                        </div>
+                    @endforeach
               </div>
             </div>
           </div>
