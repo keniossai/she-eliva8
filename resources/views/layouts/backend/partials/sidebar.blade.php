@@ -114,8 +114,14 @@
                     </li>
                     <li>
                         <a href="{{ route('author.favorite.index') }}" class="waves-effect">
-                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
                             <span>Favorite Post</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('author.comment.index') }}" class="waves-effect">
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            <span>Comments</span>
                         </a>
                     </li>
                     <li class="menu-title">Systems</li>
