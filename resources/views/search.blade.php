@@ -34,15 +34,15 @@
     <!-- search results -->
     <section class="search-results">
       <div class="container">
-        <h5 class="search-result-title">Great! We've found {{ $posts->count() }} matching of {{ $query }}.</h5>
-        <div class="row align-items-center">
-            @if ($posts->count() > 0)
+          <h5 class="search-result-title">Great! We've found {{ $posts->count() }} matching of {{ $query }}.</h5>
+          <div class="row align-items-center">
+              @if ($posts->count() > 0)
                 @foreach ($posts as $post)
                     <div class="col-md-12 col-lg-6">
                         <div class="card p-3">
                         <div class="row no-gutters align-items-center align-items-center">
                             <div class="col-md-5">
-                            <a href="#"> <img src="{{ url('storage/post/'.$post->image) }}" class="card-img" alt=""></a>
+                            <a href="{{ route('post.details',$post->slug) }}"> <img src="{{ url('storage/post/'.$post->image) }}" class="card-img" alt=""></a>
                             </div>
                             <div class="col-md-7">
                             <div class="card-body">
@@ -51,7 +51,7 @@
                                     <a href="#">{{ $query }}</a>
                                 </li>
                                 </ul>
-                                <h5 class="card-title title-font"><a href="#">{{ $post->title }}</a></h5>
+                                <h5 class="card-title title-font"><a href="{{ route('post.details',$post->slug) }}">{{ $post->title }}</a></h5>
                                 <p class="card-text">{!! \Illuminate\Support\Str::limit($post->body,'100') !!}</p>
                             </div>
                             </div>
@@ -60,7 +60,7 @@
                     </div>
                 @endforeach
             @else
-
+            <h5 class="search-result-title text-center">No Result Found.</h5>
             @endif
 
         </div>
