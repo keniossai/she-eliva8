@@ -42,6 +42,9 @@ Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscrib
 Route::get('/category/{slug}', [PostDetailsController::class, 'postByCategory'])->name('category.posts');
 Route::get('/tag/{slug}', [PostDetailsController::class, 'postByTag'])->name('tag.posts');
 
+// Search Controller
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
 Route::group(['middleware'=>['auth']], function(){
     Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
     Route::post('comment/{post}', [CommentController::class, 'store'])->name('comment.store');
