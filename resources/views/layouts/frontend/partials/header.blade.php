@@ -93,8 +93,8 @@
     <div id="search-overlay" class="search-section">
       <span class="closebtn"><i class="fas fa-times"></i></span>
       <div class="overlay-content">
-        <form>
-          <input type="text" placeholder="Search here" name="search">
+        <form method="GET" action="{{ route('search') }}">
+          <input type="text" name="query" placeholder="Search here" name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
