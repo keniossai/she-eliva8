@@ -42,6 +42,7 @@ Route::get('/posts', [AllPostController::class, 'posts'])->name('posts');
 Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
 Route::get('/category/{slug}', [PostDetailsController::class, 'postByCategory'])->name('category.posts');
 Route::get('/tag/{slug}', [PostDetailsController::class, 'postByTag'])->name('tag.posts');
+Route::get('profile/{username}', [AuthorProfileController::class, 'index'])->name('author.profile');
 
 // Search Controller
 Route::get('/search', [SearchController::class, 'search'])->name('search');

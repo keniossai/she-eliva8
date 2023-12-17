@@ -34,7 +34,7 @@
     <!-- search results -->
     <section class="search-results">
       <div class="container">
-          <h5 class="search-result-title">Great! We've found {{ $posts->count() }} matching of {{ $query }}.</h5>
+          <h5 class="search-result-title">We've found {{ $posts->count() }} matching of {{ $query }}.</h5>
           <div class="row align-items-center">
               @if ($posts->count() > 0)
                 @foreach ($posts as $post)
@@ -60,7 +60,7 @@
                     </div>
                 @endforeach
             @else
-            <h5 class="search-result-title text-center">No Result Found.</h5>
+            {{-- <h5 class="search-result-title text-center">No Result Found.</h5> --}}
             @endif
 
         </div>

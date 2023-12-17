@@ -60,7 +60,17 @@
                     </div>
                 @endforeach
             @else
-
+            <section class="contact-section">
+                <div class="container">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-md-12">
+                      <div class="contact-info">
+                        <h3>Sorry, No post found</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             @endif
           </div>
         </div><!-- container close -->

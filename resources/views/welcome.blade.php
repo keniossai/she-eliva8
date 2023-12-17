@@ -12,83 +12,31 @@
           </div>
           <div class="banner-bg-right">
             <div class="banner-carousel">
-              <div class="banner-item">
-                <div class="banner-img">
-                  <a href="single-layout-one.html"> <img src="client/images/image-1.jpg" alt=""></a>
-                </div>
-                <div class="banner-text">
-                  <ul class="category-tag-list">
-                    <li class="category-tag-name">
-                      <a href="#">Sports</a>
-                    </li>
-                  </ul>
-                  <div class="title-font">
-                    <a href="single-layout-one.html">Happiness Of Victory In Olympics</a>
-                  </div>
-                  <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quo sequi
-                    quibusdam
-                    similique exercitationem ratione consequuntur ipsa quas? Fugiat illum cupiditate voluptates,
-                    nulla
-                    quis
-                    doloremque officia ex placeat in ratione!</p>
-                  <a href="single-layout-one.html" class="btn btn-solid btn-read">Read More</a>
-                </div>
-              </div>
-              <div class="banner-item">
+                @foreach ($bannerposts as $post)
+                    <div class="banner-item">
 
-                <div class="banner-img">
-                  <a href="single-layout-one.html">
-                    <img src="client/images/image-2.jpg" alt="">
-                  </a>
-                </div>
+                    <div class="banner-img">
+                        <a href="{{ route('post.details',$post->slug) }}">
+                        <img src="{{ url('storage/post',$post->image) }}" alt="">
+                        </a>
+                    </div>
 
-                <div class="banner-text">
-                  <ul class="category-tag-list">
+                    <div class="banner-text">
+                        <ul class="category-tag-list">
 
-                    <li class="category-tag-name">
-                      <a href="#">Sports</a>
-                    </li>
-                  </ul>
-                  <div class="title-font">
-                    <a href="single-layout-one.html">Get ready for December Adventures</a>
-                  </div>
-                  <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quo sequi
-                    quibusdam
-                    similique exercitationem ratione consequuntur ipsa quas? Fugiat illum cupiditate voluptates,
-                    nulla
-                    quis
-                    doloremque officia ex placeat in ratione!</p>
+                        <li class="category-tag-name">
+                            <a href="#">{{ $post->category }}</a>
+                        </li>
+                        </ul>
+                        <div class="title-font">
+                        <a href="{{ route('post.details',$post->slug) }}">{{ $post->title }}</a>
+                        </div>
+                        <p class="mb-3">{!! \Illuminate\Support\Str::limit($post->body,'200') !!}</p>
 
-                  <a href="single-layout-one.html" class="btn btn-solid btn-read">Read More</a>
-
-
-                </div>
-              </div>
-              <div class="banner-item">
-
-                <div class="banner-img">
-                  <a href="single-layout-one.html">
-                    <img src="client/images/image-3.jpg" alt="">
-
-                  </a>
-                </div>
-
-                <div class="banner-text">
-                  <ul class="category-tag-list">
-
-                    <li class="category-tag-name">
-                      <a href="#">Travel</a>
-                    </li>
-                  </ul>
-                  <div class="title-font">
-                    <a href="#">5 Workouts To Build Your Muscles Fast</a>
-                  </div>
-                  <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vel numquam eveniet
-                    nisi iure aliquid. Ea mollitia optio nostrum ut.</p>
-
-                  <a href="single-layout-one.html" class="btn btn-solid btn-read">Read More</a>
-                </div>
-              </div>
+                        <a href="{{ route('post.details',$post->slug) }}" class="btn btn-solid btn-read">Read More</a>
+                    </div>
+                    </div>
+                @endforeach
             </div>
           </div>
         </div>
@@ -145,11 +93,11 @@
                     </a>
                     </h5>
                     <div class="author-date">
-                    <a class="author" href="#">
+                    <a class="author" href="{{ route('author.profile',$post->user->username) }}">
                         <img src="{{ url('storage/profile/'.$post->user->image) }}" alt="" class="rounded-circle" />
                         <span class="writer-name-small">{{$post->user->name}}</span>
                     </a>
-                    <a class="date" href="#">
+                    <a class="date" href="javascript:void(0)">
                         <span>{{ $post->created_at->diffForHumans() }}</span>
                     </a>
                     </div>
@@ -253,209 +201,6 @@
     </div>
   </section>
   <!-- Featured post end -->
-
-  <!-- Popular posts -->
-  <section class="popular-posts section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Popular posts</h2>
-      </div>
-      <div class="row">
-        <div class="col-md-7 col-lg-8">
-          <div class="card mb-4">
-            <div class="row no-gutters align-items-center">
-              <div class="col-md-4">
-                <a href="single-layout-one.html">
-                  <img src="client/images/image-11.jpg" class="card-img " alt="">
-                </a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <ul class="category-tag-list">
-                    <li class="category-tag-name">
-                      <a href="#">Sports</a>
-                    </li>
-                  </ul>
-                  <h5 class="card-title title-font"><a href="single-layout-one.html">Climbing Gives Me Sense Of Purpose</a>
-                  </h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit,
-                    amet consectetur adipisicing elit. Sapiente, asperiores.<p>
-                      <div class="author-date">
-                        <a class="author" href="#">
-                          <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                          <span class="writer-name-small">Julie</span>
-                        </a>
-                        <a class="date" href="#">
-                          <span>21 Dec, 2019</span>
-                        </a>
-                      </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card mb-4">
-            <div class="row no-gutters align-items-center">
-              <div class="col-md-4">
-                <a href="single-layout-one.html"> <img src="client/images/image-5.jpg" class="card-img " alt=""></a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <ul class="category-tag-list">
-                    <li class="category-tag-name">
-                      <a href="#">Sports</a>
-                    </li>
-                  </ul>
-                  <h5 class="card-title title-font"><a href="single-layout-one.html">5 Tricks To Defend In Boxing</a></h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum rem, delectus
-                    deserunt consectetur saepe? Expedita sapiente rerum nostrum fuga non iure minima sunt inventore.<p>
-                      <div class="author-date">
-                        <a class="author" href="#">
-                          <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                          <span class="writer-name-small">Julie</span>
-                        </a>
-                        <a class="date" href="#">
-                          <span>21 Dec, 2019</span>
-                        </a>
-                      </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card mb-4">
-            <div class="row no-gutters align-items-center">
-              <div class="col-md-4">
-                <a href="single-layout-one.html"><img src="client/images/image-12.jpg" class="card-img " alt=""></a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <ul class="category-tag-list">
-                    <li class="category-tag-name">
-                      <a href="#">Sports</a>
-                    </li>
-                  </ul>
-                  <h5 class="card-title title-font"><a href="single-layout-one.html">Marathon For A Social Cause</a></h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum rem, delectus
-                    deserunt consectetur saepe? <p>
-                      <div class="author-date">
-                        <a class="author" href="#">
-                          <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                          <span class="writer-name-small">Julie</span>
-                        </a>
-                        <a class="date" href="#">
-                          <span>21 Dec, 2019</span>
-                        </a>
-                      </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card mb-4">
-            <div class="row no-gutters align-items-center">
-              <div class="col-md-4">
-                <a href="single-layout-one.html"><img src="client/images/image-13.jpg" class="card-img " alt=""></a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <ul class="category-tag-list">
-                    <li class="category-tag-name">
-                      <a href="#">Sports</a>
-                    </li>
-                  </ul>
-                  <h5 class="card-title title-font"><a href="single-layout-one.html"> Amazing Performance Of Our Team In Football</a></h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum rem, delectus
-                    deserunt consectetur saepe? <p>
-                      <div class="author-date">
-                        <a class="author" href="#">
-                          <img src="client/images/writer.jpg" alt="" class="rounded-circle" />
-                          <span class="writer-name-small">Julie</span>
-                        </a>
-                        <a class="date" href="#">
-                          <span>21 Dec, 2019</span>
-                        </a>
-                      </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 col-lg-4">
-          <div class="recent-posts">
-            <div class="sidebar-title">
-              <h5><i class="fas fa-circle"></i>Trending this week</h5>
-            </div>
-            <div class="sidebar-content">
-              <ul class="sidebar-list">
-                <li class="sidebar-item">
-                  <div class="num-left">
-                    1
-                  </div>
-                  <div class="content-right">
-                    <a href="single-layout-one.html">Healthy Dieting Habits for any age</a>
-
-                  </div>
-                </li>
-                <li class="sidebar-item">
-                  <div class="num-left">
-                    2
-                  </div>
-                  <div class="content-right">
-                    <a href="single-layout-one.html"> 10 foods you should try in Kathmandu</a>
-                  </div>
-                </li>
-                <li class="sidebar-item">
-                  <div class="num-left">
-                    3
-                  </div>
-                  <div class="content-right">
-                    <a href="single-layout-one.html">Everything You Wanted to Know About Love Life</a>
-                  </div>
-                </li>
-                <li class="sidebar-item">
-                  <div class="num-left">
-                    4
-                  </div>
-                  <div class="content-right">
-                    <a href="single-layout-one.html">Yoga works only under these conditions</a>
-                  </div>
-                </li>
-                <li class="sidebar-item">
-                  <div class="num-left">
-                    5
-                  </div>
-                  <div class="content-right">
-                    <a href="single-layout-one.html">Top 10 mysterious places you didn't know</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="sidebar-posts mt-4">
-            <div class="sidebar-title">
-              <h5><i class="fas fa-circle"></i>Categories</h5>
-            </div>
-            <div class="sidebar-content">
-              <div class="category-name-list">
-                    @foreach ($categories as $category)
-                        <div class="card small-card">
-                            <a href="{{ route('category.posts',$category->slug) }}"><img src="client/images/shoes.jpg" class="card-img" alt="" /></a>
-                            <div class="card-img-overlay">
-                            <h5 class="card-title title-font mb-0">
-                                <a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a>
-                            </h5>
-                            </div>
-                        </div>
-                    @endforeach
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Popular posts end -->
 
   <!-- Recommended Posts -->
   <section class="recommended-posts">
