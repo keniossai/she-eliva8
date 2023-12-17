@@ -87,6 +87,14 @@
                             <span>Subscribers</span>
                         </a>
                     </li>
+                    <li class="menu-title">Users</li>
+
+                    <li>
+                        <a href="{{ route('admin.author.index') }}" class="waves-effect">
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            <span>Authors</span>
+                        </a>
+                    </li>
                     <li class="menu-title">Systems</li>
 
                     <li>
