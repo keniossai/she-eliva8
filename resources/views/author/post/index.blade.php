@@ -41,7 +41,7 @@
 
                                         <td><span class="text-reset  fw-bold">{{ $key + 1 }}</span> </td>
                                         <td>
-                                            <a href="" class="text-reset  fw-bold">{{ \Illuminate\Support\Str::limit($post->title, '10') }}</a>
+                                            <a href="{{ route('author.post.show',$post->id) }}" class="text-reset  fw-bold">{{ \Illuminate\Support\Str::limit($post->title, '10') }}</a>
                                         </td>
                                         <td>
                                             <span>{{ $post->user->name }}</span>
