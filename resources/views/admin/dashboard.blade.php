@@ -10,14 +10,6 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0">Dashboard</h4>
-
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Minible</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-
             </div>
         </div>
     </div>
@@ -182,6 +174,40 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <div class="table-responsive mb-4">
+                            <table class="table table-centered datatable dt-responsive nowrap table-card-list" style="border-collapse: collapse; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Rank List</th>
+                                        <th>Name</th>
+                                        <th>Post</th>
+                                        <th>Comments</th>
+                                        <th>Favorites</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($active_authors as $key=>$author)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $author->name }}</td>
+                                        <td>{{ $author->posts_count }}</td>
+                                        <td>{{ $author->comments_count }}</td>
+                                        <td>{{ $author->favorite_posts_count }}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
