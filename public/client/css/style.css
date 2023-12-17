@@ -143,14 +143,14 @@ a:hover {
   font-weight: 700;
 }
 .section-title:before {
-  content: url("../images/title-bg.png");
+  /* content: url("../images/title-bg.png");
   height: 30px;
   width: 50px;
   display: block;
   position: absolute;
   left: -20px;
   top: -20px;
-  z-index: -1;
+  z-index: -1; */
 }
 .section-padding {
   padding: 50px 0;
