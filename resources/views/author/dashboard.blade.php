@@ -103,7 +103,7 @@
                                     @foreach ($popular_posts as $key=>$post)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td class="fw-bold">{{ \Illuminate\Support\Str::limit($post->title, '20') }}</td>
+                                            <td><a href="{{ route('author.post.show',$post->id) }}" class="text-reset  fw-bold">{{ \Illuminate\Support\Str::limit($post->title, '40') }}</a></td>
                                             <td>{{ $post->view_count }}</td>
 
                                             <td>
