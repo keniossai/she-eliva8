@@ -31,7 +31,7 @@
                         <div id="total-revenue-chart" data-colors='["--bs-primary"]'></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">152</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $posts->count() }}</span></h4>
                         <p class="text-muted mb-0">Total Post</p>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
                         <div id="orders-chart" data-colors='["--bs-success"]'></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">5,643</span></h4>
-                        <p class="text-muted mb-0">Pending </p>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ Auth::user()->favorite_posts->count() }}</span></h4>
+                        <p class="text-muted mb-0">Total Favorites </p>
                     </div>
                 </div>
             </div>
@@ -59,8 +59,8 @@
                         <div id="customers-chart" data-colors='["--bs-primary"]'> </div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">45,254</span></h4>
-                        <p class="text-muted mb-0">Approved</p>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $total_pending_posts }}</span></h4>
+                        <p class="text-muted mb-0">Pending Post</p>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,66 @@
                         <div id="growth-chart" data-colors='["--bs-warning"]'></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">2</span></h4>
-                        <p class="text-muted mb-0">Total Users</p>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $all_views }}</span></h4>
+                        <p class="text-muted mb-0">Total Views</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col-->
+    </div> <!-- end row-->
+    <div class="row">
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="float-end mt-2">
+                        <div id="total-revenue-chart" data-colors='["--bs-primary"]'></div>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $category_count }}</span></h4>
+                        <p class="text-muted mb-0">Category Total</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col-->
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="float-end mt-2">
+                        <div id="orders-chart" data-colors='["--bs-success"]'></div>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $tag_count }}</span></h4>
+                        <p class="text-muted mb-0">Total Tags </p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col-->
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="float-end mt-2">
+                        <div id="customers-chart" data-colors='["--bs-primary"]'> </div>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $author_count }}</span></h4>
+                        <p class="text-muted mb-0">Total Authors</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col-->
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="float-end mt-2">
+                        <div id="growth-chart" data-colors='["--bs-warning"]'></div>
+                    </div>
+                    <div>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $new_authors_today }}</span></h4>
+                        <p class="text-muted mb-0">Total Authors Today</p>
                     </div>
                 </div>
             </div>
@@ -83,104 +141,55 @@
     </div> <!-- end row-->
 
     <div class="row">
-        <div class="col-xl-8">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Site Analytics</h4>
-                    <div class="mt-1">
-                        <ul class="list-inline main-chart mb-0">
-                            <li class="list-inline-item chart-border-left me-0 border-0">
-                                <h3 class="text-primary"><span data-plugin="counterup">2,371</span><span class="text-muted d-inline-block font-size-15 ms-3">Comments</span></h3>
-                            </li>
-                            <li class="list-inline-item chart-border-left me-0">
-                                <h3><span data-plugin="counterup">258</span><span class="text-muted d-inline-block font-size-15 ms-3">Likes</span>
-                                </h3>
-                            </li>
-                            <li class="list-inline-item chart-border-left me-0">
-                                <h3><span data-plugin="counterup">36</span><span class="text-muted d-inline-block font-size-15 ms-3">Views</span></h3>
-                            </li>
-                        </ul>
+                    <div>
+                        <div class="table-responsive mb-4">
+                            <table class="table table-centered datatable dt-responsive nowrap table-card-list" style="border-collapse: collapse; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Views</th>
+                                        <th>Favorites</th>
+                                        <th>Comments</th>
+                                        <th>Status</th>
+                                        <th >Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($popular_posts as $key=>$post)
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>
+                                                <a href="{{ route('author.post.show',$post->id) }}" class="text-reset  fw-bold">{{ \Illuminate\Support\Str::limit($post->title, '40') }}</a>
+                                            </td>
+                                            <td>{{ $post->user->name }}</td>
+                                            <td>{{ $post->view_count }}</td>
+                                            <td>{{ $post->favorite_to_user_count }}</td>
+                                            <td>{{ $post->comments_count }}</td>
+                                            <td>
+                                                @if($post->is_approved == true)
+                                                    <div class="badge bg-pill bg-success-subtle text-success font-size-12 px-2">Approved</div>
+                                                @else
+                                                    <div class="badge bg-pill bg-warning-subtle text-warning font-size-12 px-2">Pending</div>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('author.post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-
-                    <div class="mt-3">
-                        <div id="sales-analytics-chart" data-colors='["--bs-primary", "#dfe2e6", "--bs-danger"]' class="apex-charts" dir="ltr"></div>
-                    </div>
-                </div> <!-- end card-body-->
-            </div> <!-- end card-->
-        </div> <!-- end col-->
-
-        <div class="col-xl-4">
-            <div class="card bg-primary">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-sm-8">
-                            <p class="text-white font-size-18">Enhance your <b>Functionality</b> for better interaction <i class="mdi mdi-arrow-right"></i></p>
-                            <div class="mt-4">
-                                <a href="javascript: void(0);" class="btn btn-success waves-effect waves-light">Upgrade Now!</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="mt-4 mt-sm-0">
-                                <img src="assets/images/setup-analytics-amico.svg" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end card-body-->
-            </div> <!-- end card-->
-
-            <div class="card">
-                <div class="card-body">
-
-                    <h4 class="card-title mb-4">Site Charts</h4>
-                    <div class="row align-items-center g-0 mt-3">
-                        <div class="col-sm-3">
-                            <p class="text-truncate mt-1 mb-0"><i class="mdi mdi-circle-medium text-primary me-2"></i> Views </p>
-                        </div>
-
-                        <div class="col-sm-9">
-                            <div class="progress mt-1" style="height: 6px;">
-                                <div class="progress-bar progress-bar bg-primary" role="progressbar"
-                                    style="width: 52%" aria-valuenow="52" aria-valuemin="0"
-                                    aria-valuemax="52">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end row-->
-
-                    <div class="row align-items-center g-0 mt-3">
-                        <div class="col-sm-3">
-                            <p class="text-truncate mt-1 mb-0"><i class="mdi mdi-circle-medium text-info me-2"></i> Comment </p>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="progress mt-1" style="height: 6px;">
-                                <div class="progress-bar progress-bar bg-info" role="progressbar"
-                                    style="width: 45%" aria-valuenow="45" aria-valuemin="0"
-                                    aria-valuemax="45">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end row-->
-
-                    <div class="row align-items-center g-0 mt-3">
-                        <div class="col-sm-3">
-                            <p class="text-truncate mt-1 mb-0"><i class="mdi mdi-circle-medium text-success me-2"></i> Comments </p>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="progress mt-1" style="height: 6px;">
-                                <div class="progress-bar progress-bar bg-success" role="progressbar"
-                                    style="width: 48%" aria-valuenow="48" aria-valuemin="0"
-                                    aria-valuemax="48">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end row-->
-
-
-
-                </div> <!-- end card-body-->
-            </div> <!-- end card-->
-        </div> <!-- end Col -->
-    </div> <!-- end row-->
+                </div>
+            </div>
+        </div>
+    </div>
 </div> <!-- container-fluid -->
 
 @endsection
