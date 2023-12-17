@@ -14,6 +14,7 @@ class HomeController extends Controller
         $categories = Category::take(3)->get();
         $tags = Tag::all();
         $posts = Post::latest()->approved()->published()->take(6)->get();
-        return view('welcome', compact('categories','tags', 'posts'));
+        $bannerposts = Post::approved()->published()->take(1)->inRandomOrder()->get();
+        return view('welcome', compact('categories','tags', 'posts', 'bannerposts'));
     }
 }
