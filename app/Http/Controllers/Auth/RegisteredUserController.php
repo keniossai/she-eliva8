@@ -25,16 +25,16 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    public function __construct()
-    {
-        if (Auth::check() && Auth::user()->role->id == 1)
-        {
-            $this->redirectTo = route('admin.dashboard');
-        } else {
-            $this->redirectTo = route('author.dashboard');
-        }
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     if (Auth::check() && Auth::user()->role->id == 1)
+    //     {
+    //         $this->redirectTo = route('admin.dashboard');
+    //     } else {
+    //         $this->redirectTo = route('author.dashboard');
+    //     }
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Handle an incoming registration request.
