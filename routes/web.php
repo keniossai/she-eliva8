@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\AuthorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllPostController;
 use App\Http\Controllers\CommentController;
@@ -64,6 +65,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', '
 
     // Favorite Post
     Route::get('favorites', [AdminFavoriteController::class, 'index'])->name('favorite.index');
+
+    // All author controller
+    Route::get('authors', [AuthorController::class, 'index'])->name('author.index');
+    Route::delete('authors/{id}', [AuthorController::class, 'destroy'])->name('author.destroy');
 
     // Get Comments
     Route::get('comments', [AdminCommentController::class, 'index'])->name('comment.index');
