@@ -88,7 +88,7 @@
                         </div>
                     </ul>
                     <h5 class="card-title title-font">
-                    <a href="single-layout-one.html">
+                    <a href="{{ route('post.details',$post->slug) }}">
                         {{ $post->title }}
                     </a>
                     </h5>
@@ -121,7 +121,7 @@
         <div class="col-md-12 col-lg-7">
           <div class="featured-left">
             <div class="card">
-              <a href="single-layout-one.html"><img src="client/images/image-8.jpg" class="card-img " alt="" /></a>
+              <a href="{{ route('post.details',$post->slug) }}"><img src="client/images/image-8.jpg" class="card-img " alt="" /></a>
               <div class="card-img-overlay">
                 <ul class="category-tag-list">
 
@@ -137,7 +137,7 @@
                   nostrum eum, cum ab iusto error totam quae nemo dicta nesciunt
                   quo earum ipsam, ex aspernatur.
                 </p>
-                <a href="single-layout-one.html" class="btn btn-solid btn-read">Read More</a>
+                <a href="{{ route('post.details',$post->slug) }}" class="btn btn-solid btn-read">Read More</a>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@
         <div class="col-md-12 col-lg-5">
           <div class="featured-right">
             <div class="card">
-              <a href="single-layout-one.html">
+              <a href="{{ route('post.details',$post->slug) }}">
                 <img src="client/images/image-10.jpg" class="card-img-top " alt="">
               </a>
               <div class="card-body">
@@ -155,7 +155,7 @@
                     <a href="#">Lifestyle</a>
                   </li>
                 </ul>
-                <h5 class="card-title title-font"><a href="single-layout-one.html">Exercises In Group For Motivation</a>
+                <h5 class="card-title title-font"><a href="{{ route('post.details',$post->slug) }}">Exercises In Group For Motivation</a>
                 </h5>
                 <div class="author-date">
                   <a class="author" href="#">
@@ -169,7 +169,7 @@
               </div>
             </div>
             <div class="card">
-              <a href="single-layout-one.html">
+              <a href="{{ route('post.details',$post->slug) }}">
                 <img src="client/images/image-9.jpg" class="card-img-top " alt="">
 
               </a>
@@ -182,7 +182,7 @@
                     <a href="#">Travel</a>
                   </li>
                 </ul>
-                <h5 class="card-title title-font"><a href="single-layout-one.html">Why College Students Love BasketBall</a>
+                <h5 class="card-title title-font"><a href="{{ route('post.details',$post->slug) }}">Why College Students Love BasketBall</a>
                 </h5>
                 <div class="author-date">
                   <a class="author" href="#">
@@ -213,7 +213,7 @@
           @foreach ($recommendedPosts as $post)
             <div class="col-md-4">
                 <div class="card">
-                <a href="single-layout-one.html">
+                <a href="{{ route('post.details',$post->slug) }}">
                     <img src="{{ url('storage/post',$post->image) }}" class="card-img-top" alt="" />
                 </a>
                 <div class="card-body px-0">
@@ -252,7 +252,7 @@
                         </div>
                     </ul>
                     <h5 class="card-title title-font">
-                    <a href="single-layout-one.html">
+                    <a href="{{ route('post.details',$post->slug) }}">
                     {{ $post->title }}</a>
                     </h5>
                     <div class="author-date">
