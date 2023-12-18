@@ -3,20 +3,8 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <a href="index.html" class="logo logo-dark">
-            <span class="logo-sm">
-                <img src="assets/images/logo-sm.png" alt="" height="22">
-            </span>
             <span class="logo-lg">
-                <img src="assets/images/logo-dark.png" alt="" height="20">
-            </span>
-        </a>
-
-        <a href="index.html" class="logo logo-light">
-            <span class="logo-sm">
-                <img src="assets/images/logo-sm.png" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="assets/images/logo-light.png" alt="" height="20">
+                <img src="{{ asset('assets/images/logo.png') }}" height="50" alt="">
             </span>
         </a>
     </div>
@@ -43,20 +31,20 @@
 
                     <li>
                         <a href="{{ route('admin.post.index') }}" class="waves-effect">
-                            <i class="uil-window-section"></i>
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                             <span>Posts</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.tag.index') }}" class="waves-effect">
-                            <i class="uil-window-section"></i>
+                            <i class="fa fa-tags" aria-hidden="true"></i>
                             <span>Tags</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="{{ route('admin.category.index') }}" class=" waves-effect">
-                            <i class="uil-comments-alt"></i>
+                            <i class="fa fa-object-group" aria-hidden="true"></i>
                             <span>Categories</span>
                         </a>
                     </li>
@@ -65,7 +53,7 @@
 
                     <li>
                         <a href="{{ route('admin.post.pending') }}" class="waves-effect">
-                            <i class="uil-window-section"></i>
+                            <i class="fa fa-times-circle-o" aria-hidden="true"></i>
                             <span>Pending Post</span>
                         </a>
                     </li>
@@ -82,14 +70,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.comment.index') }}" class="waves-effect">
+                        <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-audio-description" aria-hidden="true"></i>
                             <span>Events</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.subscriber.index') }}" class="waves-effect">
-                            <i class="uil-window-section"></i>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             <span>Subscribers</span>
                         </a>
                     </li>
@@ -105,7 +93,7 @@
 
                     <li>
                         <a href="{{ route('admin.settings') }}" class="waves-effect">
-                            <i class="uil-window-section"></i>
+                            <i class="uil-cog"></i>
                             <span>Settings</span>
                         </a>
                     </li>

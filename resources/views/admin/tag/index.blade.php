@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <div>
                         <div>
-                            <a href="{{ route('admin.tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Create Tag</a>
+                            <a href="{{ route('admin.tag.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Tag</a>
                         </div>
 
                         <div class="table-responsive mb-4">

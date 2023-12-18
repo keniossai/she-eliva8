@@ -170,7 +170,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('author.post.show',$post->id) }}" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a>
+                                                <a href="{{ route('post.details',$post->slug) }}" target="_blank" class="px-1 text-primary"><i class="uil uil-eye font-size-18"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

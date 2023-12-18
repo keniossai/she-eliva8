@@ -4,20 +4,11 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <a href="index.html" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                    <span class="logo-lg">
+                        <img src="{{ asset('assets/images/logo.png') }}" width="100" alt="">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="20">
-                    </span>
-                </a>
-
-                <a href="index.html" class="logo logo-light">
-                    <span class="logo-sm">
-                        <img src="assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="assets/images/logo-light.png" alt="" height="20">
+                        <img src="{{ asset('assets/images/logo.png') }}" width="100" alt="">
                     </span>
                 </a>
             </div>
@@ -35,9 +26,6 @@
         </div>
 
         <div class="d-flex">
-
-
-
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
