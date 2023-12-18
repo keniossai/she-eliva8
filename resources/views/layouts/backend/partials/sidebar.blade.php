@@ -82,6 +82,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('admin.comment.index') }}" class="waves-effect">
+                            <i class="fa fa-audio-description" aria-hidden="true"></i>
+                            <span>Events</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('admin.subscriber.index') }}" class="waves-effect">
                             <i class="uil-window-section"></i>
                             <span>Subscribers</span>
