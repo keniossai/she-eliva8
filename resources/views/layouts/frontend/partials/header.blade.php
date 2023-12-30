@@ -49,25 +49,56 @@
               <p>Elivate-Her</p>
             </a>
           </div>
-          <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
-            <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
-            <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
-            <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            @guest
-                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
-            @else
-                @if(Auth::user()->role->id == 1)
-                    <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a></li>
-                @endif
-                @if(Auth::user()->role->id == 2)
-                    <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
-                @endif
-            @endguest
-          </ul>
+            <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
+                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
+                <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
+                <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            @if (Request::is('admin*'))
+                <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
+                    <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
+                    <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
+                    <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    @guest
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                    @else
+                        @if(Auth::user()->role->id == 1)
+                            <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a></li>
+                        @endif
+                        @if(Auth::user()->role->id == 2)
+                            <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
+                        @endif
+                    @endguest
+                </ul>
+            @endif
+            @if (Request::is('author*'))
+                <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
+                    <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
+                    <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
+                    <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    @guest
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                    @else
+                        @if(Auth::user()->role->id == 1)
+                            <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a></li>
+                        @endif
+                        @if(Auth::user()->role->id == 2)
+                            <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
+                        @endif
+                    @endguest
+                </ul>
+            @endif
           <div class="sticky-search">
             <div class="search-wrapper">
             @guest
