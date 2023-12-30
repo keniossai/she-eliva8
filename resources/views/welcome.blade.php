@@ -76,12 +76,12 @@
                             @endguest
                             </li>
                             <li class="category-tag-name">
-                            <a href="" class="likes">
+                            <a href="" class="view">
                                 <i class="fas fa-eye"> {{ $post->view_count }}</i>
                             </a>
                             </li>
                             <li class="category-tag-name">
-                            <a href="" class="likes">
+                            <a href="" class="comment">
                                 <i class="fas fa-comment"> {{ $post->comments->count() }}</i>
                             </a>
                             </li>
@@ -274,6 +274,5 @@
     </div>
   </section>
   <!-- Recommended posts end -->
-
 
 @endsection
