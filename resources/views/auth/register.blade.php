@@ -26,8 +26,8 @@
                                 <input type="email" name="email" id="email" class="form-control" :value="old('email')" placeholder="Email your email"  autocomplete="email">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="email">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" :value="old('username')" placeholder="Enter username"  autocomplete="username">
+                                {{-- <label class="form-label" for="email">Username</label> --}}
+                                <input type="hidden" name="username" id="username" class="form-control" value="author">
                             </div>
 
                             <div class="mb-3">
