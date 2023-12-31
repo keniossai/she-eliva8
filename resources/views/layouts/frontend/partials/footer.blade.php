@@ -36,12 +36,12 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <a href="#">
-            <h5 class="brand-name"> Elivate-Her</h5>
+          <a href="{{ route('home') }}">
+            <h5 class="brand-name"> She Elevates</h5>
           </a>
         </div>
         <div class="footer-copyright">
-          <p>&copy; <script>document.write(new Date().getFullYear())</script> She Elivate</p>
+          <p>&copy; <script>document.write(new Date().getFullYear())</script>She Elevates</p>
         </div>
 
       </div>
