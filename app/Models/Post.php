@@ -29,10 +29,10 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
-    // public function category()
-    // {
-    //     return $this->hasMany(Category::class);
-    // }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function favorite_to_user()
     {
