@@ -25,7 +25,7 @@
                         <ul class="category-tag-list">
 
                         <li class="category-tag-name">
-                            <a href="#">{{ $post->category }}</a>
+                            <a href="#">{{ $post->category->name }}</a>
                         </li>
                         </ul>
                         <div class="title-font">
@@ -46,7 +46,7 @@
     <div class="container">
       <div class="more-content-grid py-30">
         <div class="row">
-          @foreach ($posts as $post)
+          @forelse ($posts as $post)
             <div class="col-md-4">
                 <div class="card">
                 <a href="{{ route('post.details',$post->slug) }}">
@@ -55,7 +55,7 @@
                 <div class="card-body px-0">
                     <ul class="category-tag-list d-flex" >
                         <li class="category-tag-name flex-grow-1">
-                        <a href="#">Lifestyle</a>
+                        <a href="#">{{ $post->category->name }}</a>
                         </li>
                         <div class="comments_and_views">
                         <li class="category-tag-name" >
@@ -104,7 +104,10 @@
                 </div>
                 </div>
             </div>
-          @endforeach
+            @empty
+
+            <h1>No post found</h1>
+          @endforelse
         </div>
       </div>
     </div>
