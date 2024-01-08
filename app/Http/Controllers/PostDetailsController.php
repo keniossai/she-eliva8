@@ -12,7 +12,7 @@ class PostDetailsController extends Controller
 {
     public function details($slug)
     {
-        $post = Post::where('slug',$slug)->approved()->published()->first();
+        $post = Post::with('category')->where('slug',$slug)->approved()->published()->first();
         $categories = Category::all();
         $tags = Tag::all();
         $blogKey = 'blog_'. $post->id;
