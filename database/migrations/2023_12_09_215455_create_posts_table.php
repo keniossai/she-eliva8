@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->default('default.png');
             $table->text('body');
             $table->integer('view_count')->default(0);
-            $table->integer('category_id')->unsigned();
+            $table->unsignedBigInteger('category_id')->unsigned();
             $table->boolean('status')->default(false);
             $table->boolean('is_approved')->default(false);
             $table->foreign('user_id')
