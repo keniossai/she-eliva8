@@ -24,7 +24,7 @@
                         <a href="#">Featured</a>
                       </li>
                       <li class="category-tag-name">
-                        <a href="#">Lifestyle</a>
+                        <a href="#">{{ $post->category->name }}</a>
                       </li>
                   </ul>
 
