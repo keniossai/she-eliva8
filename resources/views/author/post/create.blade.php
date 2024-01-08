@@ -59,7 +59,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3" {{ $errors->has('categories') ? 'focused error' : '' }}>
                                             <label class="form-label" for="category">Select Category</label>
-                                            <select class="form-control select2 select2-hidden-accessible" name="categories[]" id="category">
+                                            <select class="form-control select2 select2-hidden-accessible" name="category" id="category">
                                                 <option data-select2-id="select2-data-3-eeea">Select</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
