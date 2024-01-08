@@ -56,9 +56,9 @@
                         <div>
                             <h4 class="card-title">Categories</h4>
                             <div>
-                                @foreach ($post->categories as $category)
-                                    <span class="badge bg-primary">{{ $category->name }}</span>
-                                @endforeach
+                                <span class="badge bg-primary">{{ $post->category->name }}</span>
+                                {{-- @foreach ($post->categories as $category)
+                                @endforeach --}}
                             </div>
                         </div>
                     </div>
