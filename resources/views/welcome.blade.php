@@ -67,12 +67,12 @@
                                     <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
                                 </a>
                             @else
-                                <a href="javascript:void(0)" class="likes" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
-                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
-                                </a>
-                                <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <form class="x-submit" action="{{ route('post.favorite',$post->id) }}" method="POST" data-then="reload">
+                                <button style="background: none; border: none; color: white;" type="submit" class="likes">
+                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i> <x-spinner/>
+                                </button>
+                                    {{-- @csrf --}}
+                            </form>
                             @endguest
                             </li>
                             <li class="category-tag-name">
