@@ -77,9 +77,12 @@
   <script src="{{ asset('client/js/jquery.sticky.js') }}"></script>
   <script src="{{ asset('client/js/ResizeSensor.min.js') }}"></script>
   <script src="{{ asset('client/js/theia-sticky-sidebar.min.js') }}"></script>
-  <script src="{{ asset('client/js/request.js') }}"></script>
-  <script src="{{ asset('client/js/main.js') }}"></script>
+  <script src="{{ asset('client/js/bootstrap-notify.js') }}"></script>
   <script src="{{ asset('assets/js/toastr.js') }}"></script>
+  <script src="{{ asset('client/js/request.js') }}"></script>
+  <script src="{{ asset('client/js/sweetalert.min.js') }}"></script>
+  <script src="{{ asset('client/js/validate.js') }}"></script>
+  <script src="{{ asset('client/js/main.js') }}"></script>
   <script>
 
     // success message popup notification
