@@ -14,18 +14,35 @@ class UsersTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'role_id' => '1',
-            'name' => 'Bukola Ossai',
-            'username' => 'admin',
+            'name' => 'Bukola',
+            'username' => 'bukola1',
             'email' => 'admin@gmail.com',
+            'image' => 'default.png',
+            'role' => 'admin',
             'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'created_at' => now(),
         ]);
         DB::table('users')->insert([
-            'role_id' => '2',
-            'name' => 'Maya Ossai',
-            'username' => 'author',
+            'name' => 'Maya',
+            'username' => 'maya1',
             'email' => 'author@gmail.com',
+            'image' => 'default.png',
+            'role' => 'author',
             'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'created_at' => now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'Ken',
+            'username' => 'ken1',
+            'email' => 'ken@gmail.com',
+            'image' => 'default.png',
+            'role' => 'user',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'created_at' => now(),
+        ]);
+
     }
 }
