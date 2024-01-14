@@ -47,10 +47,10 @@ Route::get('profile/{username}', [AuthorProfileController::class, 'index'])->nam
 // Search Controller
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-Route::group(['middleware'=>['auth']], function(){
-    Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
-    Route::post('comment/{post}', [CommentController::class, 'store'])->name('comment.store');
-});
+// Route::group(['middleware'=>['auth']], function(){
+//     Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
+//     Route::post('comment/{post}', [CommentController::class, 'store'])->name('comment.store');
+// });
 Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', 'verified']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('settings', [SettingsController::class, 'index'])->name('settings');
