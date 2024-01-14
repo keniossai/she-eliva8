@@ -61,7 +61,7 @@
                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
             @else
                 @if(Auth::user()->role == 'admin')
-                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
+                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
                         <span class="right-bar"></span></span>
                         </a>
                         <ul class="drop-menu">
@@ -74,7 +74,7 @@
                     </li>
                 @endif
                 @if(Auth::user()->role == 'author')
-                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
+                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
                         <span class="right-bar"></span></span>
                         </a>
                         <ul class="drop-menu">
@@ -87,7 +87,7 @@
                     </li>
                 @endif
                 @if(Auth::user()->role == 'user')
-                <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
+                <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
                     <span class="right-bar"></span></span>
                     </a>
                     <ul class="drop-menu">
