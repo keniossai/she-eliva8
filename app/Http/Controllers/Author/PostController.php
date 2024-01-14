@@ -74,7 +74,7 @@ class PostController extends Controller
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
 
-        $users = User::where('role_id', '1')->get();
+        $users = User::where('role', 'admin')->get();
         Notification::send($users, new NewAuthorPost($post));
 
         return redirect()->route('author.post.index')->with('success', 'Post Added Successfully');
