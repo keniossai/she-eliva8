@@ -60,11 +60,14 @@
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
             @else
-                @if(Auth::user()->role->id == 1)
+                @if(Auth::user()->role == 'admin')
                     <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a></li>
                 @endif
-                @if(Auth::user()->role->id == 2)
+                @if(Auth::user()->role == 'author')
                     <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
+                @endif
+                @if(Auth::user()->role == 'user')
+                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}</a></li>
                 @endif
             @endguest
         </ul>
