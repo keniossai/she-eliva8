@@ -20,13 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'role_id',
-        'name',
-        'username',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -59,7 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function scopeAuthors($query)
     {
-        return $query->where('role_id', 2);
+        return $query->where('role', 'author');
     }
 
     /**
