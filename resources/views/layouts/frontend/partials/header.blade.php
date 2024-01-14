@@ -67,7 +67,14 @@
                     <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
                 @endif
                 @if(Auth::user()->role == 'user')
-                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
+                    <span class="right-bar"></span></span>
+                    </a>
+                    <ul class="drop-menu">
+                        <li class="drop-menu-item"><a href="archive-layout-one.html">Profile</a></li>
+                        <li class="drop-menu-item"><a href="archive-layout-one.html">Logout</a></li>
+                    </ul>
+                </li>
                 @endif
             @endguest
         </ul>
