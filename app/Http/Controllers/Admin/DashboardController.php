@@ -24,10 +24,10 @@ class DashboardController extends Controller
                             ->get();
         $total_pending_posts = Post::where('is_approved',false)->count();
         $all_views = Post::sum('view_count');
-        $author_count = User::where('role_id',2)->count();
-        $new_authors_today = User::where('role_id',2)
+        $author_count = User::where('role','admin')->count();
+        $new_authors_today = User::where('role','admin')
                                 ->whereDate('created_at',Carbon::today())->count();
-       $active_authors = User::where('role_id',2)
+       $active_authors = User::where('role','admin')
                                 ->withCount('posts')
                                 ->withCount('comments')
                                 ->withCount('favorite_posts')
