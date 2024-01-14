@@ -61,18 +61,41 @@
                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
             @else
                 @if(Auth::user()->role == 'admin')
-                    <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
+                        <span class="right-bar"></span></span>
+                        </a>
+                        <ul class="drop-menu">
+                            <li class="drop-menu-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                            <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </ul>
+                    </li>
                 @endif
                 @if(Auth::user()->role == 'author')
-                    <li class="nav-item"><a href="{{ route('author.dashboard') }}" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
+                        <span class="right-bar"></span></span>
+                        </a>
+                        <ul class="drop-menu">
+                            <li class="drop-menu-item"><a href="{{ route('author.dashboard') }}">Dashboard</a></li>
+                            <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                            <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </ul>
+                    </li>
                 @endif
                 @if(Auth::user()->role == 'user')
                 <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }}<span class="arrow-icon"> <span class="left-bar"></span>
                     <span class="right-bar"></span></span>
                     </a>
                     <ul class="drop-menu">
-                        <li class="drop-menu-item"><a href="archive-layout-one.html">Profile</a></li>
-                        <li class="drop-menu-item"><a href="archive-layout-one.html">Logout</a></li>
+                        <li class="drop-menu-item"><a href="#">Profile</a></li>
+                        <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                        <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
                     </ul>
                 </li>
                 @endif
