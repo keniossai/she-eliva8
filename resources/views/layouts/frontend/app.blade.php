@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="{{ asset('client/css/style.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/responsive.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/dark.css') }}" />
-  <link href="{{ asset('assets/css/toastr.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}" />
 
   <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
 </head>
