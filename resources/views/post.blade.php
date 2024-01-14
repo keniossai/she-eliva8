@@ -105,7 +105,7 @@
                   <div class="author-desc">
                     <small>written by</small>
                     <h5>{{ $post->user->name }}</h5>
-                    <p>{{ $post->user->role->name }}</p>
+                    <p>{{ $post->user->role }}</p>
                   </div>
                 </div>
                 <div class="comment-section">
@@ -170,7 +170,7 @@
                       <img src="{{ url('storage/profile/'.$post->user->image) }}" alt="">
                     </div>
                     <h5><a href="#">{{ $post->user->name }}</a></h5>
-                    <small>{{ $post->user->role->name }}</small>
+                    <small>{{ $post->user->role }}</small>
                     <p class="card-text">{{ $post->user->about }}</p>
 
                     <div class="social-links circular-icons">
