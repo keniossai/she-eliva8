@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware(['auth:sanctum'])->group('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::group(['middleware'=>['auth:sanctum']], function(){
+    Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
+    // Route::post('comment/{post}', [CommentController::class, 'store'])->name('comment.store');
 });
