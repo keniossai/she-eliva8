@@ -13,18 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('role_id')->default(2);
             $table->string('name');
             $table->string('username')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('image')->default('default.png');
+            $table->enum('role',['admin','author','user'])->default('user');
             $table->text('about')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
