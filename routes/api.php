@@ -19,6 +19,6 @@ use App\Http\Controllers\FavoriteController;
 //     return $request->user();
 // });
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('post.favorite');
+    // Route::post('favorite/{post}/add',[FavoriteController::class, 'makeFavorite'])->name('api.favorite');
     // Route::post('comment/{post}', [CommentController::class, 'store'])->name('comment.store');
 });
