@@ -13,9 +13,9 @@ class HomeController extends Controller
     {
         $categories = Category::take(3)->get();
         $tags = Tag::all();
-        $posts = Post::with('category')->latest()->approved()->published()->take(6)->get();
+        $posts = Post::with(['category', 'favorite_to_user'])->latest()->approved()->published()->take(6)->get();
         $bannerposts = Post::approved()->published()->take(1)->inRandomOrder()->get();
-        $recommendedPosts = Post::approved()->published()->take(3)->get();
+        $recommendedPosts = Post::with(['category', 'favorite_to_user'])->approved()->published()->take(3)->get();
         return view('welcome', compact('categories','tags', 'posts', 'bannerposts', 'recommendedPosts'));
     }
 }
