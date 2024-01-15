@@ -9,19 +9,28 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    public function makeFavorite($post)
+    public function makeFavorite(Post $post)
     {
-        $user = Auth::user();
-        $like = $user->favorite_posts()->where('post_id',$post)->count();
+        $like = $post->favorite_to_user()->whereUserId(auth()->id())->count();
 
         if ($like == 0)
         {
-            $user->favorite_posts()->attach($post);
-            return redirect()->back()->with('success', 'Post added as favorite');
+            auth()->user()->favorite_posts()->attach($post);
+            $post->refresh();
+            return response()->json([
+                'message', 'Post liked from favorite',
+                'post' => $post->load('favorite_to_user')
+            ]);
         } else {
-            $user->favorite_posts()->detach($post);
-            return redirect()->back()->with('success', 'Post removed from favorite');
+            auth()->user()->favorite_posts()->detach($post);
+            $post->refresh();
+            return response()->json([
+                'message', 'Post removed from favorite',
+                'post' => $post->load('favorite_to_user')
+            ]);
         }
+
+
     }
 
     // public function makeFavorite($post)
