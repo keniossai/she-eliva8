@@ -4,11 +4,6 @@
 
 @section('content')
 
-<style>
-    .favorite_posts{
-        color: rgb(255, 0, 8);
-    }
-</style>
 
 <main class="kavya-single kavya-single-4" style="transform: none;">
 
