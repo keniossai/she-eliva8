@@ -12,6 +12,16 @@ const addToFavorite = async (postId) => {
 };
 </script>
 
+<script>
+    // Clear local storage
+    function clearLocalStorage() {
+      localStorage.clear();
+    }
+    window.onload = function() {
+      clearLocalStorage();
+    };
+</script>
+
 <template>
     <div class="card">
         <a :href="`/post/${post.slug}`">
@@ -31,9 +41,9 @@ const addToFavorite = async (postId) => {
                             <i class="fas fa-heart"></i> <span>{{ post?.favorite_to_user?.length }}</span>
                         </a>
 
-                        <button v-else @click="addToFavorite(post.id)" style="background: none; border: none; color: white;" type="submit" class="likes space-x-1">
+                        <a v-else @click="addToFavorite(post.id)" style="background: none; border: none; color: white;" type="submit" class="likes space-x-1">
                             <i class="fas fa-heart"></i> <span>{{ post?.favorite_to_user.length }}</span>
-                        </button>
+                        </a>
                     </li>
                     <li class="category-tag-name">
                     <a href="" class="view space-x-1">
@@ -54,7 +64,7 @@ const addToFavorite = async (postId) => {
             </h5>
             <div class="author-date">
             <a class="author" :href="`/user/profile${post?.user?.username}`">
-                <img :src="`storage/profile/${post?.user?.image}`" alt="" class="rounded-circle" />
+                <img :src="`storage/profile/${post?.user?.image}`" alt="profile" class="rounded-circle" />
                 <span class="writer-name-small">{{post?.user?.name}}</span>
             </a>
             <a class="date" href="javascript:void(0)">
