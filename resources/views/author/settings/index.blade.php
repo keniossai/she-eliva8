@@ -25,7 +25,7 @@
                             <img src="{{ url('storage/profile/'.Auth::user()->image) }}" alt="" class="avatar-lg rounded-circle img-thumbnail">
                         </div>
                         <h5 class="mt-3 mb-1">{{ Auth::user()->name }}</h5>
-                        <p class="text-muted">{{ Auth::user()->role->name }}</p>
+                        <p class="text-muted">{{ Auth::user()->role }}</p>
                     </div>
 
                     <hr class="my-4">
