@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}" />
 
   <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="kavya-dark">
@@ -55,10 +56,9 @@
   <!-- Header -->
    @include('layouts.frontend.partials.header')
   <!-- header end -->
-
-
-  @yield('content')
-
+  <div id="app">
+      @yield('content')
+  </div>
 
   <!-- Footer section -->
     @include('layouts.frontend.partials.footer')
