@@ -4,6 +4,7 @@
 
 @section('content')
     <!-- Banner section -->
+
   <section class="banner-section">
     <div class="main-banner">
       <div class="container">
@@ -41,68 +42,17 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="container">
       <div class="more-content-grid py-30">
         <div class="row">
           @forelse ($posts as $post)
             <div class="col-md-4">
-                <div class="card">
-                <a href="{{ route('post.details',$post->slug) }}">
-                    <img src="{{ url('storage/post/'.$post->image) }}" class="card-img-top " alt="" />
-                </a>
-                <div class="card-body px-0">
-                    <ul class="category-tag-list d-flex" >
-                        <li class="category-tag-name flex-grow-1">
-                        <a href="#">{{ $post->category->name }}</a>
-                        </li>
-                        <div class="comments_and_views">
-                        <li class="category-tag-name" >
-                            @guest
-                                <a href="javascript:void(0)" class="likes" onclick="toastr.info('To add to favorite list you need to login first','Info',{
-                                    closeButton: true,
-                                    progressBar: true,
-                                })">
-                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
-                                </a>
-                            @else
-                            <form class="x-submit" action="{{ route('post.favorite',$post->id) }}" method="POST" data-then="reload">
-                                <button style="background: none; border: none; color: white;" type="submit" class="likes">
-                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i> <x-spinner/>
-                                </button>
-                                    {{-- @csrf --}}
-                            </form>
-                            @endguest
-                            </li>
-                            <li class="category-tag-name">
-                            <a href="" class="view">
-                                <i class="fas fa-eye"> {{ $post->view_count }}</i>
-                            </a>
-                            </li>
-                            <li class="category-tag-name">
-                            <a href="" class="comment">
-                                <i class="fas fa-comment"> {{ $post->comments->count() }}</i>
-                            </a>
-                            </li>
-                        </div>
-                    </ul>
-                    <h5 class="card-title title-font">
-                    <a href="{{ route('post.details',$post->slug) }}">
-                        {{ $post->title }}
-                    </a>
-                    </h5>
-                    <div class="author-date">
-                    <a class="author" href="{{ route('author.profile',$post->user->username) }}">
-                        <img src="{{ url('storage/profile/'.$post->user->image) }}" alt="" class="rounded-circle" />
-                        <span class="writer-name-small">{{$post->user->name}}</span>
-                    </a>
-                    <a class="date" href="javascript:void(0)">
-                        <span>{{ $post->created_at->diffForHumans() }}</span>
-                    </a>
-                    </div>
-                </div>
-                </div>
+              <post-card
+                :post="{{ $post }}"
+                :created-at="'{{ $post->created_at->diffForHumans() }}'"
+                :is-guest="{{ (int) Auth::guest() }}"
+                ></post-card>
             </div>
             @empty
 
@@ -215,61 +165,12 @@
         <div class="row">
           @foreach ($recommendedPosts as $post)
             <div class="col-md-4">
-                <div class="card">
-                <a href="{{ route('post.details',$post->slug) }}">
-                    <img src="{{ url('storage/post',$post->image) }}" class="card-img-top" alt="" />
-                </a>
-                <div class="card-body px-0">
-                    <ul class="category-tag-list d-flex" >
-                        <li class="category-tag-name flex-grow-1">
-                        <a href="#">Lifestyle</a>
-                        </li>
-                        <div class="comments_and_views">
-                        <li class="category-tag-name" >
-                            @guest
-                                <a href="javascript:void(0)" class="likes" onclick="toastr.info('To add to favorite list you need to login first','Info',{
-                                    closeButton: true,
-                                    progressBar: true,
-                                })">
-                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
-                                </a>
-                            @else
-                                <a href="javascript:void(0)" class="likes" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
-                                    <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
-                                </a>
-                                <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            @endguest
-                            </li>
-                            <li class="category-tag-name">
-                            <a href="" class="likes">
-                                <i class="fas fa-eye"> {{ $post->view_count }}</i>
-                            </a>
-                            </li>
-                            <li class="category-tag-name">
-                            <a href="" class="likes">
-                                <i class="fas fa-comment"> {{ $post->comments->count() }}</i>
-                            </a>
-                            </li>
-                        </div>
-                    </ul>
-                    <h5 class="card-title title-font">
-                    <a href="{{ route('post.details',$post->slug) }}">
-                    {{ $post->title }}</a>
-                    </h5>
-                    <div class="author-date">
-                    <a class="author" href="{{ route('author.profile',$post->user->username) }}">
-                        <img src="{{ url('storage/profile',$post->user->image) }}" alt="" class="rounded-circle" />
-                        <span class="writer-name-small">{{ $post->user->name }}</span>
-                    </a>
-                    <a class="date" href="#">
-                        <span>{{ $post->created_at->diffForHumans() }}</span>
-                    </a>
-
-                    </div>
-                </div>
-                </div>
+            <post-card
+                :post="{{ $post }}"
+                :created-at="'{{ $post->created_at->diffForHumans() }}'"
+                :is-guest="{{ (int) Auth::guest() }}"
+                :key="{{ $post->id }}"
+                ></post-card>
             </div>
           @endforeach
         </div>
