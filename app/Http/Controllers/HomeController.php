@@ -18,4 +18,9 @@ class HomeController extends Controller
         $recommendedPosts = Post::with(['category', 'favorite_to_user', 'user'])->approved()->published()->take(3)->get();
         return view('welcome', compact('categories','tags', 'posts', 'bannerposts', 'recommendedPosts'));
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }
