@@ -1552,7 +1552,7 @@ a:hover {
 .page-header {
   padding: 70px 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../images/coffee.jpg") no-repeat;
+    url("../images/hands-in-middle-blue-overlay.jpeg") no-repeat;
   background-size: cover;
 }
 .page-header .page-title {
@@ -2467,10 +2467,10 @@ a:hover {
 										19. 404 page with image
 ===================================================================================== */
 .error-content {
-  background: url("../images/404-bg.svg") no-repeat;
-  height: calc(100vh - 50px);
+  background: url("../images/error.png") no-repeat;
+  /* height: calc(100vh - 50px); */
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   text-align: center;
   position: relative;
 }
@@ -2494,7 +2494,7 @@ a:hover {
 }
 @media screen and (min-width: 1400px) {
   .error-content {
-    height: calc(100vh - 200px);
+    height: calc(100vh);
   }
   .error-text {
     bottom: 150px;
