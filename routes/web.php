@@ -35,6 +35,7 @@ use App\Http\Controllers\Author\DashboardController as AuthorDashboardController
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/post/{slug}', [PostDetailsController::class, 'details'])->name('post.details');
 
 Route::get('/categories', [AllCategoriesController::class, 'categories'])->name('categories');
