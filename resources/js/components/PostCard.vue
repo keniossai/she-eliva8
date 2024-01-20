@@ -34,7 +34,7 @@ const addToFavorite = async (postId) => {
                 </li>
                 <div class="comments_and_views">
                 <li class="category-tag-name" >
-                    <a v-if="isGuest" href="javascript:void(0)" class="likes space-x-1" onclick="toastr.info('To add to favorite list you need to login first','Info',{
+                    <a v-if="isGuest" href="javascript:void(0)" class="likes space-x-1" onclick="toastr.info('You need to login to like a post','Info',{
                             closeButton: true,
                             progressBar: true,
                         })">
@@ -63,8 +63,8 @@ const addToFavorite = async (postId) => {
             </a>
             </h5>
             <div class="author-date">
-            <a class="author" :href="`/user/profile${post?.user?.username}`">
-                <img :src="`storage/profile/${post?.user?.image}`" alt="profile" class="rounded-circle" />
+            <a class="author" href="">
+                <img :src="`/storage/profile/${post?.user?.image}`" alt="profile" class="rounded-circle" />
                 <span class="writer-name-small">{{post?.user?.name}}</span>
             </a>
             <a class="date" href="javascript:void(0)">
@@ -74,3 +74,4 @@ const addToFavorite = async (postId) => {
         </div>
     </div>
 </template>
+
