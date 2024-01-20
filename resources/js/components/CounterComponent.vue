@@ -10,4 +10,3 @@ const counter = ref(0);
 </template>
 
 
-{{  }}
