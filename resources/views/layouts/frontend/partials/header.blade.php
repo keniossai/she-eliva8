@@ -54,7 +54,7 @@
             <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
             <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
             <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             @guest
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
