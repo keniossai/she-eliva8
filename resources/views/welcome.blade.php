@@ -3,8 +3,6 @@
 @section('title', 'Homepage')
 
 @section('content')
-    <!-- Banner section -->
-
   <section class="banner-section">
     <div class="main-banner">
       <div class="container">
