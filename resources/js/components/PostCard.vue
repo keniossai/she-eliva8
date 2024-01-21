@@ -34,25 +34,25 @@ const addToFavorite = async (postId) => {
                 </li>
                 <div class="comments_and_views">
                 <li class="category-tag-name" >
-                    <a v-if="isGuest" href="javascript:void(0)" class="likes space-x-1" onclick="toastr.info('You need to login to like a post','Info',{
+                    <a v-if="isGuest" href="javascript:void(0)" class="likes" onclick="toastr.info('You need to login to like a post','Info',{
                             closeButton: true,
                             progressBar: true,
                         })">
                             <i class="fas fa-heart"></i> <span>{{ post?.favorite_to_user?.length }}</span>
                         </a>
 
-                        <a v-else @click="addToFavorite(post.id)" style="background: none; border: none; color: white;" type="submit" class="likes space-x-1">
-                            <i class="fas fa-heart"></i> <span>{{ post?.favorite_to_user.length }}</span>
+                        <a v-else @click="addToFavorite(post.id)" style="background: none; border: none; color: rgb(247, 69, 69);" type="submit" class="likes space-x-1">
+                            <i class="fas fa-heart"></i> <span> {{ post?.favorite_to_user.length }}</span>
                         </a>
                     </li>
                     <li class="category-tag-name">
-                    <a href="" class="view space-x-1">
-                        <i class="fas fa-eye"></i><span>{{ post.view_count }}</span>
+                    <a href="" class="view" style="color: rgb(125, 128, 126);">
+                        <i class="fas fa-eye"></i> <span> {{ post.view_count }}</span>
                     </a>
                     </li>
                     <li class="category-tag-name">
                     <a href="" class="comment">
-                        <i class="fas fa-comment"> {{ post?.comments?.length }}</i>
+                        <i class="fas fa-comment"> <span>{{ post?.comments?.length }}</span></i>
                     </a>
                     </li>
                 </div>
