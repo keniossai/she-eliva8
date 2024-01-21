@@ -27,7 +27,7 @@
                             </div>
                             <div class="mb-3">
                                 {{-- <label class="form-label" for="email">Username</label> --}}
-                                <input type="hidden" name="username" id="username" class="form-control" value="author">
+                                <input type="hidden" name="username" id="username" class="form-control" value="user">
                             </div>
 
                             <div class="mb-3">
