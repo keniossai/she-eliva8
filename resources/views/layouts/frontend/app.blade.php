@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="{{ asset('client/css/responsive.css') }}" />
   <link rel="stylesheet" href="{{ asset('client/css/dark.css') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
   <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
   @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -77,51 +78,21 @@
   <script src="{{ asset('client/js/jquery.sticky.js') }}"></script>
   <script src="{{ asset('client/js/ResizeSensor.min.js') }}"></script>
   <script src="{{ asset('client/js/theia-sticky-sidebar.min.js') }}"></script>
-  <script src="{{ asset('client/js/bootstrap-notify.js') }}"></script>
   <script src="{{ asset('assets/js/toastr.js') }}"></script>
-  <script src="{{ asset('client/js/request.js') }}"></script>
   <script src="{{ asset('client/js/sweetalert.min.js') }}"></script>
-  <script src="{{ asset('client/js/validate.js') }}"></script>
   <script src="{{ asset('client/js/main.js') }}"></script>
-  <script>
-
-    // success message popup notification
-
-    @if(Session::has('success'))
-
-        toastr.success("{{ Session::get('success') }}");
-
-    @endif
-
-
-    // info message popup notification
-
-    @if(Session::has('info'))
-
-        toastr.info("{{ Session::get('info') }}");
-
-    @endif
-
-
-    // warning message popup notification
-
-    @if(Session::has('warning'))
-
-        toastr.warning("{{ Session::get('warning') }}");
-
-    @endif
-
-
-    // error message popup notification
-
-    @if(Session::has('error'))
-        toastr.error("{{ Session::get('error') }}");
-    @endif
-
-    @foreach($errors->all() as $error)
-        toastr.error("{{ $error }}")
-    @endforeach
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {!! Toastr::message() !!}
+    <script>
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                toastr.error('{{ $error }}','Error',{
+                    closeButton:true,
+                    progressBar:true,
+                });
+            @endforeach
+        @endif
+    </script>
 </body>
 
 
