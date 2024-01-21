@@ -46,7 +46,7 @@
                             <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
                         </a>
                     @else
-                        <a href="javascript:void(0)" class="likes {{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()">
+                        <a href="javascript:void(0)" class="likes {{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit()" style="background: none; border: none; color: rgb(247, 69, 69);">
                             <i class="fas fa-heart"> {{ $post->favorite_to_user->count() }}</i>
                         </a>
                         <form id="favorite-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
@@ -179,159 +179,49 @@
                   </div>
                 </div>
 
-                <div class="sidebar-posts">
+                {{-- <div class="sidebar-posts">
                   <div class="sidebar-title">
                     <h5><i class="fas fa-circle"></i>Popular Posts</h5>
                   </div>
                   <div class="sidebar-content">
-                    <div class="card border-0">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-3 col-md-3">
-                          <a href="#">
-                            <img src="assets/images/sea-lighthouse.jpg" class="card-img" alt="">
+                    @if ($post->favorite_to_user->count() > 5)
+                        @foreach ($favorite_to_user as $post)
+                        <div class="card border-0">
+                            <div class="row no-gutters align-items-center">
+                              <div class="col-3 col-md-3">
+                                <a href="#">
+                                  <img src="assets/images/paris.jpg" class="card-img" alt="">
 
-                          </a>
-                        </div>
-                        <div class="col-9 col-md-9">
-                          <div class="card-body">
-                            <ul class="category-tag-list mb-0">
+                                </a>
+                              </div>
+                              <div class="col-9 col-md-9">
+                                <div class="card-body">
+                                  <ul class="category-tag-list mb-0">
 
-                              <li class="category-tag-name">
-                                <a href="#">Lifestyle</a>
-                              </li>
-                            </ul>
-                            <h5 class="card-title title-font"><a href="#">Lighthouse since
-                                ages</a>
-                            </h5>
-                            <div class="author-date">
+                                    <li class="category-tag-name">
+                                      <a href="#">Lifestyle</a>
+                                    </li>
+                                  </ul>
+                                  <h5 class="card-title title-font"><a href="#">5 things you should
+                                      not miss about Paris</a>
+                                  </h5>
+                                  <div class="author-date">
 
-                              <a class="date" href="#">
-                                <span>21 Dec, 2019</span>
-                              </a>
+                                    <a class="date" href="#">
+                                      <span>21 Dec, 2019</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
-                        </div>
+                        @endforeach
+                    @endif
 
-                      </div>
-                    </div>
-                    <div class="card border-0">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-3 col-md-3">
-                          <a href="#">
-                            <img src="assets/images/paris.jpg" class="card-img" alt="">
 
-                          </a>
-                        </div>
-                        <div class="col-9 col-md-9">
-                          <div class="card-body">
-                            <ul class="category-tag-list mb-0">
-
-                              <li class="category-tag-name">
-                                <a href="#">Lifestyle</a>
-                              </li>
-                            </ul>
-                            <h5 class="card-title title-font"><a href="#">5 things you should
-                                not miss about Paris</a>
-                            </h5>
-                            <div class="author-date">
-
-                              <a class="date" href="#">
-                                <span>21 Dec, 2019</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="card border-0">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-3 col-md-3">
-                          <a href="#">
-                            <img src="assets/images/orange-bus.jpg" class="card-img" alt="">
-
-                          </a>
-                        </div>
-                        <div class="col-9 col-md-9">
-                          <div class="card-body">
-                            <ul class="category-tag-list mb-0">
-
-                              <li class="category-tag-name">
-                                <a href="#">Lifestyle</a>
-                              </li>
-                            </ul>
-                            <h5 class="card-title title-font"><a href="#">5 reasons for travelling more</a>
-                            </h5>
-                            <div class="author-date">
-
-                              <a class="date" href="#">
-                                <span>21 Dec, 2019</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="card border-0">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-3 col-md-3">
-                          <a href="#">
-                            <img src="assets/images/city-pink.jpg" class="card-img" alt="">
-
-                          </a>
-                        </div>
-                        <div class="col-9 col-md-9">
-                          <div class="card-body">
-                            <ul class="category-tag-list mb-0">
-
-                              <li class="category-tag-name">
-                                <a href="#">Lifestyle</a>
-                              </li>
-                            </ul>
-                            <h5 class="card-title title-font"><a href="#">Pink city</a>
-                            </h5>
-                            <div class="author-date">
-                              <a class="date" href="#">
-                                <span>21 Dec, 2019</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="card border-0">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-3 col-md-3">
-                          <a href="#">
-                            <img src="assets/images/umbrella.jpg" class="card-img" alt="">
-
-                          </a>
-                        </div>
-                        <div class="col-9 col-md-9">
-                          <div class="card-body">
-                            <ul class="category-tag-list mb-0">
-
-                              <li class="category-tag-name">
-                                <a href="#">Lifestyle</a>
-                              </li>
-                            </ul>
-                            <h5 class="card-title title-font"><a href="#">Top 10 tips with common lifestyles</a>
-                            </h5>
-                            <div class="author-date">
-
-                              <a class="date" href="#">
-                                <span>21 Dec, 2019</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
                   </div>
-                </div>
+                </div> --}}
                 <div class="recent-posts mt-4">
                   <div class="sidebar-title">
                     <h5><i class="fas fa-circle"></i>Trending Now</h5>
