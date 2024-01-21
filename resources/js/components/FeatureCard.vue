@@ -12,15 +12,14 @@ const addToFavorite = async (postId) => {
 };
 </script>
 
-<script>
-    // Clear local storage
+<!-- <script>
     function clearLocalStorage() {
       localStorage.clear();
     }
     window.onload = function() {
       clearLocalStorage();
     };
-</script>
+</script> -->
 
 <template>
     <div class="featured-right">
@@ -42,17 +41,17 @@ const addToFavorite = async (postId) => {
                                 <i class="fas fa-heart"></i> <span>{{ post?.favorite_to_user?.length }}</span>
                             </a>
 
-                            <a v-else @click="addToFavorite(post.id)" style="background: none; border: none; color: white;" type="submit" class="likes space-x-1">
+                            <a v-else @click="addToFavorite(post.id)" style="background: none; border: none; color: rgb(247, 69, 69);" type="submit" class="likes space-x-1">
                                 <i class="fas fa-heart"></i> <span>{{ post?.favorite_to_user.length }}</span>
                             </a>
                         </li>
                         <li class="category-tag-name">
-                        <a href="" class="view space-x-1">
+                        <a href="javascript:void(0)" class="view space-x-1" style="color: rgb(125, 128, 126);">
                             <i class="fas fa-eye"></i><span>{{ post.view_count }}</span>
                         </a>
                         </li>
                         <li class="category-tag-name">
-                        <a href="" class="comment">
+                        <a href="javascript:void(0)" class="comment">
                             <i class="fas fa-comment"> {{ post?.comments?.length }}</i>
                         </a>
                     </li>
@@ -75,6 +74,6 @@ const addToFavorite = async (postId) => {
             </div>
         </div>
     </div>
-    
+
 </template>
 
