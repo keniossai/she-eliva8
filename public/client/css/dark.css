@@ -1,5 +1,5 @@
 
-/* ================================================================================== 
+/* ==================================================================================
 										Dark Mode
 ===================================================================================== */
 .kavya-dark,
@@ -27,7 +27,7 @@
   color:#fff;
 }
 .kavya-dark .title-font a:hover{
-  color:#303c6c;
+  text-decoration: underline;
 }
 .kavya-dark .social-links ul li a,
 .banner-carousel .slick-dots li button:before,
@@ -39,7 +39,7 @@
   background:#fff;
 }
 .kavya-dark .kavya-navbar .nav-menu .drop-menu .drop-menu-item a:hover,
-.kavya-dark .banner-carousel .slick-prev, 
+.kavya-dark .banner-carousel .slick-prev,
 .kavya-dark .banner-carousel .slick-next
 {
   background:rgba(255, 255, 255, 0.1);
