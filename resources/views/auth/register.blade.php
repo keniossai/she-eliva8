@@ -12,7 +12,7 @@
                 <div class="card-body p-4">
                     <div class="text-center mt-2">
                         <h5 class="text-primary">Register Account</h5>
-                        <p class="text-muted">Get your free Elivate-Her account now.</p>
+                        <p class="text-muted">Get your free She Elevates account now.</p>
                     </div>
                     <div class="p-2 mt-4">
                         <form method="POST" action="{{ route('register') }}">
@@ -54,17 +54,12 @@
                                 </div>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
-                                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
                                         <a href="javascript:void()" class="social-list-item bg-info text-white border-info">
                                             <i class="fa fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="javascript:void()" class="social-list-item bg-danger text-white border-danger">
+                                        <a href="/auth/google/redirect" class="social-list-item bg-danger text-white border-danger">
                                             <i class="fa fa-google" aria-hidden="true"></i>
                                         </a>
                                     </li>
@@ -80,7 +75,7 @@
                 </div>
             </div>
             <div class="mt-5 text-center">
-                <p>© <script>document.write(new Date().getFullYear())</script> Eliva8-Her</p>
+                <p>© <script>document.write(new Date().getFullYear())</script> She Elevates</p>
             </div>
 
         </div>

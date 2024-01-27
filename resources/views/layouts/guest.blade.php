@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
+        <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('client/images/favicon.ico') }}">
 
          <!-- Bootstrap Css -->
          <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />

@@ -11,7 +11,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('client/images/favicon.png') }}">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('client/images/favicon.ico') }}">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700&amp;display=swap" rel="stylesheet">

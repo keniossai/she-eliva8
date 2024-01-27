@@ -47,11 +47,6 @@
                                 </div>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
-                                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
                                         <a href="javascript:void()" class="social-list-item bg-info text-white border-info">
                                             <i class="fa fa-twitter" aria-hidden="true"></i>
                                         </a>
@@ -74,7 +69,7 @@
             </div>
 
             <div class="mt-5 text-center">
-                <p>© <script>document.write(new Date().getFullYear())</script> Eliva8-Her</p>
+                <p>© <script>document.write(new Date().getFullYear())</script> She Elevates</p>
             </div>
 
         </div>
