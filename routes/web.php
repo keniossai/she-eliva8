@@ -92,6 +92,15 @@ Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author'
 });
 
 
+// Socialite Auth
+use Laravel\Socialite\Facades\Socialite;
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/auth/callback', function () {});
+
 // Route::middleware(['auth', 'author', 'verified'])->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
