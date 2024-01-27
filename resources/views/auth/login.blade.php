@@ -11,7 +11,7 @@
                 <div class="card-body p-4">
                     <div class="text-center mt-2">
                         <h5 class="text-primary">Welcome Back !</h5>
-                        <p class="text-muted">Enter your log-in details for unlimited access to Eliva8-Her content</p>
+                        <p class="text-muted">Enter your log-in details for unlimited access to She Elevates content</p>
                     </div>
                     <div class="p-2 mt-4">
                         <form method="POST" action="{{ route('login') }}">
@@ -57,7 +57,7 @@
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="javascript:void()" class="social-list-item bg-danger text-white border-danger">
+                                        <a href="/auth/google/redirect" class="social-list-item bg-danger text-white border-danger">
                                             <i class="fa fa-google" aria-hidden="true"></i>
                                         </a>
                                     </li>
