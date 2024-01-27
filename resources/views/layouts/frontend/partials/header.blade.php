@@ -1,138 +1,101 @@
-<header>
-    <!-- Top header -->
-    <div class="top-header">
-      <div class="container">
-        <div class="row  align-items-center">
-            <div class="col-md-3">
-                <div class="brand-name text-center">
-                  <a href="{{ route('home') }}">
-                    <h1>She Elevates</h1>
-                    {{-- <span>Enter your tagline here</span> --}}
-                  </a>
-                </div>
-              </div>
-          <div class="col-md-4">
-            <div class="social-links">
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="search-wrapper">
-                @guest
-                    <div class="search-icon">
-                    <button class="open-search-btn"><i class="fa fa-search"></i></button>
+<main class="kavya-home-2">
+    <header>
+        <nav>
+            <div id="sticky-top-sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 57px;">
+                <div class="kavya-navbar-2 kavya-navbar sticky-header" id="sticky-top"
+                    style="width: 1440px; position: fixed; top: 0px; z-index: inherit;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col order-2 col-lg-2 ">
+                                <div class="brand-name">
+                                    <a href="{{ route('home') }}">
+                                        <img src="{{ asset('client/images/logo.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col col-lg-8 order-1 order-lg-2">
+                                <span class="navbar-toggle" id="navbar-toggle">
+                                    <i class="fas fa-bars"></i>
+                                </span>
+                                <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
+                                    <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
+                                    <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
+                                    <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
+                                    <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
+                                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                                    @guest
+                                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                                    @else
+                                        @if(Auth::user()->role == 'admin')
+                                            <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
+                                                <span class="right-bar"></span></span>
+                                                </a>
+                                                <ul class="drop-menu">
+                                                    <li class="drop-menu-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                                    <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                                    <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
+                                                        @csrf
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        @endif
+                                        @if(Auth::user()->role == 'author')
+                                            <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
+                                                <span class="right-bar"></span></span>
+                                                </a>
+                                                <ul class="drop-menu">
+                                                    <li class="drop-menu-item"><a href="{{ route('author.dashboard') }}">Dashboard</a></li>
+                                                    <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                                    <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
+                                                        @csrf
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        @endif
+                                        @if(Auth::user()->role == 'user')
+                                        <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
+                                            <span class="right-bar"></span></span>
+                                            </a>
+                                            <ul class="drop-menu">
+                                                <li class="drop-menu-item"><a href="#">Profile</a></li>
+                                                <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                                <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                </form>
+                                            </ul>
+                                        </li>
+                                        @endif
+                                    @endguest
+                                </ul>
+                            </div>
+                            <div class="col col-lg-2 order-3">
+                                <div class="search-wrapper">
+                                    <div class="search-icon">
+                                        <button class="open-search-btn"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                @else
-                    <div class="search-icon">
-                        <button class="open-search-btn"><i class="fa fa-search"></i></button>
-                    </div>
-                    <div class="sidebar-icon">
-                        <button class="sidebar-btn"> <i class="fas fa-ellipsis-v"></i></button>
-                    </div>
-                @endguest
+                </div>
             </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Top header end -->
-    <!-- Navbar  -->
-    <div class="kavya-navbar" id="sticky-top">
-      <div class="container">
-        <nav class="nav-menu-wrapper">
-          <span class="navbar-toggle" id="navbar-toggle">
-            <i class="fas fa-bars"></i>
-          </span>
-          <div class="sticky-logo">
-            <a href="{{ route('home') }}">
-              <p>She Elevates</p>
-            </a>
-          </div>
-        <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
-            <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
-            <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
-            <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
-            <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            @guest
-                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
-            @else
-                @if(Auth::user()->role == 'admin')
-                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
-                        <span class="right-bar"></span></span>
-                        </a>
-                        <ul class="drop-menu">
-                            <li class="drop-menu-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                            <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                            </form>
-                        </ul>
-                    </li>
-                @endif
-                @if(Auth::user()->role == 'author')
-                    <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
-                        <span class="right-bar"></span></span>
-                        </a>
-                        <ul class="drop-menu">
-                            <li class="drop-menu-item"><a href="{{ route('author.dashboard') }}">Dashboard</a></li>
-                            <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                            <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                            </form>
-                        </ul>
-                    </li>
-                @endif
-                @if(Auth::user()->role == 'user')
-                <li class="nav-item"><a href="#" class="nav-link">{{ Auth::user()->name }} <span class="arrow-icon"> <span class="left-bar"></span>
-                    <span class="right-bar"></span></span>
-                    </a>
-                    <ul class="drop-menu">
-                        <li class="drop-menu-item"><a href="#">Profile</a></li>
-                        <li class="drop-menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                        <form id="logout-form" style="display: hidden;" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                        </form>
-                    </ul>
-                </li>
-                @endif
-            @endguest
-        </ul>
-          <div class="sticky-search">
-            <div class="search-wrapper">
-            @guest
-                <div class="search-icon">
-                  <button class="open-search-btn"><i class="fa fa-search"></i></button>
-                </div>
-            @else
-                <div class="search-icon">
-                    <button class="open-search-btn"><i class="fa fa-search"></i></button>
-                </div>
-                <div class="sidebar-icon">
-                    <button class="sidebar-btn"> <i class="fas fa-ellipsis-v"></i></button>
-                </div>
-            @endguest
-            </div>
-          </div>
         </nav>
-      </div>
-    </div>
-    <!-- Navbar end -->
 
-    <!-- search overlay -->
-    <div id="search-overlay" class="search-section">
-      <span class="closebtn"><i class="fas fa-times"></i></span>
-      <div class="overlay-content">
-        <form method="GET" action="{{ route('search') }}">
-          <input type="text" name="query" value="{{ isset($query) ? $query : '' }}" placeholder="Search here" name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-    </div>
-    <!-- search overlay end -->
+        <!-- search overlay -->
+        <div id="search-overlay" class="search-section">
+            <span class="closebtn"><i class="fas fa-times"></i></span>
+            <div class="overlay-content">
+                <form method="GET" action="{{ route('search') }}">
+                    <input type="text" name="query" value="{{ isset($query) ? $query : '' }}" placeholder="Search here" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- search overlay end -->
 
-    <div class="body-overlay"></div>
-  </header>
+        <div class="body-overlay"></div>
+    </header>
+
+
+</main>
