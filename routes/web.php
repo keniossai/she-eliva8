@@ -95,10 +95,9 @@ Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author'
 
 // Socialite Auth
 
-Route::get('/auth/google/redirect', [GoogleController::class, 'handleGoogleRedirect']);
+Route::get('/auth/google/redirect', [GoogleController::class, 'handleGoogleRedirect'])->name('google.auth');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-Route::get('/auth/callback', function () {});
 
 // Route::middleware(['auth', 'author', 'verified'])->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
