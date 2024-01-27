@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Role;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -22,6 +24,7 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('about');
+        $authors = User::where('role','author')->get();
+        return view('about', compact('authors'));
     }
 }
