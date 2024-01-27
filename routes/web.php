@@ -21,6 +21,7 @@ use App\Http\Controllers\Author\CommentController as AuthorCommentController;
 use App\Http\Controllers\Author\FavoriteController as AuthorFavoriteController;
 use App\Http\Controllers\Author\SettingsController as AuthorSettingsController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Author\DashboardController as AuthorDashboardController;
 
 /*
@@ -94,7 +95,8 @@ Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author'
 
 // Socialite Auth
 
-Route::get('/auth/redirect', function () {});
+Route::get('/auth/google/redirect', [GoogleController::class, 'handleGoogleRedirect']);
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::get('/auth/callback', function () {});
 
