@@ -93,11 +93,8 @@ Route::group(['as'=>'author.','prefix'=>'author', 'middleware'=>['auth','author'
 
 
 // Socialite Auth
-use Laravel\Socialite\Facades\Socialite;
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-});
+Route::get('/auth/redirect', function () {});
 
 Route::get('/auth/callback', function () {});
 
