@@ -26,6 +26,7 @@
         <link href="{{ asset('assets/css/toastr.css') }}" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/56626a3766.js" crossorigin="anonymous"></script>
 
+
     </head>
 
 
@@ -81,7 +82,9 @@
         <script src="{{ asset('assets') }}/libs/jquery.counterup/jquery.counterup.min.js"></script>
 
         <!-- apexcharts -->
-        <script src="{{ asset('assets') }}/libs/apexcharts/apexcharts.min.js"></script>
+        <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/chart.js/Chart.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/pages/chartjs.init.js') }}"></script>
 
         <script src="{{ asset('assets') }}/js/pages/dashboard.init.js"></script>
         <!-- Required datatable js -->
@@ -99,17 +102,18 @@
         <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
 
         <!-- App js -->
-        <script src="{{ asset('assets') }}/js/app.js"></script>
+        <script src="{{ asset('assets/js/app.js') }}"></script>
         <script src="{{ asset('assets/js/toastr.js') }}"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+
+        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script> --}}
         {{-- <script src="{{ asset('assets/js/ckeditor.js') }}"></script> --}}
-        <script>
+        {{-- <script>
             ClassicEditor
                 .create( document.querySelector( '#body' ) )
                 .catch( error => {
                     console.error( error );
                 } );
-        </script>
+        </script> --}}
         {!! Toastr::message() !!}
         <script>
             @if($errors->any())

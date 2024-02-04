@@ -73,6 +73,7 @@
             </div>
         </div> <!-- end col-->
     </div> <!-- end row-->
+
     <div class="row">
         <div class="col-md-6 col-xl-3">
             <div class="card">
@@ -131,7 +132,23 @@
             </div>
         </div> <!-- end col-->
     </div> <!-- end row-->
+    {{-- CHARTS START --}}
 
+    {{-- <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+                    <h4 class="card-title mb-4">Bar Chart</h4>
+
+                    <canvas id="bar" data-colors="[&quot;--bs-success-rgb, 0.8&quot;, &quot;--bs-success&quot;]" height="300" width="523" style="display: block;" class="chartjs-render-monitor"></canvas>
+
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+    {{-- CHARTS END --}}
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
