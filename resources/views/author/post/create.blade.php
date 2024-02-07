@@ -80,9 +80,9 @@
                                 </div>
                                 <div class="mb-0">
                                     <label class="form-label">Description</label>
-                                    <textarea name="body" id="body"></textarea>
+                                    <textarea name="body" id="summernote"></textarea>
                                 </div>
-                                <div class="mb-0">
+                                <div class="mt-2">
                                     <div class="form-check form-switch form-switch-md">
                                         <input type="checkbox" class="form-check-input" id="publish" name="status" value="1">
                                         <label class="form-check-label" for="customSwitchsizemd">Publish</label>
@@ -103,10 +103,6 @@
             </div>
         </div>
     </div>
-    <!-- end row -->
-
-
-
 </div>
 
 @endsection
