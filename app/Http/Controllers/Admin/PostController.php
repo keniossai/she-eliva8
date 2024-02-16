@@ -41,7 +41,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        // dd($request->all());
+        $request->validate([
             'title' => 'required',
             'image' => 'required',
             'category' => 'required',
@@ -120,10 +121,10 @@ class PostController extends Controller
         // Upload Image
         if($request->hasFile('image')){
 
-            $location = 'storage/post/'.$post->image;
-            if(File::exists($location))
+            $image = 'storage/post/'.$post->image;
+            if(File::exists($image))
             {
-                File::delete($location);
+                File::delete($image);
             }
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('storage/post'),$imageName);
