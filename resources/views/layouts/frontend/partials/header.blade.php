@@ -18,7 +18,15 @@
                                     <i class="fas fa-bars"></i>
                                 </span>
                                 <ul class="nav-menu ml-auto mr-auto" id="nav-menu-toggle">
-                                    <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Discussions</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link">News <span class="arrow-icon"> <span class="left-bar"></span>
+                                        <span class="right-bar"></span></span>
+                                        </a>
+                                        <ul class="drop-menu">
+                                            @foreach ($categories as $category)
+                                                <li class="drop-menu-item"><a href="#">{{ $category->name }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
                                     <li class="nav-item drop-arrow"><a href="#" class="nav-link">Podcast</a></li>
                                     <li class="nav-item drop-arrow"><a href="#" class="nav-link">Events</a></li>
                                     <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
