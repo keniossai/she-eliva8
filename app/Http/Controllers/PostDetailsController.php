@@ -21,6 +21,7 @@ class PostDetailsController extends Controller
             Session::put($blogKey, 1);
         }
         $randomPosts = Post::approved()->published()->take(4)->inRandomOrder()->get();
+        // $category = Category::where('slug',$slug)->posts()->approved()->published()->get();
         return view('post', compact('categories', 'post', 'tags', 'randomPosts'));
     }
 
