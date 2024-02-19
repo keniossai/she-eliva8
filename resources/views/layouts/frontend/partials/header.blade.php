@@ -23,7 +23,7 @@
                                         </a>
                                         <ul class="drop-menu">
                                             @foreach ($categories as $category)
-                                                <li class="drop-menu-item"><a href="#">{{ $category->name }}</a></li>
+                                                <li class="drop-menu-item"><a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
