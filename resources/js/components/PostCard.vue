@@ -11,12 +11,10 @@ const addToFavorite = async (postId) => {
     post.value = response.data.post
 };
 </script>
-
 <script>
-    // Clear local storage
     function clearLocalStorage() {
       localStorage.clear();
-    }
+    };
     window.onload = function() {
       clearLocalStorage();
     };
@@ -30,7 +28,7 @@ const addToFavorite = async (postId) => {
         <div class="card-body px-0">
             <ul class="category-tag-list d-flex" >
                 <li class="category-tag-name flex-grow-1">
-                <a href="#">{{ post?.category?.name }}</a>
+                <a :href="`/category-posts/${post.category.slug}`">{{ post?.category?.name }}</a>
                 </li>
                 <div class="comments_and_views">
                 <li class="category-tag-name" >
