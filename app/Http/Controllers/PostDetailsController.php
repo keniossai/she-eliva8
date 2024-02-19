@@ -20,15 +20,16 @@ class PostDetailsController extends Controller
             $post->increment('view_count');
             Session::put($blogKey, 1);
         }
-        $randomposts = Post::approved()->published()->take(4)->inRandomOrder()->get();
-        return view('post', compact('categories', 'post', 'tags', 'randomposts'));
+        $randomPosts = Post::approved()->published()->take(4)->inRandomOrder()->get();
+        return view('post', compact('categories', 'post', 'tags', 'randomPosts'));
     }
 
     public function postByCategory($slug)
     {
-        $category = Category::where('slug', $slug)->first();
+        $categories = Category::all();
+        $category = Category::where('slug',$slug)->first();
         $posts = $category->posts()->approved()->published()->get();
-        return view('category', compact('category', 'posts'));
+        return view('category-post', compact('category','posts', 'categories'));
     }
     public function postByTag($slug)
     {
