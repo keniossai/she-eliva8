@@ -221,7 +221,7 @@
                 </div> --}}
                 <div class="recent-posts mt-4">
                   <div class="sidebar-title">
-                    <h5><i class="fas fa-circle"></i>Trending Now</h5>
+                    <h5><i class="fas fa-circle"></i>Related Post</h5>
                   </div>
                   <div class="sidebar-content">
                     <ul class="sidebar-list">
