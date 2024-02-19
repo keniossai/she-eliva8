@@ -65,7 +65,7 @@
                                             <div class="mb-3" {{ $errors->has('categories') ? 'focused error' : '' }}>
                                                 <label class="form-label" for="category">Select Category</label>
                                                 <select class="form-control select2 select2-hidden-accessible"
-                                                    name="category" id="category">
+                                                    name="categories" id="category">
                                                     @foreach ($categories as $category)
                                                         <option
                                                             @foreach ($post->categories as $postCastegory)
@@ -84,7 +84,8 @@
                                                     @foreach ($tags as $tag)
                                                         <option
                                                             @foreach ($post->tags as $postTag)
-                                                                {{ $postTag->id == $tag->id ? 'selected' : '' }} @endforeach
+                                                                {{ $postTag->id == $tag->id ? 'selected' : '' }}
+                                                            @endforeach
                                                             value="{{ $tag->id }}">{{ $tag->name }}</option>
                                                     @endforeach
                                                 </select>
