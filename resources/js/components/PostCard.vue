@@ -61,7 +61,7 @@ const addToFavorite = async (postId) => {
             </a>
             </h5>
             <div class="author-date">
-            <a class="author" href="">
+            <a class="author" :href="`/profile/${post.user.username}`">
                 <img :src="`/storage/profile/${post?.user?.image}`" alt="profile" class="rounded-circle" />
                 <span class="writer-name-small">{{post?.user?.name}}</span>
             </a>
