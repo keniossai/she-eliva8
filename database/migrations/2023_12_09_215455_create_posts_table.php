@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreignId('user_id')->unsigned();
             $table->string('title');
             $table->string('slug')->uniqid();
             $table->string('image')->default('default.png');
             $table->text('body');
             $table->integer('view_count')->default(0);
-            $table->unsignedBigInteger('category_id')->unsigned();
             $table->boolean('status')->default(false);
             $table->boolean('is_approved')->default(false);
             $table->foreign('user_id')
