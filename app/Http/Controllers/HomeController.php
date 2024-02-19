@@ -16,14 +16,8 @@ class HomeController extends Controller
     {
         $categories = Category::take(3)->get();
         $tags = Tag::all();
-        $posts = Cache::rememberForever('cached_posts', function () {
-            return Post::with(['category', 'favorite_to_user', 'user'])
-                ->latest()
-                ->approved()
-                ->published()
-                ->take(6)
-                ->get();
-        });
+        $posts = Post::with(['category', 'favorite_to_user', 'user'])->latest()->approved()->published()->take(6)->get();
+        // $posts = Post::latest()->approved()->published()->take(6)->get();
         $bannerPosts = Post::with(['category', 'favorite_to_user', 'user'])->approved()->published()->take(1)->inRandomOrder()->get();
         $recommendedPosts = Post::with(['category', 'favorite_to_user', 'user'])->approved()->published()->take(3)->get();
         $featuredPosts = Post::with(['category', 'favorite_to_user', 'user'])->approved()->published()->take(4)->get();
