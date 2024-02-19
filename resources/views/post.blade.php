@@ -16,10 +16,7 @@
                 <div class="blog-title-wrap">
                   <ul class="category-tag-list mb-0">
                       <li class="category-tag-name">
-                        <a href="#">Featured</a>
-                      </li>
-                      <li class="category-tag-name">
-                        <a href="#">{{ $post->category->name }}</a>
+                        <a href="{{ route('category.posts',$post->category->slug) }}">{{ $post->category->name }}</a>
                       </li>
                   </ul>
 
@@ -285,7 +282,7 @@
             <h3>Related posts</h3>
           </div>
           <div class="row">
-            @foreach ($randomposts as $post)
+            @foreach ($randomPosts as $post)
                 <div class="col-md-6 col-lg-3">
                     <div class="card small-card simple-overlay-card">
                         <a href="{{ route('post.details',$post->slug) }}">
