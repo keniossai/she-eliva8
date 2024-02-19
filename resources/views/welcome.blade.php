@@ -16,20 +16,20 @@
                                     <div class="slick-track">
                                         <div class="banner-item slick-slide slick-current slick-active">
                                             <div class="banner-img">
-                                                <a href="single-layout-one.html" tabindex="0">
+                                                <a href="">
                                                     <img src="storage/post/{{ $post->image }}" alt="">
                                                 </a>
                                             </div>
                                             <div class="banner-text">
                                                 <ul class="category-tag-list">
                                                     <li class="category-tag-name">
-                                                        <a href="#" tabindex="0">{{ $post->category->name }}</a>
+                                                        <a href="{{ route('category.posts',$post->category->slug) }}" >{{ $post->category->name }}</a>
                                                     </li>
                                                 </ul>
                                                 <div class="title-font">
-                                                    <a href="single-layout-one.html" tabindex="0">{{ $post->title }}</a>
+                                                    <a href="{{ route('post.details',$post->slug) }}" >{{ $post->title }}</a>
                                                 </div>
-                                                <p class="mb-3">{!! \Illuminate\Support\Str::limit($post->body,'200') !!}</p>
+                                                <p class="mb-3">{!! \Illuminate\Support\Str::limit($post->body,'100') !!}</p>
                                             </div>
                                         </div>
                                     </div>
