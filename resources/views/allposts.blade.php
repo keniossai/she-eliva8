@@ -22,7 +22,7 @@
                   <div class="card-body px-0">
                     <ul class="category-tag-list">
                       <li class="category-tag-name">
-                        <a href="#">Lifestyle</a>
+                        <a href="{{ route('category.posts',$post->category->slug) }}">{{ $post->category->name }}</a>
                       </li>
                     </ul>
                     <h5 class="card-title title-font">
