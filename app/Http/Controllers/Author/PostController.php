@@ -44,7 +44,7 @@ class PostController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'image' => 'required',
-            'category' => 'required',
+            'categories' => 'required',
             'tags' => 'required',
             'body' => 'required'
         ]);
@@ -56,8 +56,8 @@ class PostController extends Controller
 
         $post = new Post();
         $post->user_id = Auth::id();
-        $post->category_id = $request->category;
         $post->title = $request->title;
+        $post->category_id = $request->categories;
         $post->slug = Str::slug($request->title);
         $post->image = $imageName;
         $post->body = $request->body;
@@ -120,7 +120,7 @@ class PostController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'image' => 'image',
-            'category' => 'required',
+            'categories' => 'required',
             'tags' => 'required',
             'body' => 'required'
         ]);
@@ -140,7 +140,7 @@ class PostController extends Controller
 
         $post->user_id = Auth::id();
         $post->title = $request->title;
-        $post->category_id = $request->category;
+        $post->category_id = $request->categories;
         $post->slug = Str::slug($request->title);
         $post->image = $imageName;
         $post->body = $request->body;
