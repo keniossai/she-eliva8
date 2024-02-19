@@ -26,7 +26,14 @@ class HomeController extends Controller
 
     public function about()
     {
+        $categories = Category::all();
         $authors = User::where('role','author')->get();
-        return view('about', compact('authors'));
+        return view('about', compact('authors', 'categories'));
+    }
+    public function profile()
+    {
+        $categories = Category::all();
+        $authors = User::where('role','author')->get();
+        return view('profile', compact('authors', 'categories'));
     }
 }
