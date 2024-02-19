@@ -79,7 +79,7 @@
                 <div id="sticky-single" class="theiaStickySidebar">
                   <div class="author-section">
                     <div class="card author-card">
-                      <h3 class="title-font">About the author</h3>
+                      <h3 class="title-font">About author</h3>
                       <div class="card-img">
                         <img src="{{ url('storage/profile/'.$post->user->image) }}" alt="">
                       </div>
