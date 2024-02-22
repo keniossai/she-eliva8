@@ -9,6 +9,7 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0">All @yield('title')</h4>
+                <a href="{{ route('admin.trashed') }}" class="btn btn-warning waves-effect waves-light"><i class="uil uil-trash-alt" aria-hidden="true"></i>Trashed</a>
             </div>
         </div>
     </div>
@@ -17,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <div>
+                        <div class="justify-evenly">
                             <a href="{{ route('admin.post.create') }}" class="btn btn-success waves-effect waves-light mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Post</a>
                         </div>
 
