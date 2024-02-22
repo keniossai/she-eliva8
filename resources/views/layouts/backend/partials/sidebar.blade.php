@@ -64,6 +64,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('admin.trashed') }}" class="waves-effect">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <span>Trashed Post</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('admin.comment.index') }}" class="waves-effect">
                             <i class="fa fa-comment-o" aria-hidden="true"></i>
                             <span>Comments</span>
