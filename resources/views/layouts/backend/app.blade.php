@@ -120,8 +120,6 @@
     </script>
 
 
-    {!! Toastr::message() !!}
-
     <script>
         // success message popup notification
 
