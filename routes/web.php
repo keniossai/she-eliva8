@@ -60,6 +60,9 @@ Route::group(['as'=>'admin.','prefix'=>'admin', 'middleware'=>['auth','admin', '
     Route::put('password-update', [SettingsController::class, 'updatePassword'])->name('password.update');
     Route::resource('tag', TagController::class);
     Route::resource('category', CategoryController::class);
+    Route::get('trashed-post', [PostController::class,'trashedPosts'])->name('trashed');
+    Route::get('restore-post/{id}', [PostController::class,'restore'])->name('restore');
+    Route::delete('post/{id}/force-delete', [PostController::class,'forceDelete'])->name('force.delete');
     Route::resource('post', PostController::class);
 
     // Get Approved Post
