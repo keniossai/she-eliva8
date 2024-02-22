@@ -180,6 +180,23 @@ class PostController extends Controller
             return redirect()->back()->with('info', 'This post is already approved');
         }
     }
+
+
+    // Trashed posts
+    public function trashedPosts()
+    {
+        $posts = Post::onlyTrashed()->get();
+        return view('admin.post.trashed', compact('posts'));
+    }
+
+    public function restore($id)
+    {
+        $post = Post::onlyTrashed()->findOrFail($id);
+
+        $post->restore();
+
+        return redirect()->back()->with('success', 'Post restored');
+    }
     /**
      * Remove the specified resource from storage.
      */
@@ -195,6 +212,14 @@ class PostController extends Controller
         $post->tags()->detach();
         $post->delete();
 
-        return redirect()->back()->with('success', 'Category deleted successfully');
+        return redirect()->back()->with('success', 'Post deleted successfully');
+    }
+
+    public function forceDelete($id)
+    {
+        $post = Post::onlyTrashed()->findOrFail($id);
+        $post->forceDelete();
+
+        return redirect()->back()->with('success', 'Post permanently deleted');
     }
 }
